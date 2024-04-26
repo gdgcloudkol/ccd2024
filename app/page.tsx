@@ -1,5 +1,9 @@
-import { ThemeToggle } from "@/components/theme-toggler";
+import About from '@/components/About';
 
 export default function Home() {
-  return <>Coming soon</>;
+  return (
+    <>
+      <About />
+    </>
+  );
 }
