@@ -1,6 +1,7 @@
 import '@/styles/about.css';
 import Starfield from 'react-starfield';
 import AboutData from '@/public/assets/content/About/content.json';
+import { cn } from '@/lib/utils';
 
 function About() {
   const TextColorMap: { [key: string]: string } = {
@@ -23,10 +24,20 @@ function About() {
               {AboutData.headerFixed}
             </h1>
             <div className="inner-headings">
-              <span className="font-bold md:text-5xl text-4xl">
+              <span className="font-bold">
                 {AboutData.headerWords.map((word) => (
                   <>
-                    <text className={TextColorMap[word.color] || ''}>
+                    <text
+                      className={cn(
+                        TextColorMap[word.color] || '',
+                        'md:text-5xl',
+                        word.text.length > 16
+                          ? word.text.length > 20
+                            ? 'text-2xl'
+                            : 'text-3xl'
+                          : 'text-4xl'
+                      )}
+                    >
                       {word.text} <br />
                     </text>
                   </>
