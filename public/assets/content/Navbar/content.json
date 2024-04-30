@@ -1,0 +1,50 @@
+{
+    "logo-desktop": "/assets/images/navbar/navlogo-cloured2.png",
+    "logo-mobile": "/assets/images/navbar/navlogo-mobile.png",
+    "navbarPermanent": [
+      {
+        "title": "Home",
+        "link": "/home"
+      },
+      {
+        "title": "Speakers",
+        "link": "/speakers"
+      },
+      {
+        "title": "Schedule",
+        "link": "/schedule"
+      },
+      {
+        "title": "Team",
+        "link": "/team"
+      },
+      {
+        "title": "FAQ",
+        "link": "/faq"
+      },
+      {
+        "title": "Code of Conduct",
+        "link": "/code-of-conduct"
+      }
+    ],
+    "navbarSpatialLoggedIn": [
+      {
+        "title": "Profile",
+        "link": "/profile"
+      },
+      {
+        "title": "Buy Tickets",
+        "link": "/tickets"
+      },
+      {
+        "title": "Dashboard",
+        "link": "/dashboard"
+      }
+    ],
+    "navbarSpatialNotLoggedIn": [
+      {
+        "title": "Login",
+        "link": "/login"
+      }
+    ]
+  }

@@ -1,0 +1,88 @@
+{
+     "community": [
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "NOTGDSC",
+               "type":"",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is NOT GDSC"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          },
+          {
+               "name": "GDSC NAME",
+               "type": "GDSC",
+               "logo": "/assets/images/gdsc.png",
+               "desc": "This is the description"
+          }
+     ]
+}
