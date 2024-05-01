@@ -4,11 +4,13 @@ import dynamic from "next/dynamic";
 const HeroBackground = dynamic(() => import("@/components/HeroBackground"));
 
 import About from "@/components/About";
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
     <>
       <HeroBackground />
+      <Navbar />
       <About />
     </>
   );
