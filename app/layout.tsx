@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import localFont from "next/font/local";
@@ -28,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${googleSans.className}`}>
+      <body
+        className={`${googleSans.className} w-full max-w-screen-3xl mx-auto`}
+      >
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
