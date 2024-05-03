@@ -12,7 +12,7 @@ function About() {
   return (
     <>
       <div className='bg-background text-foreground'>
-        <div className='max-w-screen-lg mx-auto px-8 py-14'>
+        <div className='max-w-screen-lg mx-auto py-14'>
           <div className='flex lg:flex-row flex-col gap-2  mb-4'>
             <h1 className='font-bold md:text-5xl text-5xl'>
               {AboutData.headerFixed}
