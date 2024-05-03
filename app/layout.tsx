@@ -1,9 +1,8 @@
-
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme-provider";
-
+import { NextAuthProvider } from "@/app/session-provider";
 const googleSans = localFont({
   src: [
     {
@@ -30,16 +29,19 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${googleSans.className} w-full max-w-screen-3xl mx-auto`}
+        className={`${googleSans.className} w-full max-w-screen-2xl mx-auto`}
       >
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='dark'
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {" "}
+        <NextAuthProvider>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
