@@ -3,12 +3,37 @@
 import Image from "next/image";
 import NavbarData from "@/public/assets/content/Navbar/content.json";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { cn, debounce } from "@/lib/utils";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = debounce(
+      () => {
+        if (window.scrollY > 50) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      },
+      scrolled ? 100 : 0
+    );
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <nav className='w-full border justify-center md:items-center flex flex-col'>
+    <nav
+      className={cn(
+        "w-full  fixed top-0 z-10 justify-center md:items-center flex flex-col",
+        scrolled ? "backdrop-blur-md bg-background/20 bg-blend-normal" : ""
+      )}
+    >
       {/* desktop navbar */}
       <div className='flex px-4 sm:px-0 items-center justify-between'>
         <Link href='/'>
@@ -51,26 +76,35 @@ export default function Navbar() {
         {/* mobile and tablet navbar */}
         <div className='flex md:hidden h-16 px-2 sm:px-6 items-center '>
           <button onClick={() => setOpen(!open)}>
-            <svg
-              className='w-6 h-10'
-              aria-hidden='true'
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 17 14'
-            >
-              <path
-                stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
-                d='M1 1h15M1 7h15M1 13h15'
-              />
-            </svg>
+            {open ? (
+              "X"
+            ) : (
+              <svg
+                className='w-6 h-10'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 17 14'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M1 1h15M1 7h15M1 13h15'
+                />
+              </svg>
+            )}
           </button>
         </div>
       </div>
       {open && (
-        <div className='flex md:hidden flex-col p-2 '>
+        <div
+          className={cn(
+            "flex md:hidden flex-col p-2",
+            scrolled ? "" : "backdrop-blur-md bg-background/20 bg-blend-normal"
+          )}
+        >
           {NavbarData.navbarPermanent.map((title, key) => {
             return (
               <Link
