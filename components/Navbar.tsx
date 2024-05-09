@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "w-full  fixed top-0 z-10 justify-center md:items-center flex flex-col",
+        " justify-center md:items-center flex flex-col sticky top-0 z-10",
         scrolled ? "backdrop-blur-md bg-background/20 bg-blend-normal" : ""
       )}
     >
@@ -77,7 +77,20 @@ export default function Navbar() {
         <div className='flex md:hidden h-16 px-2 sm:px-6 items-center '>
           <button onClick={() => setOpen(!open)}>
             {open ? (
-              "X"
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              >
+                <path d='M18 6 6 18' />
+                <path d='m6 6 12 12' />
+              </svg>
             ) : (
               <svg
                 className='w-6 h-10'
