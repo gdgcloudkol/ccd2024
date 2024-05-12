@@ -1,99 +1,99 @@
 {
-    "eventHeading": "Google Cloud",
-    "eventHeadingLogo": "/assets/images/gcp_logo.png",
-    "presents": "Presents",
-    "event": "Cloud Community Days 2024",
-    "hashtagEventName": "#GoogleCloudCommunityDays",
-    "description": "A community organized cloud conference with industry experts presenting on exciting topics! Cloud community day is powered by a shared beef that when developers come together to exchange ideas, amazing things can happen.",
-    "dateTitle": "Date",
-    "date": "DD/MM/YY",
-    "locationTitle": "Venue",
-    "locationName": "Lorem Ipsum",
-    "location": "https://example.com",
-    "ticketButton": [
-      {
-        "id": "cs",
-        "title": "Tickets Coming Soon",
-        "color": "green",
-        "hoverColor": "blue",
-        "link": ""
-      },
-      {
-        "id": "gs",
-        "title": "Get Started",
-        "color": "red",
-        "hoverColor": "blue",
-        "link": "/login"
-      },
-      {
-        "id": "bt",
-        "title": "Buy Ticket",
-        "color": "yellow",
-        "hoverColor": "green",
-        "link": "/tickets"
-      },
-      {
-        "id": "vt",
-        "title": "View Ticket",
-        "color": "green",
-        "hoverColor": "yellow",
-        "link": "/tickets"
-      },
-      {
-        "id": "rt",
-        "title": "Request Ticket",
-        "color": "blue",
-        "hoverColor": "yellow",
-        "link": ""
-      }
-    ],
-    "cfsButton": [
-      {
-        "id": "cfscs",
-        "title": "CFS Coming Soon",
-        "color": "green",
-        "hoverColor": "blue",
-        "link": ""
-      },
-      {
-        "id": "cfsgs",
-        "title": "Login To Continue",
-        "color": "red",
-        "hoverColor": "blue",
-        "link": "/login"
-      },
-      {
-        "id": "cfs",
-        "title": "Call For Speakers",
-        "color": "red",
-        "hoverColor": "blue",
-        "link": "/cfs"
-      },
-      {
-        "id": "cfsc",
-        "title": "CFS Closed",
-        "color": "yellow",
-        "hoverColor": "red",
-        "link": ""
-      }
-    ],
-    "landingPage": {
-      "subTitle1": "COLLARDS AND CODE. WAFFLES AND WINGS. 1 DAY. 20+ SPEAKERS.",
-      "description1": "THIS IS THE TECH CONFERENCE TO VISIT",
-      "subTitle2": "1",
-      "description2": "Complete Day",
-      "subTitle3": "2600+",
-      "description3": "Excited Attendees",
-      "subTitle4": "20+",
-      "description4": "Expert Speakers",
-      "subTitle5": "5",
-      "description5": "Speciality Tracks",
-      "youtubeLink": "https://www.youtube.com/embed/jEhglKsLUzc",
-      "youtubeLinkTitle": "Get Ready for the Ultimate Experience: A Sneak Peek Inside India&#39;s Largest Cloud Community Day Event"
+  "eventHeading": "Google Cloud",
+  "eventHeadingLogo": "/assets/images/gcp_logo.png",
+  "presents": "Presents",
+  "event": "Cloud Community Days 2024",
+  "hashtagEventName": "#GoogleCloudCommunityDays",
+  "description": "A community organized cloud conference with industry experts presenting on exciting topics! Cloud community day is powered by a shared beef that when developers come together to exchange ideas, amazing things can happen.",
+  "dateTitle": "Date",
+  "date": "TBD",
+  "locationTitle": "Venue",
+  "locationName": "TBD",
+  "location": "https://example.com",
+  "ticketButton": [
+    {
+      "id": "cs",
+      "title": "Tickets Coming Soon",
+      "color": "green",
+      "hoverColor": "blue",
+      "link": ""
     },
-    "cfs": {
-      "title": "Call for",
-      "subtitle": "Speakers",
-      "description": "Each Google Cloud Community Days event brings you an opportunity to lead and present to the crown your excellent views. Join us as a Speaker to showcase your awesomeness"
+    {
+      "id": "gs",
+      "title": "Get Started",
+      "color": "red",
+      "hoverColor": "blue",
+      "link": "/login"
+    },
+    {
+      "id": "bt",
+      "title": "Buy Ticket",
+      "color": "yellow",
+      "hoverColor": "green",
+      "link": "/tickets"
+    },
+    {
+      "id": "vt",
+      "title": "View Ticket",
+      "color": "green",
+      "hoverColor": "yellow",
+      "link": "/tickets"
+    },
+    {
+      "id": "rt",
+      "title": "Request Ticket",
+      "color": "blue",
+      "hoverColor": "yellow",
+      "link": ""
     }
+  ],
+  "cfsButton": [
+    {
+      "id": "cfscs",
+      "title": "CFS Coming Soon",
+      "color": "green",
+      "hoverColor": "blue",
+      "link": ""
+    },
+    {
+      "id": "cfsgs",
+      "title": "Login To Continue",
+      "color": "red",
+      "hoverColor": "blue",
+      "link": "/login"
+    },
+    {
+      "id": "cfs",
+      "title": "Call For Speakers",
+      "color": "red",
+      "hoverColor": "blue",
+      "link": "/cfs"
+    },
+    {
+      "id": "cfsc",
+      "title": "CFS Closed",
+      "color": "yellow",
+      "hoverColor": "red",
+      "link": ""
+    }
+  ],
+  "landingPage": {
+    "subTitle1": "COLLARDS AND CODE. WAFFLES AND WINGS. 1 DAY. 20+ SPEAKERS.",
+    "description1": "THIS IS THE TECH CONFERENCE TO VISIT",
+    "subTitle2": "1",
+    "description2": "Complete Day",
+    "subTitle3": "2600+",
+    "description3": "Excited Attendees",
+    "subTitle4": "20+",
+    "description4": "Expert Speakers",
+    "subTitle5": "5",
+    "description5": "Speciality Tracks",
+    "youtubeLink": "https://www.youtube.com/embed/jEhglKsLUzc",
+    "youtubeLinkTitle": "Get Ready for the Ultimate Experience: A Sneak Peek Inside India&#39;s Largest Cloud Community Day Event"
+  },
+  "cfs": {
+    "title": "Call for",
+    "subtitle": "Speakers",
+    "description": "Each Google Cloud Community Days event brings you an opportunity to lead and present to the crown your excellent views. Join us as a Speaker to showcase your awesomeness"
   }
+}

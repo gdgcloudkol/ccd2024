@@ -12,7 +12,7 @@ import Socials from "./blocks/Socials";
 
 const Footer = () => {
   return (
-    <footer className='p-4 sm:p-6 w-full max-w-7xl mx-auto'>
+    <footer className='p-4 sm:p-6 w-full max-w-6xl mx-auto'>
       <>
         <hr className='my-6 border-gray sm:mx-auto lg:my-8' />
         <div className='md:flex md:justify-start'>
@@ -24,7 +24,7 @@ const Footer = () => {
                     <h2 className='mb-6 text-sm font-semibold text-gray-900 dark:text-white uppercase '>
                       {sec.title}
                     </h2>
-                    <ul className='text-gray-600 dark:text-g-gray-4  '>
+                    <ul className='text-gray-400 dark:text-g-gray-4  '>
                       {sec?.list.map((li: FooterListContent, j: number) => {
                         return (
                           <li key={"list-" + j} className='mb-2'>

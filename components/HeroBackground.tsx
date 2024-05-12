@@ -2,19 +2,15 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import bg_slide1 from "../public/assets/images/bg_slide1.png";
-import bg_slide2 from "../public/assets/images/bg_slide2.png";
-import bg_slide3 from "../public/assets/images/bg_slide3.png";
-import bg_slide4 from "../public/assets/images/bg_slide4.png";
+import bg_slide1 from "../public/assets/images/bg_slide_1.jpeg";
+import bg_slide2 from "../public/assets/images/bg_slide_2.jpeg";
+import bg_slide3 from "../public/assets/images/bg_slide_3.jpeg";
+import bg_slide4 from "../public/assets/images/bg_slide_4.jpeg";
 import { cn } from "@/lib/utils";
 
 const images = [bg_slide1, bg_slide2, bg_slide3, bg_slide4];
 
-export default function HeroBackground({
-  className
-}: {
-  className?: string;
-}) {
+export default function HeroBackground({ className }: { className?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -26,10 +22,7 @@ export default function HeroBackground({
   }, [currentIndex]);
 
   return (
-    <div className={
-      cn('bg-black relative',
-        className)
-    }>
+    <div className={cn("bg-black", className)}>
       {images.map((imgData, index) => (
         <Image
           key={index}
