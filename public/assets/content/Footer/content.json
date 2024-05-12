@@ -1,0 +1,64 @@
+{
+  "title": "About Us",
+  "sections": [
+    {
+      "title": "About",
+      "list": [
+        {
+          "title": "Google Developer Groups",
+          "hyperlink": "https://developers.google.com/community/gdg"
+        },
+        {
+          "title": "Women Techmakers",
+          "hyperlink": "https://developers.google.com/womentechmakers"
+        },
+        {
+          "title": "Google Developer Student Clubs",
+          "hyperlink": "https://developers.google.com/community/gdsc"
+        },
+        {
+          "title": "GDG Cloud Kolkata",
+          "hyperlink": "https://gdg.community.dev/gdg-cloud-kolkata/"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "list": [
+        {
+          "title": "Become a Sponsor",
+          "hyperlink": "https://bit.ly/gccdkol-sponsors"
+        },
+        {
+          "title": "Call for Speakers",
+          "link": "/cfs"
+        },
+        {
+          "title": "Become a Community Partner",
+          "hyperlink": "https://bit.ly/gccdkol-community-partners"
+        },
+        {
+          "title": "Frequently asked questions",
+          "hyperlink": "/faq"
+        }
+      ]
+    },
+    {
+      "title": "Legal",
+      "list": [
+        {
+          "title": "Code of Conduct",
+          "link": "/code-of-conduct"
+        },
+        {
+          "title": "Privacy Policy",
+          "link": "/privacy-policy"
+        },
+        {
+          "title": "Terms & Conditions",
+          "link": "/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Community Partners",
+  "description": "We're pleased to introduce our Community Partners.",
+  "community": [
+    {
+      "partnerId": "dsc_fiem",
+      "name": "Future Institute of Engineering & Management",
+      "hyperlink": "#"
+    },
+    {
+      "partnerId": "tfug_kol",
+      "name": "Tensorflow User Groups, Kolkata",
+      "hyperlink": "#",
+      "logo": "https://gdgcloudkol.org/ccd2023/images/communityPartners/tfug.png"
+    }
+  ]
+}
