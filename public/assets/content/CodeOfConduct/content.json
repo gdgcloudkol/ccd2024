@@ -1,0 +1,20 @@
+{
+  "title": "Google Developers Event Code of Conduct",
+  "description": "Google Developers is dedicated to providing a harassment-free and inclusive event experience for everyone. We do not tolerate harassment of event participants in any form.",
+  "content": "Google Developers is dedicated to providing a harassment-free and inclusive event experience for everyone regardless of gender identity and expression, sexual orientation, disabilities, neurodiversity, physical appearance, body size, ethnicity, nationality, race, age, religion, or other protected category. We do not tolerate harassment of event participants in any form. Google Developers takes violations of our policy seriously and will respond appropriately.",
+  "color": "yellow",
+  "sections": [
+    {
+      "title": "Be excellent to each other",
+      "description": "We want the event to be an excellent experience for everyone regardless of gender identity and expression, sexual orientation, disabilities, neurodiversity, physical appearance, body size, ethnicity, nationality, race, age, religion, or other protected category. Treat everyone with respect. Participate while acknowledging that everyone deserves to be here -- and each of us has the right to enjoy our experience without fear of harassment, discrimination, or condescension, whether blatant or via micro-aggressions. Jokes shouldn’t demean others. Consider what you are saying and how it would feel if it were said to or about you."
+    },
+    {
+      "title": "Speak up if you see or hear something",
+      "description": "Harassment is not tolerated, and you are empowered to politely engage when you or others are disrespected. The person making you feel uncomfortable may not be aware of what they are doing, and politely bringing their behavior to their attention is encouraged. If a participant engages in harassing or uncomfortable behavior, the event organizers may take any action they deem appropriate, including warning or expelling the offender from the event with no refund. If you are being harassed or feel uncomfortable, notice that someone else is being harassed, or have any other concerns, please contact a member of the event staff immediately."
+    },
+    {
+      "title": "Practice saying \"Yes and\" to each other",
+      "description": "It’s a theatre improve technique to build on each other’s ideas. We all benefit when we create together."
+    }
+  ]
+}

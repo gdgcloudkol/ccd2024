@@ -1,0 +1,35 @@
+{
+  "title": "Connect With Us",
+  "social": [
+    {
+      "title": "Facebook",
+      "hyperlink": "https://facebook.com/gdgcloudkol",
+      "imgSrc": "facebook"
+    },
+    {
+      "title": "Twitter",
+      "hyperlink": "https://twitter.com/gdgcloudkol",
+      "imgSrc": "twitter"
+    },
+    {
+      "title": "Instagram",
+      "hyperlink": "https://instagram.com/gdgcloudkol",
+      "imgSrc": "instagram"
+    },
+    {
+      "title": "linkedIn",
+      "hyperlink": "https://www.linkedin.com/company/gdgcloudkol",
+      "imgSrc": "linkedin"
+    },
+    {
+      "title": "Github",
+      "hyperlink": "https://github.com/gdgcloudkol",
+      "imgSrc": "github"
+    },
+    {
+      "title": "Gmail",
+      "hyperlink": "mailto:gdgcloudkol@gmail.com",
+      "imgSrc": "gmail"
+    }
+  ]
+}

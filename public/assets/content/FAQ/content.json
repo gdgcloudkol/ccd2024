@@ -1,0 +1,36 @@
+{
+  "title": "Frequently Asked Questions",
+  "description": "For any queries related to sponsorship, please reach out to us at <a style=\"color:#4285f4\" href=\"mailto:partners@gdgcloudkol.org\">partners@gdgcloudkol.org</a>. Any question related to participation can be asked at <a style=\"color:#4285f4\" href=\"mailto:gdgcloudkol@gmail.com\">gdgcloudkol@gmail.com</a>",
+  "color": "blue",
+  "faq": [
+    {
+      "question": "What is CCD 2024 Kolkata?",
+      "answer": "CCD 2024 Kolkata is short form of Cloud Community Days 2024 Kolkata which is among the largest Cloud developer conferences in Eastern India."
+    },
+    {
+      "question": "What are GDGs?",
+      "answer": "GDGs are focused on community building and learning about Google’s technologies."
+    },
+    {
+      "question": "Who can register for CCD' 2024 Kolkata?",
+      "answer": "People of all levels, from beginners to experts, and anyone with a passion for learning and an interest in technology, including enthusiastic programmers, are welcome to register and attend."
+    },
+    {
+      "question": "What is Cloud Community Days?",
+      "answer": "GDG Cloud communities across India organize a series of community-led events called Cloud Community Days to assist you in preparing for Google Cloud Certifications and expanding your knowledge of Cloud technologies."
+    },
+    {
+      "question": "Where can I find updates related to CCD 2024 Kolkata?",
+      "answer": "All announcements related to the event are posted to the GDG Cloud Kolkata chapter mailing list which you can join by Joining the chapter at - <a style=\"color:#4285f4\" href=\"https://gdg.community.dev/gdg-cloud-kolkata/\">GDG Cloud Kolkata Chapter Page</a>. You can receive the updates by following us on <a style=\"color:#4285f4\" href=\"https://twitter.com/gdgcloudkol\">Twitter (@gdgcloudkol)</a>, <a style=\"color:#4285f4\" href=\"https://facebook.com/gdgcloudkol\">Facebook (@gdgcloudkol)</a>, <a style=\"color:#4285f4\" href=\"https://instagram.com/gdgcloudkol\">Instagram (@gdgcloudkol)</a> or <a style=\"color:#4285f4\" href=\"https://www.linkedin.com/company/gdgcloudkol/\">LinkedIn (@gdgcloudkol)</a>. You can also join our <a style=\"color:#4285f4\" href=\"https://t.me/gdgcloudkol\">Telegram group</a>."
+    },
+
+    {
+      "question": "I want to present a talk/workshop at the conference. What should I do?",
+      "answer": "You can submit your talk/workshop proposal on our <a style=\"color:#4285f4\" href=\"/ccd2024/cfs\">CFP Page</a>."
+    },
+    {
+      "question": "Will I be provided travel/stay accommodation to attend the event?",
+      "answer": "No. There is no provision for covering attendee travel/stay. For speakers, we will decide on case-by-case basis."
+    }
+  ]
+}

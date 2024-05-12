@@ -5,11 +5,13 @@ import NavbarData from "@/public/assets/content/Navbar/content.json";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn, debounce } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const pathname = usePathname();
+  const [active, setActive] = useState(pathname);
   useEffect(() => {
     const handleScroll = debounce(
       () => {
@@ -27,15 +29,21 @@ export default function Navbar() {
     // Cleanup the event listener
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    setActive(pathname);
+  }, [pathname]);
+
   return (
     <nav
       className={cn(
         " justify-center md:items-center flex flex-col sticky top-0 z-10",
-        scrolled ? "backdrop-blur-md bg-background/20 bg-blend-normal" : ""
+        scrolled
+          ? "backdrop-blur-md bg-background/20 bg-blend-normal"
+          : "bg-black"
       )}
     >
       {/* desktop navbar */}
-      <div className='flex px-4 sm:px-0 items-center justify-between'>
+      <div className='flex px-4 lg:px-0 items-center justify-between'>
         <Link href='/'>
           <Image
             className='dark:brightness-0 dark:invert'
@@ -47,17 +55,30 @@ export default function Navbar() {
         </Link>
         <div className='hidden md:flex h-20 md:gap-10 px-2 lg:gap-x-24 max-w-screen-2xl items-center justify-between'>
           <div className='flex'>
-            {NavbarData.navbarPermanent.map((title, key) => {
-              return (
-                <Link
-                  href={title.link}
-                  className='p-5 md:text-xs lg:text-base '
-                  key={key}
-                >
-                  {title.title}
-                </Link>
-              );
-            })}
+            {NavbarData.navbarPermanent
+              .filter((item) => item.desktopVisible)
+              .map((title, key) => {
+                return (
+                  <Link
+                    href={title.link}
+                    className={cn(
+                      "p-5 border-b-2 border-transparent md:text-xs lg:text-base ",
+                      pathname !== "/" &&
+                        title.link.startsWith(active) &&
+                        "border-google-blue",
+                      pathname == "/" &&
+                        active.startsWith(title.link) &&
+                        "border-google-blue"
+                    )}
+                    key={`${title.title}-${key}`}
+                    onClick={() => {
+                      setActive(() => title.link);
+                    }}
+                  >
+                    {title.title}
+                  </Link>
+                );
+              })}
           </div>
           <div>
             {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
@@ -101,9 +122,9 @@ export default function Navbar() {
               >
                 <path
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
                   d='M1 1h15M1 7h15M1 13h15'
                 />
               </svg>
@@ -122,7 +143,15 @@ export default function Navbar() {
             return (
               <Link
                 href={title.link}
-                className='p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue'
+                className={cn(
+                  "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
+                  pathname !== "/" &&
+                    title.link.startsWith(active) &&
+                    "bg-blue-200 dark:text-google-darkGrey",
+                  pathname == "/" &&
+                    active.startsWith(title.link) &&
+                    "bg-blue-200 dark:text-google-darkGrey"
+                )}
                 key={key}
               >
                 {title.title}

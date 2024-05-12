@@ -1,50 +1,61 @@
 {
-    "logo-desktop": "/assets/images/navbar/navlogo-cloured2.png",
-    "logo-mobile": "/assets/images/navbar/navlogo-mobile.png",
-    "navbarPermanent": [
-      {
-        "title": "Home",
-        "link": "/home"
-      },
-      {
-        "title": "Speakers",
-        "link": "/speakers"
-      },
-      {
-        "title": "Schedule",
-        "link": "/schedule"
-      },
-      {
-        "title": "Team",
-        "link": "/team"
-      },
-      {
-        "title": "FAQ",
-        "link": "/faq"
-      },
-      {
-        "title": "Code of Conduct",
-        "link": "/code-of-conduct"
-      }
-    ],
-    "navbarSpatialLoggedIn": [
-      {
-        "title": "Profile",
-        "link": "/profile"
-      },
-      {
-        "title": "Buy Tickets",
-        "link": "/tickets"
-      },
-      {
-        "title": "Dashboard",
-        "link": "/dashboard"
-      }
-    ],
-    "navbarSpatialNotLoggedIn": [
-      {
-        "title": "Login",
-        "link": "/login"
-      }
-    ]
-  }
+  "logo-desktop": "/assets/images/navbar/navlogo-cloured2.png",
+  "logo-mobile": "/assets/images/navbar/navlogo-mobile.png",
+  "navbarPermanent": [
+    {
+      "title": "Home",
+      "link": "/",
+      "desktopVisible": true
+    },
+    {
+      "title": "Speakers",
+      "link": "/speakers",
+      "desktopVisible": true
+    },
+    {
+      "title": "Schedule",
+      "link": "/schedule",
+      "desktopVisible": true
+    },
+    {
+      "title": "Contests",
+      "link": "/contests",
+      "desktopVisible": true
+    },
+    {
+      "title": "Team",
+      "link": "/team",
+      "desktopVisible": true
+    },
+    {
+      "title": "FAQ",
+      "link": "/faq",
+      "desktopVisible": false
+    },
+    {
+      "title": "Code of Conduct",
+      "link": "/code-of-conduct",
+      "desktopVisible": true
+    }
+  ],
+  "navbarSpatialLoggedIn": [
+    {
+      "title": "Profile",
+      "link": "/profile"
+    },
+    {
+      "title": "Buy Tickets",
+      "link": "/tickets"
+    },
+    {
+      "title": "Dashboard",
+      "link": "/dashboard"
+    }
+  ],
+  "navbarSpatialNotLoggedIn": [
+    {
+      "title": "Login",
+      "link": "/login"
+    }
+  ]
+}
