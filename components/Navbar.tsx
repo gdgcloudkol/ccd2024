@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        " justify-center md:items-center flex flex-col sticky top-0 z-10",
+        " justify-center md:items-center flex flex-col sticky top-0 z-10 px-2",
         scrolled ? "backdrop-blur-md bg-background/20 bg-blend-normal" : ""
       )}
     >
@@ -45,8 +45,8 @@ export default function Navbar() {
             height='40'
           />
         </Link>
-        <div className='hidden md:flex h-20 md:gap-10 px-2 lg:gap-x-24 max-w-screen-2xl items-center justify-between'>
-          <div className='flex'>
+        <div className='hidden md:flex h-20 md:gap-10 px-4 lg:gap-x-24 max-w-screen-2xl items-center justify-between'>
+          <div className='flex items-center'>
             {NavbarData.navbarPermanent.map((title, key) => {
               return (
                 <Link
