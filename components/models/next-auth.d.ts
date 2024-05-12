@@ -27,17 +27,7 @@ declare module "next-auth" {
             first_name: string;
             last_name: string;
             profile: {
-                active_role: string;
-                active_organization: {
-                    id: number;
-                    name: string;
-                    plan: string;
-                };
-                default_organization: {
-                    id: number;
-                    name: string;
-                    plan: string;
-                };
+
             };
         },
     }
