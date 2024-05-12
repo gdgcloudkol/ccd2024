@@ -13,20 +13,6 @@ declare module "next-auth" {
             first_name?: string;
             last_name?: string;
             profile?: {
-                active_role?: string;
-                callchimp_status?: string;
-                active_organization?: {
-                    id?: number;
-                    name?: string;
-                    plan?: string;
-                    features?: any;
-                    sandbox_mode?: boolean;
-                };
-                default_organization?: {
-                    id?: number;
-                    name?: string;
-                    plan?: string;
-                };
             };
         };
     }
