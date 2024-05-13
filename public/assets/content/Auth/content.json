@@ -1,0 +1,9 @@
+{
+  "bannerTitle": "Welcome to our <br/> <span style=\"color:#4285f4\">Community</span>",
+  "bannerDescription": "The place for cloud developers and architects to come together to learn, discuss and explore the latest advances in cloud technologies.",
+  "bannerImg": "/assets/images/login_banner.png",
+
+  "loginFormTitle": "Log in to your account",
+  "loginFormDescription": "You can reach out to us at anytime via  <a style=\"color:#4285f4\" href=\"mailto:gdgcloudkol@gmail.com\">gdgcloudkol@gmail.com</a>",
+  "loginSuccessMessage": "An email has been sent to your account. Please click on it to log in to GCCD '24 dashboard."
+}
