@@ -7,5 +7,6 @@
   "loginFormDescription": "You can reach out to us at anytime via  <a style=\"color:#4285f4\" href=\"mailto:gdgcloudkol@gmail.com\">gdgcloudkol@gmail.com</a>",
   "loginSuccessMessage": "An email has been sent to your account. Please click on it to log in to GCCD '24 dashboard.",
   "signupFormTitle": "Create new account",
-  "signupFormDescription": "You can reach out to us at anytime via  <a style=\"color:#4285f4\" href=\"mailto:gdgcloudkol@gmail.com\">gdgcloudkol@gmail.com</a>"
+  "signupFormDescription": "You can reach out to us at anytime via  <a style=\"color:#4285f4\" href=\"mailto:gdgcloudkol@gmail.com\">gdgcloudkol@gmail.com</a>",
+  "resetFormTitle":"Reset your password"
 }

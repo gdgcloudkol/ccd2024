@@ -3,7 +3,6 @@
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,20 +17,20 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(8, { message: "Password minimum length is of 8 characters" }),
 });
 
-export default function LoginForm() {
+export default function ForgotForm() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showSucessMessage, setShowSuccessMessage]=useState<boolean>(false)
 
-  // 1. Define your form.
+  // 1. Define the form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
@@ -39,15 +38,17 @@ export default function LoginForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
 
-    // Do something with the form values.
+    // handle operation with form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+
+    setShowSuccessMessage(true)
   }
+
   return (
     <section className='flex flex-col h-full space-y-8'>
       <div className='space-y-2'>
         <h1 className='text-4xl font-bold text-center md:text-left'>
-          {AuthContent.loginFormTitle}
+          {AuthContent.resetFormTitle}
         </h1>
         <p
           className='text-center md:text-left'
@@ -55,7 +56,7 @@ export default function LoginForm() {
         ></p>
       </div>
 
-      <Form {...form}>
+      {!showSucessMessage ? <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
           <FormField
             control={form.control}
@@ -76,43 +77,20 @@ export default function LoginForm() {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name='password'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type='password'
-                    placeholder='***********'
-                    className='bg-white text-black'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className='flex items-center justify-between'>
-            <Link href={"/forgot"} className='text-google-blue hover:underline'>
-              Forgot Password?
-            </Link>
-          </div>
           <Button
             type='submit'
             className='w-full text-center'
             disabled={isLoading}
           >
             {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
-            Log in
+            Reset Password
           </Button>
         </form>
-      </Form>
+      </Form> : <h3 className='text-3xl bold'>Please check your email for further steps</h3>}
       <p className='text-center'>
-        Do not have an account?{" "}
-        <Link href={"/signup"} className='text-google-blue hover:underline'>
-          Create an account
+        Remember Your Password?{" "}
+        <Link href={"/login"} className='text-google-blue hover:underline'>
+          Login
         </Link>
       </p>
     </section>
