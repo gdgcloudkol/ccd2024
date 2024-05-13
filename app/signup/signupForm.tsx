@@ -37,7 +37,10 @@ export default function LoginForm() {
         message:
           "Password must have uppercase, lowercase, numbers and special characters",
       }),
-    temp_password: z.string().min(8),
+    temp_password: z.string().min(8, { message: "Password must be at least 8 characters" })
+  }).refine((data) => data.temp_password === data.password, {
+    message: 'Passwords do not match',
+    path: ['temp_password']
   });
   const [isLoading, setIsLoading] = useState(false);
 
