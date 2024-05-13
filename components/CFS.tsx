@@ -1,5 +1,7 @@
 import React from "react";
 import ContentData from "@/public/assets/content/About/postcontent.json";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 const CFS = () => {
   return (
     <div>
@@ -16,29 +18,20 @@ const CFS = () => {
               <p> {word.para}</p>
             </h3>
           ))}
-          <button className='bg-google-blue py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
+          <Link
+            href={"https://bit.ly/gccd-x-cfs-form"}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='bg-google-blue w-fit py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
+          >
             <span className='flex items-center text-2xl gap-2 font-light'>
               {
                 ContentData.buttons.find((button) => button?.id == "cfss")
                   ?.buttondesc
               }
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='22'
-                height='22'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                stroke-width='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='lucide lucide-move-up-right mt-1 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 -translate-y-0.5 duration-150'
-              >
-                <path d='M13 5H19V11' />
-                <path d='M19 5L5 19' />
-              </svg>
+              <ArrowUpRight className='rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150' />
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

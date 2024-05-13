@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import NavbarData from "@/public/assets/content/Navbar/content.json";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn, debounce } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { TopLoading } from "./blocks/TopLoading";
+import LoadLink from "./blocks/LoadLink";
+import { useLoadingContext } from "@/app/loading-provider";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,7 +35,7 @@ export default function Navbar() {
   useEffect(() => {
     setActive(pathname);
   }, [pathname]);
-
+  const { loading } = useLoadingContext();
   return (
     <nav
       className={cn(
@@ -45,7 +48,7 @@ export default function Navbar() {
       <div className='w-full max-w-6xl'>
         {/* desktop navbar */}
         <div className='flex px-4 lg:px-0 items-center justify-between'>
-          <Link href='/'>
+          <LoadLink href='/'>
             <Image
               className='dark:brightness-0 dark:invert'
               src={NavbarData["logo-desktop"]}
@@ -53,14 +56,14 @@ export default function Navbar() {
               width='250'
               height='40'
             />
-          </Link>
+          </LoadLink>
           <div className='hidden md:flex h-20 md:gap-10 px-2 lg:gap-x-24 max-w-screen-2xl items-center justify-between'>
             <div className='flex'>
               {NavbarData.navbarPermanent
                 .filter((item) => item.desktopVisible)
                 .map((title, key) => {
                   return (
-                    <Link
+                    <LoadLink
                       href={title.link}
                       className={cn(
                         "p-5 border-b-2 border-transparent md:text-xs lg:text-base ",
@@ -77,20 +80,16 @@ export default function Navbar() {
                       }}
                     >
                       {title.title}
-                    </Link>
+                    </LoadLink>
                   );
                 })}
             </div>
             <div>
               {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
                 return (
-                  <Link
-                    href={title.link}
-                    className='py-1.5 px-5 rounded-lg bg-google-blue text-white'
-                    key={key}
-                  >
-                    {title.title}
-                  </Link>
+                  <LoadLink href={title.link} key={key}>
+                    <Button className='px-5'>{title.title}</Button>
+                  </LoadLink>
                 );
               })}
             </div>
@@ -144,7 +143,7 @@ export default function Navbar() {
           >
             {NavbarData.navbarPermanent.map((title, key) => {
               return (
-                <Link
+                <LoadLink
                   href={title.link}
                   className={cn(
                     "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
@@ -158,22 +157,32 @@ export default function Navbar() {
                   key={key}
                 >
                   {title.title}
-                </Link>
+                </LoadLink>
               );
             })}
             {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
               return (
-                <div
-                  className='p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue'
+                <LoadLink
+                  href={title.link}
+                  className={cn(
+                    "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
+                    pathname !== "/" &&
+                      title.link.startsWith(active) &&
+                      "bg-blue-200 dark:text-google-darkGrey",
+                    pathname == "/" &&
+                      active.startsWith(title.link) &&
+                      "bg-blue-200 dark:text-google-darkGrey"
+                  )}
                   key={key}
                 >
                   {title.title}
-                </div>
+                </LoadLink>
               );
             })}
           </div>
         )}
       </div>
+      <TopLoading />
     </nav>
   );
 }
