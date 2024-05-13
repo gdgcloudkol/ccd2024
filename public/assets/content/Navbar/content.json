@@ -8,6 +8,11 @@
       "desktopVisible": true
     },
     {
+      "title": "Extended Events",
+      "link": "/contests",
+      "desktopVisible": true
+    },
+    {
       "title": "Speakers",
       "link": "/speakers",
       "desktopVisible": true
@@ -17,11 +22,7 @@
       "link": "/schedule",
       "desktopVisible": true
     },
-    {
-      "title": "Extended Events",
-      "link": "/contests",
-      "desktopVisible": true
-    },
+
     {
       "title": "Team",
       "link": "/team",
