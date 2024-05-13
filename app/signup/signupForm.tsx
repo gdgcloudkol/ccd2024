@@ -18,51 +18,91 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-  const formSchema = z.object({
-    fullname: z
-      .string()
-      .min(2, { message: "Name must be at least 2 characters" })
-      .max(30, { message: "Name must not be more than 30 characters" }),
-    username: z
-      .string()
-      .min(2, { message: "Username must be at least 2 characters" })
-      .max(24, { message: "Username must not be more than 24 characters" }),
-    email: z.string().email(),
-    password: z
-      .string()
-      .min(8, { message: "Password must be at least 8 characters" })
-      .refine((password) => validatePassword(password), {
-        message:
-          "Password must have uppercase, lowercase, numbers and special characters",
-      }),
-    temp_password: z.string().min(8, { message: "Password must be at least 8 characters" })
-  }).refine((data) => data.temp_password === data.password, {
-    message: 'Passwords do not match',
-    path: ['temp_password']
-  });
+  const formSchema = z
+    .object({
+      first_name: z
+        .string()
+        .min(2, { message: "First name must be at least 2 characters" })
+        .max(30, { message: "First name must not be more than 30 characters" }),
+      last_name: z
+        .string()
+        .min(2, { message: "Last name must be at least 2 characters" })
+        .max(30, { message: "Last name must not be more than 30 characters" }),
+      username: z
+        .string()
+        .min(2, { message: "Username must be at least 2 characters" })
+        .max(24, { message: "Username must not be more than 24 characters" }),
+      email: z.string().email(),
+      password1: z
+        .string()
+        .min(8, { message: "Password must be at least 8 characters" })
+        .refine((password) => validatePassword(password), {
+          message:
+            "Password must have uppercase, lowercase, numbers and special characters",
+        }),
+      password2: z
+        .string()
+        .min(8, { message: "Password must be at least 8 characters" }),
+    })
+    .refine((data) => data.password2 === data.password1, {
+      message: "Passwords do not match",
+      path: ["password2"],
+    });
   const [isLoading, setIsLoading] = useState(false);
-
+  const { toast } = useToast();
+  const router = useRouter();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullname: "",
+      first_name: "",
       username: "",
       email: "",
-      password: "",
-      temp_password: "",
+      password1: "",
+      password2: "",
     },
   });
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
+    const exec = async (values: z.infer<typeof formSchema>) => {
+      try {
+        const response = await fetch("/api/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+        if (!response.ok) {
+          setIsLoading(false);
+          const err = await response.text();
+          throw new Error(err);
+        } else {
+          toast({
+            variant: "success",
+            title: "User created!",
+            description: "",
+          });
+          router.replace("/login");
+        }
+      } catch (error) {
+        setIsLoading(false);
 
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+        toast({
+          variant: "destructive",
+          title: JSON.stringify(error),
+        });
+      }
+    };
+    setIsLoading(true);
+
+    exec(values);
   }
 
   function validatePassword(password: string): boolean {
@@ -109,25 +149,44 @@ export default function LoginForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-          <FormField
-            control={form.control}
-            name='fullname'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Full name</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder='John Doe'
-                    className='bg-white text-black'
-                    {...field}
-                  />
-                </FormControl>
+          <div className='grid grid-cols-2 gap-4'>
+            <FormField
+              control={form.control}
+              name='first_name'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>First name</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='John Doe'
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />{" "}
+            <FormField
+              control={form.control}
+              name='last_name'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Last name</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='John Doe'
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
 
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
             name='username'
@@ -167,7 +226,7 @@ export default function LoginForm() {
           />
           <FormField
             control={form.control}
-            name='password'
+            name='password1'
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Password</FormLabel>
@@ -185,7 +244,7 @@ export default function LoginForm() {
           />
           <FormField
             control={form.control}
-            name='temp_password'
+            name='password2'
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Confirm Password</FormLabel>
@@ -208,7 +267,7 @@ export default function LoginForm() {
             disabled={isLoading}
           >
             {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
-            Log in
+            Sign up
           </Button>
         </form>
       </Form>

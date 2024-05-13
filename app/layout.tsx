@@ -9,6 +9,7 @@ import { LoadingContextProvider } from "./loading-provider";
 import { Suspense } from "react";
 import { NavigationEvents } from "@/components/blocks/NavigationEvents";
 import GoTop from "@/components/blocks/GoTop";
+import { Toaster } from "@/components/ui/toaster";
 const googleSans = localFont({
   src: [
     {
@@ -49,6 +50,7 @@ export default function RootLayout({
               <Navbar />
               {children}
               <Footer />
+              <Toaster />
               <Suspense fallback={null}>
                 <NavigationEvents />
               </Suspense>
