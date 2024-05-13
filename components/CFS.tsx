@@ -31,7 +31,7 @@ const CFS = () => {
                 stroke='currentColor'
                 stroke-width='2'
                 strokeLinecap='round'
-                stroke-linejoin='round'
+                strokeLinejoin='round'
                 className='lucide lucide-move-up-right mt-1 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 -translate-y-0.5 duration-150'
               >
                 <path d='M13 5H19V11' />

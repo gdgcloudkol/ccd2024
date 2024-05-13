@@ -1,14 +1,18 @@
 import React from "react";
 import ContentData from "@/public/assets/content/Sponsors/content.json";
-import logo from "@/public/assets/images/gdev.svg";
-import dyno from "@/public/assets/images/dyno.svg";
+import logo from "@/public/assets/images/cp/gdev.svg";
+import dyno from "@/public/assets/images/cp/dynopii.png";
+import apyhub from "@/public/assets/images/cp/apyhub.png";
+import wnb from "@/public/assets/images/cp/wnb.png";
+import tg from "@/public/assets/images/cp/tg.png";
+
 
 const Sponsors = () => {
   return (
     <div>
       <div className='bg-white text-black px-4'>
         <div className='max-w-screen-lg mx-auto py-10 max-sm:contents '>
-          <h1 className='text-4xl lg:text-7xl font-bold flex justify-center '>
+          <h1 className='text-4xl lg:text-7xl font-bold flex justify-center'>
             {ContentData.sponsorheading}
           </h1>
           <h3 className='  md:text-2xl text-lg px-20 py-2 font-medium text-center max-sm:contents justify-center'>
@@ -53,6 +57,16 @@ const Sponsors = () => {
             <img className='py-4 block mx-auto' src={dyno.src} alt='' />
           </div>
         </div> */}
+
+        <h1 className='text-4xl lg:text-7xl font-bold flex justify-center mt-36'>
+          {ContentData.pastsponsor}
+        </h1>
+        <div className='py-4 flex '>
+          <img className='py-4 block mx-auto h-52' src={apyhub.src} alt='' />
+          <img className='py-4 block mx-auto h-52' src={dyno.src} alt='' />
+          <img className='py-4 block mx-auto h-52' src={tg.src} alt='' />
+          <img className='py-4 block mx-auto h-52' src={wnb.src} alt='' />
+        </div>
       </div>
     </div>
   );
