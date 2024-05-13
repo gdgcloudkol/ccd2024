@@ -1,18 +1,17 @@
-"use client"
-import dynamic from 'next/dynamic'
- 
-// Client Components:
-const HeroBackground = dynamic(() => import("@/components/HeroBackground"));
-
 import About from "@/components/About";
-import Navbar from "@/components/Navbar";
+import CFS from "@/components/CFS";
+import CommunityPartners from "@/components/CommunityPartners";
+import HeroSection from "@/components/HeroSection";
+import Sponsors from "@/components/Sponsors";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <HeroBackground />
+    <main className='w-full'>
+      <HeroSection />
       <About />
-    </>
+      <CFS />
+      <Sponsors />
+      <CommunityPartners />
+    </main>
   );
 }

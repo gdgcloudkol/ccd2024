@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme-provider";
 import { NextAuthProvider } from "@/app/session-provider";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 const googleSans = localFont({
   src: [
     {
@@ -39,7 +41,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Navbar />
             {children}
+            <Footer />
           </ThemeProvider>
         </NextAuthProvider>
       </body>
