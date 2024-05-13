@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import HeroData from "@/public/assets/content/HeroSection/content.json";
 import Image from "next/image";
-import { IconButton } from "./ui/button";
+import { IconButton } from "./ui/icon-button";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 

@@ -10,7 +10,7 @@ import tg from "@/public/assets/images/cp/tg.png";
 const Sponsors = () => {
   return (
     <div>
-      <div className='bg-white text-black px-4'>
+      <div className='bg-white text-black px-4 mt-[-1px]'>
         <div className='max-w-screen-lg mx-auto py-10 max-sm:contents '>
           <h1 className='text-4xl lg:text-7xl font-bold flex justify-center'>
             {ContentData.sponsorheading}
@@ -61,7 +61,7 @@ const Sponsors = () => {
         <h1 className='text-4xl lg:text-7xl font-bold flex justify-center mt-36'>
           {ContentData.pastsponsor}
         </h1>
-        <div className='py-4 flex '>
+        <div className='py-4 lg:flex'>
           <img className='py-4 block mx-auto h-52' src={apyhub.src} alt='' />
           <img className='py-4 block mx-auto h-52' src={dyno.src} alt='' />
           <img className='py-4 block mx-auto h-52' src={tg.src} alt='' />
