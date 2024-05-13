@@ -1,5 +1,5 @@
 import AlternateHeader from "@/components/blocks/AlternateHeader";
-import { IconButton } from "@/components/ui/icon-button";
+import { IconButton } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function NotFound() {

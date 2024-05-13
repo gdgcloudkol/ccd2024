@@ -49,7 +49,6 @@ export default function RootLayout({
               <Navbar />
               {children}
               <Footer />
-
               <Suspense fallback={null}>
                 <NavigationEvents />
               </Suspense>
