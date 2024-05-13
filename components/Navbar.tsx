@@ -155,6 +155,7 @@ export default function Navbar() {
                       "bg-blue-200 dark:text-google-darkGrey"
                   )}
                   key={key}
+                  onClick={() => setOpen(!open)}
                 >
                   {title.title}
                 </LoadLink>
@@ -174,6 +175,7 @@ export default function Navbar() {
                       "bg-blue-200 dark:text-google-darkGrey"
                   )}
                   key={key}
+                  onClick={() => setOpen(!open)}
                 >
                   {title.title}
                 </LoadLink>
