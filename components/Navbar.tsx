@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import NavbarData from "@/public/assets/content/Navbar/content.json";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn, debounce } from "@/lib/utils";
 import { usePathname } from "next/navigation";
@@ -88,11 +87,7 @@ export default function Navbar() {
             <div>
               {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
                 return (
-                  <LoadLink
-                    href={title.link}
-                    // className='py-1.5 px-5 rounded-lg bg-google-blue text-white'
-                    key={key}
-                  >
+                  <LoadLink href={title.link} key={key}>
                     <Button className='px-5'>{title.title}</Button>
                   </LoadLink>
                 );
@@ -167,12 +162,21 @@ export default function Navbar() {
             })}
             {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
               return (
-                <div
-                  className='p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue'
+                <LoadLink
+                  href={title.link}
+                  className={cn(
+                    "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
+                    pathname !== "/" &&
+                      title.link.startsWith(active) &&
+                      "bg-blue-200 dark:text-google-darkGrey",
+                    pathname == "/" &&
+                      active.startsWith(title.link) &&
+                      "bg-blue-200 dark:text-google-darkGrey"
+                  )}
                   key={key}
                 >
                   {title.title}
-                </div>
+                </LoadLink>
               );
             })}
           </div>

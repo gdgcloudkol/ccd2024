@@ -1,5 +1,5 @@
 import AuthContent from "@/public/assets/content/Auth/content.json";
-import LoginForm from "./loginForm";
+import SignupForm from "./signupForm";
 
 const Page = () => {
   return (
@@ -17,7 +17,7 @@ const Page = () => {
         />
       </div>
       <div className='col-span-3'>
-        <LoginForm />
+        <SignupForm />
       </div>
     </section>
   );
