@@ -26,19 +26,23 @@
       "title": "Resources",
       "list": [
         {
-          "title": "Become a Sponsor",
-          "hyperlink": "https://bit.ly/gccdkol-sponsors"
+          "title": "Sponsorship Brochure",
+          "hyperlink": "https://bit.ly/gccd-kol-sponsorship-brochure"
+        },
+        {
+          "title": "Attendee Brochure",
+          "hyperlink": "https://bit.ly/gccd-kol-attendee-brochure"
         },
         {
           "title": "Call for Speakers",
           "link": "/cfs"
         },
         {
-          "title": "Become a Community Partner",
-          "hyperlink": "https://bit.ly/gccdkol-community-partners"
+          "title": "GCCD Kolkata Extended Events",
+          "hyperlink": "https://bit.ly/gccd-x-interest-form"
         },
         {
-          "title": "Frequently asked questions",
+          "title": "Frequently Asked Questions",
           "hyperlink": "/faq"
         }
       ]
@@ -53,10 +57,6 @@
         {
           "title": "Privacy Policy",
           "link": "/privacy-policy"
-        },
-        {
-          "title": "Terms & Conditions",
-          "link": "/"
         }
       ]
     }
