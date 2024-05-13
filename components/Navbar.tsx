@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { TopLoading } from "./blocks/TopLoading";
 import LoadLink from "./blocks/LoadLink";
 import { useLoadingContext } from "@/app/loading-provider";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -89,10 +90,10 @@ export default function Navbar() {
                 return (
                   <LoadLink
                     href={title.link}
-                    className='py-1.5 px-5 rounded-lg bg-google-blue text-white'
+                    // className='py-1.5 px-5 rounded-lg bg-google-blue text-white'
                     key={key}
                   >
-                    {title.title}
+                    <Button className='px-5'>{title.title}</Button>
                   </LoadLink>
                 );
               })}

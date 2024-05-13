@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { LoadingContextProvider } from "./loading-provider";
 import { Suspense } from "react";
 import { NavigationEvents } from "@/components/blocks/NavigationEvents";
+import GoTop from "@/components/blocks/GoTop";
 const googleSans = localFont({
   src: [
     {
@@ -48,6 +49,7 @@ export default function RootLayout({
               <Navbar />
               {children}
               <Footer />
+
               <Suspense fallback={null}>
                 <NavigationEvents />
               </Suspense>

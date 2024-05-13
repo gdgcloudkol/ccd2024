@@ -1,6 +1,7 @@
 import React from "react";
 import ContentData from "@/public/assets/content/About/postcontent.json";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 const CFS = () => {
   return (
     <div>
@@ -28,21 +29,7 @@ const CFS = () => {
                 ContentData.buttons.find((button) => button?.id == "cfss")
                   ?.buttondesc
               }
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='22'
-                height='22'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                stroke-width='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='lucide lucide-move-up-right mt-1 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 -translate-y-0.5 duration-150'
-              >
-                <path d='M13 5H19V11' />
-                <path d='M19 5L5 19' />
-              </svg>
+              <ArrowUpRight className='rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150' />
             </span>
           </Link>
         </div>
