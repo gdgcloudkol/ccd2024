@@ -5,7 +5,7 @@ const CFS = () => {
     <div>
       <div className='bg-white text-black px-4'>
         <div className='max-w-screen-lg mx-auto py-10 '>
-          <h1 className='text-google-blue text-4xl font-bold flex justify-center max-sm:text-3xl py-2'>
+          <h1 className='text-4xl lg:text-7xl text-google-blue font-bold flex justify-center py-2'>
             {ContentData.callheading}
           </h1>
           {ContentData.callparagraph.map((word, idx) => (

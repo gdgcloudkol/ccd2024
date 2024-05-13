@@ -3,15 +3,46 @@
   "description": "We're pleased to introduce our Community Partners.",
   "community": [
     {
-      "partnerId": "dsc_fiem",
-      "name": "Future Institute of Engineering & Management",
-      "hyperlink": "#"
+      "partnerId": "wtm",
+      "name": "Women Techmakers",
+      "hyperlink": "https://developers.google.com/womentechmakers",
+      "logo": "https://gdgcloudkol.org/ccd2023/images/communityPartners/wtm.png"
     },
     {
       "partnerId": "tfug_kol",
       "name": "Tensorflow User Groups, Kolkata",
-      "hyperlink": "#",
+      "hyperlink": "https://tfug.kolkata.dev/",
       "logo": "https://gdgcloudkol.org/ccd2023/images/communityPartners/tfug.png"
+    },
+    {
+      "partnerId": "gdsc_fiem",
+      "name": "Future Institute of Engineering & Management",
+      "hyperlink": "https://gdsc.community.dev/future-institute-of-engineering-management-kolkata-india/"
+    },
+    {
+      "partnerId": "gdsc_aot",
+      "name": "Academy of Technology",
+      "hyperlink": "https://gdsc.community.dev/academy-of-technology-hooghly-india/",
+      "hidden": true
+    },
+    {
+      "partnerId": "gdsc_nsec",
+      "name": "Netaji Subhash Engineering College",
+      "hyperlink": "https://gdsc.community.dev/netaji-subhash-engineering-college-kolkata/",
+      "hidden": true
+    },
+    {
+      "partnerId": "pg_kol",
+      "name": "Polygon Guild Kolkata",
+      "hyperlink": "https://twitter.com/PolygonKolkata",
+      "logo": "/assets/images/cp/pg_kol.jpg",
+      "hidden": true
+    },
+    {
+      "partnerId": "gdsc_bbit",
+      "name": "Budge Budge Institute of Technology",
+      "hyperlink": "https://gdsc.community.dev/budge-budge-institute-of-technology-kolkata-india/",
+      "hidden": true
     }
   ]
 }

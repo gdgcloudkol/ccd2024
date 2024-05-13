@@ -8,7 +8,7 @@ const Sponsors = () => {
     <div>
       <div className='bg-white text-black px-4'>
         <div className='max-w-screen-lg mx-auto py-10 max-sm:contents '>
-          <h1 className='text-4xl font-bold flex justify-center '>
+          <h1 className='text-4xl lg:text-7xl font-bold flex justify-center '>
             {ContentData.sponsorheading}
           </h1>
           <h3 className='  md:text-2xl text-lg px-20 py-2 font-medium text-center max-sm:contents justify-center'>
@@ -21,9 +21,9 @@ const Sponsors = () => {
             </a>
           </h3>
         </div>
-        <div className=' py-4 title-sponsor '>
+        <div className='py-4 title-sponsor '>
           <div>
-            <h1 className='text-4xl font-bold flex justify-center '>
+            <h1 className='text-4xl pt-10 font-bold flex justify-center '>
               {ContentData.sponsortitle}
             </h1>
             <img className='py-4 block mx-auto' src={logo.src} alt='' />
