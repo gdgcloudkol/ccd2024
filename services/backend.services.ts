@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 
-const BASE_URL = process.env.API_BASE_URL;
+// const BASE_URL = process.env.API_BASE_URL;
 
 async function bkFetch(path: string, options: object, accept = 'application/json', content_type = 'application/json') {
 
@@ -12,7 +12,7 @@ async function bkFetch(path: string, options: object, accept = 'application/json
         'Accept': accept,
         // Add other headers as needed
     };
-    const data = fetch(`${BASE_URL}${path}`, {
+    const data = fetch(`${path}`, {
         headers,
         ...options,
     })

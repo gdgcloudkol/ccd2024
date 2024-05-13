@@ -3,6 +3,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 import { AUTH_LOGIN_URL, AUTH_REFRESH_TOKEN_URL, LOGIN_URL } from "./constants/auth";
 import bkFetch from "@/services/backend.services";
+import { Session } from "next-auth";
+import { LOGIN_DJANGO_URL, REFRESH_TOKEN_DJANGO_URL, AUTH_USERS_DJANGO_URL } from "./constants/be";
 
 
 const BASE_URL = process.env.API_BASE_URL;
@@ -24,7 +26,7 @@ export const authOptions: NextAuthOptions = {
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials) {
-                const authResponse = await bkFetch(`${BASE_URL}${AUTH_LOGIN_URL}`, {
+                const authResponse = await fetch(`${LOGIN_DJANGO_URL}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -32,14 +34,16 @@ export const authOptions: NextAuthOptions = {
                     body: JSON.stringify(credentials),
                 })
 
+
                 if (!authResponse.ok) {
                     const data = await authResponse.text();
+
                     return null
                 }
 
                 const user = await authResponse.json()
 
-                if (user?.access) {
+                if (user?.access_token) {
                     return Promise.resolve(user)
                 } else {
                     return Promise.resolve(null)
@@ -49,25 +53,29 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         jwt: async ({ token, user, session, trigger, account, profile, isNewUser }) => {
+
             if (trigger === "update") {
-                const response = await bkFetch("/auth/user/", {
+
+                const response = await bkFetch(`${AUTH_USERS_DJANGO_URL}`, {
                     method: "GET"
                 });
+
                 token.user = await response.json();
+
             }
             if (user) {
-                token.access = user.access;
-                token.refresh = user.refresh;
+                token.access = user.access_token;
+                token.refresh = user.refresh_token;
                 token.expires_at = (new Date().getTime() + 24 * 60 * 60 * 1000) - (300 * 1000);
                 token.user = user.user;
                 return token;
             } else if (Date.now() > token.expires_at) {
-                const BASE_URL = process.env.API_BASE_URL;
                 const headers = {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
                 };
-                const response = await bkFetch(`${BASE_URL}${AUTH_REFRESH_TOKEN_URL}`, {
+
+                const response = await fetch(`${REFRESH_TOKEN_DJANGO_URL}`, {
                     headers,
                     method: "POST",
                     body: JSON.stringify({
@@ -81,14 +89,15 @@ export const authOptions: NextAuthOptions = {
             }
             return token;
         },
-        session: async ({ session, token }) => {
+        session: async ({ session, token }: { session: Session, token: any }) => {
+
             session.user = token.user;
             session.access = token.access;
             session.error = token.error;
             return session;
         },
         redirect: async ({ url, baseUrl }) => {
-            return '<redirect url> goes here'
+            return '/profile'
         }
     },
     pages: {
