@@ -35,6 +35,9 @@ export default function Navbar() {
   useEffect(() => {
     setActive(pathname);
   }, [pathname]);
+  useEffect(() => {
+    setOpen(() => false);
+  }, [active]);
   const { loading } = useLoadingContext();
   return (
     <nav
@@ -154,6 +157,7 @@ export default function Navbar() {
                       active.startsWith(title.link) &&
                       "bg-blue-200 dark:text-google-darkGrey"
                   )}
+                  onClick={() => setActive(title.link)}
                   key={key}
                 >
                   {title.title}
@@ -174,6 +178,7 @@ export default function Navbar() {
                       "bg-blue-200 dark:text-google-darkGrey"
                   )}
                   key={key}
+                  onClick={() => setActive(title.link)}
                 >
                   {title.title}
                 </LoadLink>

@@ -12,7 +12,7 @@ function HeroSection() {
   return (
     <div className='relative min-h-[90vh] flex flex-col items-center justify-center py-10'>
       <HeroBackground className='absolute h-full w-full z-0' />
-      <div className=' w-full flex flex-col lg:gap-6 md:gap-6 gap-4 justify-center items-center text-center z-10'>
+      <div className=' w-full flex flex-col lg:gap-6 md:gap-6 gap-4 justify-start items-center text-center z-10'>
         <h1 className='flex gap-2'>
           <span className='relative lg:w-[4.2rem] lg:h-[3.3rem] md:w-[3.6rem] md:h-[2.9rem] w-10 h-8 mt-2'>
             <Image src={HeroData.eventHeadingLogo} fill alt='gcp logo' />
