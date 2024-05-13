@@ -1,5 +1,6 @@
 import React from "react";
 import ContentData from "@/public/assets/content/About/postcontent.json";
+import Link from "next/link";
 const CFS = () => {
   return (
     <div>
@@ -16,7 +17,12 @@ const CFS = () => {
               <p> {word.para}</p>
             </h3>
           ))}
-          <button className='bg-google-blue py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
+          <Link
+            href={"https://bit.ly/gccd-x-cfs-form"}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='bg-google-blue w-fit py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
+          >
             <span className='flex items-center text-2xl gap-2 font-light'>
               {
                 ContentData.buttons.find((button) => button?.id == "cfss")
@@ -38,7 +44,7 @@ const CFS = () => {
                 <path d='M19 5L5 19' />
               </svg>
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
