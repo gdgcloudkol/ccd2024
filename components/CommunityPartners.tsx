@@ -16,7 +16,7 @@ const CommunityPartners = () => {
           {CommunityData.community.map((item) => (
             <div
               key={`community-partner-${item.name}`}
-              className={`bg-white p-4 rounded ${item.hidden ? 'grayscale' : ''}`}
+              className={`bg-white p-4 rounded ${item.hidden ? 'blur-md' : ''}`}
             >
               {!item.logo ? (
                 <a href={item.hyperlink}>
@@ -25,7 +25,7 @@ const CommunityPartners = () => {
               ) : (
                 <>
                   {/* Else Part */}
-                  <div className={`w-64 h-64 col-span-1  md:col-span-2 lg:col-span-1 align-middle rounded-lg text-black ${item.hidden ? 'grayscale' : ''}`}>
+                  <div className='w-64 h-64 col-span-1  md:col-span-2 lg:col-span-1 align-middle rounded-lg text-black'>
                     <div className='w-fit flex justify-center'>
                       {/* <Image src={item.logo} width='100' height='100' alt="" /> */}
                       <a href={item.hyperlink}>

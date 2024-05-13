@@ -26,6 +26,20 @@
       "hidden": true
     },
     {
+      "partnerId": "iei_sc_cse_aot",
+      "name": "IEI Students' Chapter CSE (AOT)",
+      "hyperlink": "https://sccseaot.com",
+      "logo": "/assets/images/cp/iei_sc_cse_aot.jpg",
+      "hidden": true
+    },
+    {
+      "partnerId": "iei_sc_csbs_aot",
+      "name": "IEI Student's Chapter CSBS (AOT)",
+      "hyperlink": "https://sc-csbs.vercel.app/",
+      "logo": "/assets/images/cp/sccse.png",
+      "hidden": true
+    },
+    {
       "partnerId": "gdsc_nsec",
       "name": "Netaji Subhash Engineering College",
       "hyperlink": "https://gdsc.community.dev/netaji-subhash-engineering-college-kolkata/",
