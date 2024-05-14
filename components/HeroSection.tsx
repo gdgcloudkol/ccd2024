@@ -15,7 +15,12 @@ function HeroSection() {
       <div className=' w-full flex flex-col lg:gap-6 md:gap-6 gap-4 justify-start items-center text-center z-10'>
         <h1 className='flex gap-2'>
           <span className='relative lg:w-[4.2rem] lg:h-[3.3rem] md:w-[3.6rem] md:h-[2.9rem] w-10 h-8 mt-2'>
-            <Image src={HeroData.eventHeadingLogo} fill alt='gcp logo' />
+            <Image
+              src={HeroData.eventHeadingLogo}
+              priority
+              fill
+              alt='gcp logo'
+            />
           </span>
           <span className='lg:text-4xl md:text-3xl text-xl mt-4 md:mx-2 mx-0'>
             {HeroData.eventHeading}

@@ -136,16 +136,16 @@ export default function ProfileForm({
   }
 
   return (
-    <section className='flex flex-col h-full space-y-8'>
+    <section className='flex flex-col h-full'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
           <div className='grid grid-cols-2 gap-4'>
             <FormField
               control={form.control}
               name={UserFieldsName.First_Name}
               key={UserFieldsName.First_Name}
               render={({ field }) => (
-                <FormItem>
+                <FormItem className='space-y-2'>
                   <FormLabel className='capitalize'>
                     {UserFieldsName.First_Name.toString().replaceAll("_", " ")}
                   </FormLabel>

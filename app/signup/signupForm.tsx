@@ -3,7 +3,6 @@
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -17,7 +16,6 @@ import AuthContent from "@/public/assets/content/Auth/content.json";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
-import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { redirect, useRouter } from "next/navigation";
 import LoadLink from "@/components/blocks/LoadLink";
@@ -26,14 +24,6 @@ import useErrorToasts from "@/components/error-toast";
 export default function LoginForm() {
   const formSchema = z
     .object({
-      first_name: z
-        .string()
-        .min(2, { message: "First name must be at least 2 characters" })
-        .max(30, { message: "First name must not be more than 30 characters" }),
-      last_name: z
-        .string()
-        .min(2, { message: "Last name must be at least 2 characters" })
-        .max(30, { message: "Last name must not be more than 30 characters" }),
       username: z
         .string()
         .min(2, { message: "Username must be at least 2 characters" })
@@ -64,7 +54,6 @@ export default function LoginForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      first_name: "",
       username: "",
       email: "",
       password1: "",
@@ -178,44 +167,6 @@ export default function LoginForm() {
         <>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-              <div className='grid grid-cols-2 gap-4'>
-                <FormField
-                  control={form.control}
-                  name='first_name'
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>First name</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder='John Doe'
-                          className='bg-white text-black'
-                          {...field}
-                        />
-                      </FormControl>
-
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />{" "}
-                <FormField
-                  control={form.control}
-                  name='last_name'
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Last name</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder='John Doe'
-                          className='bg-white text-black'
-                          {...field}
-                        />
-                      </FormControl>
-
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
               <FormField
                 control={form.control}
                 name='username'
