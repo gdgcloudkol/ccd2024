@@ -1,5 +1,6 @@
 "use client";
 
+import useErrorToasts from "@/components/error-toast";
 import { UserData } from "@/components/models/login/datatype";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,12 +12,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { Session } from "next-auth";
-import { signOut, useSession } from "next-auth/react";
-import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -29,8 +31,8 @@ enum UserFieldsName {
   First_Name = "first_name",
   Last_Name = "last_name",
   Pronoun = "pronoun",
-  College = "college",
-  Company = "company",
+  Student = "student",
+  Organization = "organization",
   Designation = "designation",
   GraduationYear = "graduation_year",
   Phone = "phone",
@@ -38,8 +40,10 @@ enum UserFieldsName {
 
 export default function ProfileForm({
   userData,
+  updateHandler,
 }: {
   userData: UserData | undefined;
+  updateHandler: Function;
 }) {
   const profileSchema = z.object({
     [UserFieldsName.First_Name]: z
@@ -51,9 +55,9 @@ export default function ProfileForm({
       .min(2, { message: "Name must be at least 2 characters" })
       .max(30, { message: "Name must not be more than 30 characters" }),
     [UserFieldsName.Pronoun]: z.string(),
-    [UserFieldsName.College]: z.string(),
-    [UserFieldsName.Company]: z.string().min(1).max(255).optional(),
-    [UserFieldsName.Designation]: z.string().min(1).max(255).optional(),
+    [UserFieldsName.Student]: z.string(),
+    [UserFieldsName.Organization]: z.string().min(1).max(255).optional(),
+    // [UserFieldsName.Designation]: z.string().min(1).max(255).optional(),
     [UserFieldsName.GraduationYear]: z
       .string()
       .min(4)
@@ -68,58 +72,11 @@ export default function ProfileForm({
       }),
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const { toast } = useToast();
+  const { triggerErrorToasts } = useErrorToasts();
+  const router = useRouter();
   const { update } = useSession();
-  const profileFormFieldData = [
-    {
-      name: UserFieldsName.First_Name,
-      label: "First Name",
-      placeholder: "John ",
-      type: "text",
-    },
-    {
-      name: UserFieldsName.Last_Name,
-      label: "Last Name",
-      placeholder: "Doe ",
-      type: "text",
-    },
-    {
-      name: UserFieldsName.Pronoun,
-      label: "Pronouns",
-      placeholder: "Your pronouns",
-      type: "text",
-    },
-    {
-      name: UserFieldsName.College,
-      label: "College Name",
-      placeholder: "College Name",
-      type: "text",
-    },
-    {
-      name: UserFieldsName.Company,
-      label: "Company",
-      placeholder: "Eg. Company Name",
-      type: "text",
-    },
-    {
-      name: UserFieldsName.Designation,
-      label: "Designation (Company)",
-      placeholder: "Eg. Software Developer",
-      type: "text",
-    },
-    {
-      name: UserFieldsName.GraduationYear,
-      label: "Graduation Year",
-      placeholder: "Eg. 2019",
-      type: "string",
-    },
-    {
-      name: UserFieldsName.Phone,
-      label: "Phone Number",
-      placeholder: "Eg. 99999 99999",
-      type: "string",
-    },
-  ];
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof profileSchema>>({
@@ -128,8 +85,10 @@ export default function ProfileForm({
       first_name: userData?.profile?.first_name,
       last_name: userData?.profile?.last_name,
       pronoun: userData?.profile?.pronoun,
-      college: userData?.profile?.college,
-      company: userData?.profile?.company,
+      student: userData?.profile?.student?.toString() ?? "true",
+      organization: userData?.profile?.student
+        ? userData?.profile?.college
+        : userData?.profile?.company,
       graduation_year: userData?.profile?.graduation_year.toString(),
       phone: userData?.profile?.phone,
     },
@@ -141,24 +100,36 @@ export default function ProfileForm({
     const exec = async (values: z.infer<typeof profileSchema>) => {
       let response = await fetch("/api/users", {
         method: "POST",
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          first_name: values[UserFieldsName.First_Name],
+          last_name: values[UserFieldsName.Last_Name],
+          pronoun: values[UserFieldsName.Pronoun],
+          student: values[UserFieldsName.Student] == "true" ? true : false,
+          company:
+            values[UserFieldsName.Student] == "false"
+              ? values[UserFieldsName.Organization]
+              : "",
+          college:
+            values[UserFieldsName.Student] == "true"
+              ? values[UserFieldsName.Organization]
+              : "",
+          graduation_year: values[UserFieldsName.GraduationYear],
+          phone: values[UserFieldsName.Phone],
+        }),
       });
       setIsLoading(false);
       if (!response.ok) {
-        const error = await response.text();
-        console.error(error);
-        toast({
-          variant: "destructive",
-          title: "Something snapped. Try again later!",
-        });
+        const error = await response.json();
+        triggerErrorToasts(error);
       } else {
-        const data = await response.json();
-
         await update();
         toast({
           variant: "success",
           title: "Profile Updated",
+          description: "It may take a few moments for changes to reflect",
         });
+        router.refresh();
+        updateHandler();
       }
     };
     exec(values);
@@ -168,43 +139,201 @@ export default function ProfileForm({
     <section className='flex flex-col h-full space-y-8'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-          {profileFormFieldData.map((FieldData) => (
-            <>
-              {FieldData.name !== undefined ? (
-                <FormField
-                  control={form.control}
-                  name={FieldData.name}
-                  key={FieldData.name}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{FieldData.label}</FormLabel>
-                      <FormControl>
-                        <Input
-                          type={FieldData.type}
-                          placeholder={FieldData.placeholder}
-                          className='bg-white text-black'
-                          {...field}
-                        />
-                      </FormControl>
+          <div className='grid grid-cols-2 gap-4'>
+            <FormField
+              control={form.control}
+              name={UserFieldsName.First_Name}
+              key={UserFieldsName.First_Name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='capitalize'>
+                    {UserFieldsName.First_Name.toString().replaceAll("_", " ")}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder={"Enter your name"}
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
 
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              ) : (
-                <></>
+                  <FormMessage />
+                </FormItem>
               )}
-            </>
-          ))}
-          <div></div>
-          <Button
-            type='submit'
-            className='w-full text-center text-foreground'
-            disabled={isLoading}
-          >
-            {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
-            Submit
-          </Button>
+            />
+            <FormField
+              control={form.control}
+              name={UserFieldsName.Last_Name}
+              key={UserFieldsName.Last_Name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='capitalize'>
+                    {UserFieldsName.Last_Name.toString().replaceAll("_", " ")}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder={"Enter your last name"}
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormField
+            control={form.control}
+            name={UserFieldsName.Pronoun}
+            key={UserFieldsName.Pronoun}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='capitalize'>
+                  {UserFieldsName.Pronoun.toString().replaceAll("_", " ")}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={"Enter your pronouns"}
+                    className='bg-white text-black'
+                    {...field}
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name={UserFieldsName.Student}
+            key={UserFieldsName.Student}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='capitalize'>Select profession </FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className='grid grid-cols-2 gap-4'
+                  >
+                    <FormItem className='flex items-center space-x-3 space-y-0 h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'>
+                      <FormControl>
+                        <RadioGroupItem value='true' />
+                      </FormControl>
+                      <FormLabel className='font-normal w-full'>
+                        Student
+                      </FormLabel>
+                    </FormItem>
+                    <FormItem className='flex items-center space-x-3 space-y-0 h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'>
+                      <FormControl>
+                        <RadioGroupItem value='false' />
+                      </FormControl>
+                      <FormLabel className='font-normal w-full'>
+                        Professional
+                      </FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name={UserFieldsName.Organization}
+            key={UserFieldsName.Organization}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='capitalize'>
+                  {UserFieldsName.Organization.toString().replaceAll("_", " ")}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={"Enter your organization name"}
+                    className='bg-white text-black'
+                    {...field}
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name={UserFieldsName.GraduationYear}
+            key={UserFieldsName.GraduationYear}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='capitalize'>
+                  {UserFieldsName.GraduationYear.toString().replaceAll(
+                    "_",
+                    " "
+                  )}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={"Enter your graduation year"}
+                    className='bg-white text-black'
+                    {...field}
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name={UserFieldsName.Phone}
+            key={UserFieldsName.Phone}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='capitalize'>
+                  {UserFieldsName.Phone.toString().replaceAll("_", " ")}
+                </FormLabel>
+                <FormControl>
+                  <div className='flex items-center gap-x-2 border rounded-md px-4'>
+                    <img
+                      src='/assets/images/IN.svg'
+                      alt='flag of India'
+                      loading='lazy'
+                    />
+                    <Input
+                      placeholder={"Enter your phone number"}
+                      className='bg-white text-black border-none px-0 ring-0 focus:ring-0 focus-visible:ring-0 focus:border-0 focus-visible:border-0'
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <div className='grid grid-cols-2 gap-4'>
+            <Button
+              type='submit'
+              className='w-full text-center text-foreground'
+              disabled={isLoading}
+            >
+              {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
+              Update Profile
+            </Button>
+            <Button
+              type='button'
+              variant={"ghost"}
+              className='w-full text-center'
+              disabled={isLoading}
+              onClick={() => updateHandler()}
+            >
+              Cancel
+            </Button>
+          </div>
         </form>
       </Form>
     </section>

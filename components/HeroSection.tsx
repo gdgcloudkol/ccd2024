@@ -24,18 +24,18 @@ function HeroSection() {
         <div className='font-bold lg:text-5xl md:text-[2.5rem] text-2xl md:mt-6'>
           {HeroData.event}
         </div>
-        <div className='lg:w-3/5 md:w-4/5 lg:text-2xl md:text-xl text-sm px-4'>
+        <div className='lg:w-3/5 md:w-4/5 lg:text-2xl md:text-xl text-lg px-4'>
           {HeroData.description}
         </div>
-        <div className='lg:text-xl text-sm mt-4'>
+        <div className='lg:text-xl text-lg mt-4'>
           {HeroData.dateTitle}: {HeroData.date}
         </div>
-        <div className='lg:text-xl text-sm'>
+        <div className='lg:text-xl text-lg'>
           {HeroData.locationTitle}: {HeroData.locationName}
         </div>
         <Link href={"/login"}>
           <IconButton
-            className='py-2 lg:px-8 px-4 lg:text-xl md:mt-4 group'
+            className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group'
             endIcon={
               <ArrowUpRight
                 size='1em'

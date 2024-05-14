@@ -39,7 +39,12 @@ const CommunityPartners = () => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <img src={item.logo} alt='' className='w-full' />
+                        <img
+                          src={item.logo}
+                          alt=''
+                          className='w-full'
+                          loading='lazy'
+                        />
                       </Link>
                     </div>
                   </div>

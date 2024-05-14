@@ -1,4 +1,4 @@
-const CCD2024_BE_BASE_URL = 'https://ccd2024be-pc0d7b-qlscnb.gdgcloudkol.org';
+const CCD2024_BE_BASE_URL = process.env.API_BASE_URL;
 
 export const SIGNNUP_DJANGO_URL = CCD2024_BE_BASE_URL + '/auth/registration/';
 export const LOGIN_DJANGO_URL = CCD2024_BE_BASE_URL + '/auth/login/';
