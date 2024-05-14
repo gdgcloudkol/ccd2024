@@ -1,39 +1,23 @@
-// import AlternateHeader from "@/components/blocks/AlternateHeader";
-// import Team from "@/public/assets/content/Team/content.json";
-// export default function page() {
-//   return (
-//     <section className='flex flex-col w-full max-w-6xl mx-auto space-y-8'>
-//       <section className='flex flex-col local-container gap-6 p-4 space-y-4'>
-//         <AlternateHeader
-//           title={Team.title}
-//           color={Team.color}
-//           description={Team.description}
-//         />
-//       </section>
-//     </section>
-//   );
-// }
-
 import React from "react";
-import teamContent1 from "@/public/assets/content/Team/content1.json";
-import teamContent2 from "@/public/assets/content/Team/content2.json";
-import teamContent3 from "@/public/assets/content/Team/content3.json";
-import teamContent4 from "@/public/assets/content/Team/content4.json";
+import speakerContent1 from "@/public/assets/content/Speakers/content1.json";
+import speakerContent2 from "@/public/assets/content/Speakers/content2.json";
+import speakerContent3 from "@/public/assets/content/Speakers/content3.json";
+import speakerContent4 from "@/public/assets/content/Speakers/content4.json";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-function Team() {
+function Speakers() {
   return (
     <>
       <div className="container mx-auto m-10 font-sans">
         <h1 className="text-center font-google-sans font-bold text-[48px] text-green-500 leading-[61.06px]">
-          {teamContent1.header}
+          {speakerContent1.header}
         </h1>
         <p className="text-center font-google-sans font-normal text-[28px] text-white mb-12 leading-[35.62px]">
-          {teamContent1.description}
+          {speakerContent1.description}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {teamContent1.card1.map((card1) => (
+          {speakerContent1.card1.map((card1) => (
             <div className="max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg">
               <div className="px-4 pb-6">
                 <div className="text-center my-4">
@@ -67,7 +51,7 @@ function Team() {
             </div>
           ))}
 
-          {teamContent1.cards2.map((card2) => (
+          {speakerContent1.cards2.map((card2) => (
             <div className="max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg">
               <div className="px-4  pb-6">
                 <div className="flex">
@@ -95,7 +79,7 @@ function Team() {
             </div>
           ))}
 
-          {teamContent1.cards3.map((card3) => (
+          {speakerContent1.cards3.map((card3) => (
             <div className="max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg">
               <div className="px-4 pb-6">
                 <div className="text-center my-4">
@@ -133,13 +117,13 @@ function Team() {
 
       <div className="container mx-auto m-10 font-sans">
         <h1 className="text-center font-google-sans font-bold text-[48px] text-amber-500 leading-[61.06px]">
-          {teamContent2.header}
+          {speakerContent2.header}
         </h1>
         <p className="text-center font-google-sans font-normal text-[28px] text-white mb-12 leading-[35.62px]">
-          {teamContent2.description}
+          {speakerContent2.description}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {teamContent2.cards.map((card) => (
+          {speakerContent2.cards.map((card) => (
             <div className="max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg">
               <div className="px-4 pb-6">
                 <div className="text-center my-4">
@@ -177,13 +161,13 @@ function Team() {
 
       <div className="container mx-auto m-10 font-sans">
         <h1 className="text-center font-google-sans font-bold text-[48px] text-blue-500 leading-[61.06px]">
-          {teamContent3.header}
+          {speakerContent3.header}
         </h1>
         <p className="text-center font-google-sans font-normal text-[28px] text-white mb-12 leading-[35.62px]">
-          {teamContent3.description}
+          {speakerContent3.description}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {teamContent3.cards.map((card) => (
+          {speakerContent3.cards.map((card) => (
             <div className="max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg">
               <div className="px-4 pb-6">
                 <div className="text-center my-4">
@@ -221,13 +205,13 @@ function Team() {
 
       <div className="container mx-auto m-10 font-sans">
         <h1 className="text-center font-google-sans font-bold text-[48px] text-red-500 leading-[61.06px]">
-          {teamContent4.header}
+          {speakerContent4.header}
         </h1>
         <p className="text-center font-google-sans font-normal text-[28px] text-white mb-12 leading-[35.62px]">
-          {teamContent4.description}
+          {speakerContent4.description}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-          {teamContent4.cards.map((card) => (
+          {speakerContent4.cards.map((card) => (
             <div className="max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg">
               <div className="px-4 pb-6">
                 <div className="text-center my-4">
@@ -266,5 +250,4 @@ function Team() {
   );
 }
 
-export default Team;
-
+export default Speakers;

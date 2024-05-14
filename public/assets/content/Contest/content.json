@@ -1,5 +1,87 @@
 {
-  "title": "Contests",
-  "description": "Contests will be announced soon!",
-  "color": "yellow"
+  "header": "Contests",
+  "description": "Lorem ipsum dolor sit amet consectetur. Ut pulvinar accumsan augue tortor egestas. Lobortis diam lectus blandit ultricies quam in.",
+  "cards": [
+    {
+      "id": 1,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 2,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 3,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 4,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 5,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 6,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 7,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 8,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 9,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 10,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 11,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 12,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 13,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 14,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 15,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    },
+    {
+      "id": 16,
+      "title": "Name of the Contest",
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+    }
+    
+  ]
 }
