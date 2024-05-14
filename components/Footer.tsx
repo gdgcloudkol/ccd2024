@@ -12,7 +12,7 @@ import Socials from "./blocks/Socials";
 
 const Footer = () => {
   return (
-    <footer className='p-4 sm:p-6 w-full max-w-6xl mx-auto'>
+    <footer className='py-4 sm:py-6 w-full max-w-6xl mx-auto px-5 lg:p-0'>
       <>
         <hr className='my-6 border-gray sm:mx-auto lg:my-8' />
         <div className='md:flex md:justify-start'>

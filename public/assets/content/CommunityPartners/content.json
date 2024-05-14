@@ -11,7 +11,7 @@
     {
       "partnerId": "tfug_kol",
       "name": "Tensorflow User Groups, Kolkata",
-      "hyperlink": "https://tfug.kolkata.dev/",
+      "hyperlink": "https://twitter.com/TFUGKol",
       "logo": "https://gdgcloudkol.org/ccd2023/images/communityPartners/tfug.png"
     },
     {
@@ -36,7 +36,7 @@
       "partnerId": "iei_sc_csbs_aot",
       "name": "IEI Student's Chapter CSBS (AOT)",
       "hyperlink": "https://sc-csbs.vercel.app/",
-      "logo": "/assets/images/cp/sccse.png",
+      "logo": "/assets/images/cp/sccsbs.png",
       "hidden": true
     },
     {
