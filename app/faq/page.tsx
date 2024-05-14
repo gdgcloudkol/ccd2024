@@ -38,7 +38,7 @@ export default function page() {
               value={`faq-content-${idx}`}
               key={`faq-content-${idx}`}
             >
-              <AccordionTrigger>{ques?.question}</AccordionTrigger>
+              <AccordionTrigger className="text-left">{ques?.question}</AccordionTrigger>
               <AccordionContent asChild>
                 <p
                   dangerouslySetInnerHTML={{ __html: ques?.answer }}
