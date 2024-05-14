@@ -9,9 +9,9 @@ export default function NotFound() {
   return (
     <div className='flex grow items-center justify-center mx-auto w-full max-w-6xl px-4'>
       <section>
-        <div className='mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16'>
+        <div className='mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16 text-center'>
           <div className='mx-auto max-w-screen-sm text-center'>
-            <h1 className='text-primary-600 dark:text-primary-500 mb-4 text-7xl font-extrabold tracking-tight lg:text-7xl'>
+            <h1 className='text-primary-600 dark:text-primary-500 mb-4 text-7xl font-extrabold tracking-tight min-lg:text-7xl max-sm:text-4xl max-md:text-5xl '>
               <span className='text-google-yellow'> Foou</span>
               <span className='text-google-red'>ro</span>
               <span className='text-google-green'>oofo</span>
