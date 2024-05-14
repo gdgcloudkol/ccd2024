@@ -19,13 +19,11 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
           className='rounded-full mx-auto mb-6'
           width={120}
           height={120}
-          src={gcp_logo}
-          alt='gcp'
+          src={"/assets/images/mascot.webp"}
+          alt='gccd kol mascot'
         />
       </div>
-      {isEditing ? null : (
-        <h3 className='text-xl text-center text-black'>Name</h3>
-      )}
+
       <div className='text-xl text-black my-9 leading-[30px] flex flex-col'>
         {isEditing ? (
           <ProfileForm userData={userData} />
