@@ -46,7 +46,7 @@ export default function Navbar({ session }: { session: Session | null }) {
       className={cn(
         " justify-center w-full  md:items-center flex flex-col sticky top-0 z-40",
         scrolled
-          ? "backdrop-blur-md bg-background/20 bg-blend-normal"
+          ? "backdrop-blur-md bg-background/50 bg-blend-normal shadow-md"
           : "bg-black"
       )}
     >

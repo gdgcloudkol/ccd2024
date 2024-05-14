@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import LoadLink from "@/components/blocks/LoadLink";
 import { UserData, UserProfileData } from "../models/login/datatype";
+import { DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME } from "@/lib/constants/generic";
 
 interface LoggedInUser {
   pk: number;
@@ -44,7 +45,7 @@ export default function PrivateNav({ user }: { user: UserData | undefined }) {
         >
           <Avatar className='h-8 w-8'>
             <AvatarImage src={"/assets/images/mascot.webp"} alt='@shadcn' />
-            <AvatarFallback>{user?.profile?.first_name}</AvatarFallback>
+            <AvatarFallback>{user?.profile?.first_name[0]}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
@@ -56,7 +57,8 @@ export default function PrivateNav({ user }: { user: UserData | undefined }) {
         <DropdownMenuLabel className='font-normal'>
           <div className='flex flex-col space-y-1'>
             <p className='text-sm font-medium leading-none'>
-              {user?.profile?.first_name} {user?.profile?.last_name}
+              {user?.profile?.first_name || DEFAULT_FIRST_NAME}{" "}
+              {user?.profile?.last_name || DEFAULT_LAST_NAME}
             </p>
             <p className='text-xs leading-none text-muted-foreground'>
               {user?.email}
