@@ -20,6 +20,7 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { signIn } from "next-auth/react";
+import LoadLink from "@/components/blocks/LoadLink";
 
 const formSchema = z.object({
   username: z.string(),
@@ -116,9 +117,9 @@ export default function LoginForm() {
       </Form>
       <p className='text-center'>
         Do not have an account?{" "}
-        <Link href={"/signup"} className='text-google-blue hover:underline'>
+        <LoadLink href={"/signup"} className='text-google-blue hover:underline'>
           Create an account
-        </Link>
+        </LoadLink>
       </p>
     </section>
   );

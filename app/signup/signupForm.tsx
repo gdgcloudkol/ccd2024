@@ -20,6 +20,7 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import LoadLink from "@/components/blocks/LoadLink";
 
 export default function LoginForm() {
   const formSchema = z
@@ -273,9 +274,9 @@ export default function LoginForm() {
       </Form>
       <p className='text-center'>
         Already have an account?{" "}
-        <Link href={"/login"} className='text-google-blue hover:underline'>
+        <LoadLink href={"/login"} className='text-google-blue hover:underline'>
           Login
-        </Link>
+        </LoadLink>
       </p>
     </section>
   );
