@@ -3,12 +3,14 @@ import "@/styles/globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme-provider";
 import { NextAuthProvider } from "@/app/session-provider";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/Footer";
 import { LoadingContextProvider } from "./loading-provider";
 import { Suspense } from "react";
 import { NavigationEvents } from "@/components/blocks/NavigationEvents";
-import GoTop from "@/components/blocks/GoTop";
+import { Toaster } from "@/components/ui/toaster";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 const googleSans = localFont({
   src: [
     {
@@ -27,11 +29,12 @@ export const metadata: Metadata = {
   description: "CCD 2024 Website of GDG Cloud Kolkata",
   icons: "./favicon.ico",
 };
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang='en'>
       <body
@@ -46,9 +49,10 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <Navbar />
+              <Navbar session={session} />
               {children}
               <Footer />
+              <Toaster />
               <Suspense fallback={null}>
                 <NavigationEvents />
               </Suspense>

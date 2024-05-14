@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   });
   if (response.status === 200) {
     const result = await response.json();
-    return NextResponse.json({ ...result }, { status: response.status });
+    return NextResponse.json(result, { status: response.status });
   }
   return NextResponse.json({ message: 'Login failed' }, { status: response.status });
 }

@@ -5,12 +5,14 @@ import NavbarData from "@/public/assets/content/Navbar/content.json";
 import { useEffect, useState } from "react";
 import { cn, debounce } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { TopLoading } from "./blocks/TopLoading";
-import LoadLink from "./blocks/LoadLink";
+import { TopLoading } from "../blocks/TopLoading";
+import LoadLink from "../blocks/LoadLink";
 import { useLoadingContext } from "@/app/loading-provider";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+import { Session } from "next-auth";
+import PrivateNav from "./PrivateNav";
 
-export default function Navbar() {
+export default function Navbar({ session }: { session: Session | null }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -35,13 +37,16 @@ export default function Navbar() {
   useEffect(() => {
     setActive(pathname);
   }, [pathname]);
+  useEffect(() => {
+    setOpen(() => false);
+  }, [active]);
   const { loading } = useLoadingContext();
   return (
     <nav
       className={cn(
         " justify-center w-full  md:items-center flex flex-col sticky top-0 z-40",
         scrolled
-          ? "backdrop-blur-md bg-background/20 bg-blend-normal"
+          ? "backdrop-blur-md bg-background/50 bg-blend-normal shadow-md"
           : "bg-black"
       )}
     >
@@ -85,13 +90,17 @@ export default function Navbar() {
                 })}
             </div>
             <div>
-              {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
-                return (
-                  <LoadLink href={title.link} key={key}>
-                    <Button className='px-5'>{title.title}</Button>
-                  </LoadLink>
-                );
-              })}
+              {!session ? (
+                NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
+                  return (
+                    <LoadLink href={title.link} key={key}>
+                      <Button className='px-5'>{title.title}</Button>
+                    </LoadLink>
+                  );
+                })
+              ) : (
+                <PrivateNav user={session?.user} />
+              )}
             </div>
           </div>
           {/* mobile and tablet navbar */}
@@ -154,31 +163,56 @@ export default function Navbar() {
                       active.startsWith(title.link) &&
                       "bg-blue-200 dark:text-google-darkGrey"
                   )}
+                  onClick={() => setActive(title.link)}
                   key={key}
                 >
                   {title.title}
                 </LoadLink>
               );
             })}
-            {NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
-              return (
-                <LoadLink
-                  href={title.link}
-                  className={cn(
-                    "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
-                    pathname !== "/" &&
-                      title.link.startsWith(active) &&
-                      "bg-blue-200 dark:text-google-darkGrey",
-                    pathname == "/" &&
-                      active.startsWith(title.link) &&
-                      "bg-blue-200 dark:text-google-darkGrey"
-                  )}
-                  key={key}
-                >
-                  {title.title}
-                </LoadLink>
-              );
-            })}
+            {!session
+              ? NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
+                  return (
+                    <LoadLink
+                      href={title.link}
+                      className={cn(
+                        "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
+                        pathname !== "/" &&
+                          title.link.startsWith(active) &&
+                          "bg-blue-200 dark:text-google-darkGrey",
+                        pathname == "/" &&
+                          active.startsWith(title.link) &&
+                          "bg-blue-200 dark:text-google-darkGrey"
+                      )}
+                      key={key}
+                      onClick={() => setActive(title.link)}
+                    >
+                      {title.title}
+                    </LoadLink>
+                  );
+                })
+              : NavbarData.navbarSpatialLoggedIn
+                  .slice(0, 1)
+                  .map((title, key) => {
+                    return (
+                      <LoadLink
+                        href={title.link}
+                        className={cn(
+                          "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
+                          pathname !== "/" &&
+                            title.link.startsWith(active) &&
+                            "bg-blue-200 dark:text-google-darkGrey",
+                          pathname == "/" &&
+                            active.startsWith(title.link) &&
+                            "bg-blue-200 dark:text-google-darkGrey"
+                        )}
+                        key={key}
+                        onClick={() => setActive(title.link)}
+                      >
+                        {title.title}
+                      </LoadLink>
+                    );
+                  })}
           </div>
         )}
       </div>

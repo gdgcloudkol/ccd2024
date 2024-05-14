@@ -18,30 +18,37 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
+import { signIn } from "next-auth/react";
+import LoadLink from "@/components/blocks/LoadLink";
+
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8, { message: "Password minimum length is of 8 characters" }),
+  username: z.string(),
+  password: z
+    .string()
+    .min(8, { message: "Password minimum length is of 8 characters" }),
 });
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const { toast } = useToast();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    await signIn("ccd2024", {
+      username: values.username,
+      password: values.password,
+    });
+    setIsLoading(false);
   }
   return (
     <section className='flex flex-col h-full space-y-8'>
@@ -59,14 +66,13 @@ export default function LoginForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
           <FormField
             control={form.control}
-            name='email'
+            name='username'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder='john@example.com'
-                    type='email'
+                    placeholder='john'
                     className='bg-white text-black'
                     {...field}
                   />
@@ -111,9 +117,9 @@ export default function LoginForm() {
       </Form>
       <p className='text-center'>
         Do not have an account?{" "}
-        <Link href={"/signup"} className='text-google-blue hover:underline'>
+        <LoadLink href={"/signup"} className='text-google-blue hover:underline'>
           Create an account
-        </Link>
+        </LoadLink>
       </p>
     </section>
   );
