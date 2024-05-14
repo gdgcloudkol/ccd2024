@@ -86,7 +86,15 @@
   html{
     @apply scroll-smooth;
   }
+  .google-border{
+  @apply border-t-google-red border-r-google-yellow border-b-google-blue border-l-google-green
+  }
+
+  .highlight{
+  @apply  bg-gray-200 rounded p-1 text-base border-google-darkGrey hover:bg-gray-300 duration-100
+  }
 }
+
 .animate-progress{
   
   animation: 2s progress infinite ;
