@@ -1,0 +1,66 @@
+{
+  "signup": ["foodPref", "reset", "cancel"],
+  "login": {
+    "accountType": false,
+    "username": true,
+    "email": false,
+    "password": true,
+    "oneTimeLink": false,
+    "submit": true,
+    "cancel": false
+  },
+  "forgetPassword": {
+    "accountType": true,
+    "email": true,
+    "submit": true,
+    "cancel": true
+  },
+  "navbar": {
+    "navbarPermanent": true,
+    "navbarSpatialLoggedIn": true,
+    "navbarSpatialNotLoggedIn": true,
+    "navbarSpatialLoggedInBT": true
+  },
+  "disabledRoutes": ["/dashboard", "/termsAndCondition"],
+  "disabledPartnerTitles": [],
+  "disabledPartners": [],
+  "disabledCommunityPartners": [],
+  "home": {
+    "ticketButtonStateNotLogin": "gs",
+    "ticketButtonStateLogin": "bt",
+    "ticketButtonBought": "vt",
+    "disabledTicketButton": ["rt"],
+    "cfsButtonStateNotLogin": "cfsc",
+    "cfsButtonStateLogin": "cfsc",
+    "disabledCfsButton": [],
+    "timer": true,
+    "cfs": true,
+    "location": true,
+    "date": true,
+    "showCommunityPartners": true,
+    "showSponsors": true
+  },
+  "disabledFooterContent": {
+    "footer": true,
+    "section": [
+      {
+        "title": "About",
+        "hide": false,
+        "nOI": 5
+      },
+      {
+        "title": "Resources",
+        "hide": false,
+        "nOI": 5
+      },
+      {
+        "title": "Legal",
+        "hide": false,
+        "nOI": 2
+      }
+    ]
+  },
+  "disabledSocial": [],
+  "disabledSpeakers": [],
+  "referral": true
+}

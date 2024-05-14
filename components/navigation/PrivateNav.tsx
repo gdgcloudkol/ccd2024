@@ -72,7 +72,6 @@ export default function PrivateNav({ user }: { user: UserData | undefined }) {
             <DropdownMenuItem>
               <Settings2 className='mr-2 h-4 w-4' />
               <span>Profile</span>
-              {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
             </DropdownMenuItem>
           </LoadLink>
         </DropdownMenuGroup>
@@ -80,7 +79,6 @@ export default function PrivateNav({ user }: { user: UserData | undefined }) {
         <DropdownMenuItem onClick={() => signOut()}>
           <LogOut className='mr-2 h-4 w-4' />
           <span>Log out</span>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

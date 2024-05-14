@@ -46,7 +46,7 @@ export default function Navbar({ session }: { session: Session | null }) {
       className={cn(
         " justify-center w-full  md:items-center flex flex-col sticky top-0 z-40",
         scrolled
-          ? "backdrop-blur-md bg-background/50 bg-blend-normal shadow-md"
+          ? "backdrop-blur-sm bg-background/50 bg-blend-normal"
           : "bg-black"
       )}
     >
@@ -57,6 +57,7 @@ export default function Navbar({ session }: { session: Session | null }) {
             <Image
               className='dark:brightness-0 dark:invert'
               src={NavbarData["logo-desktop"]}
+              priority
               alt='navlogo'
               width='250'
               height='40'
