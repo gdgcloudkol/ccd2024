@@ -85,8 +85,8 @@ export default function ProfileForm({
     },
     {
       name: UserFieldsName.Pronoun,
-      label: "Gender",
-      placeholder: "Your Gender",
+      label: "Pronouns",
+      placeholder: "Your pronouns",
       type: "text",
     },
     {
@@ -130,7 +130,7 @@ export default function ProfileForm({
       pronoun: userData?.profile?.pronoun,
       college: userData?.profile?.college,
       company: userData?.profile?.company,
-      graduation_year: userData?.profile?.graduation_year,
+      graduation_year: userData?.profile?.graduation_year.toString(),
       phone: userData?.profile?.phone,
     },
   });
@@ -153,14 +153,8 @@ export default function ProfileForm({
         });
       } else {
         const data = await response.json();
-        let updateData = await update((prev: Session | null) => ({
-          ...prev,
-          user: {
-            ...prev?.user,
-            profile: data,
-          },
-        }));
-        signOut();
+
+        await update();
         toast({
           variant: "success",
           title: "Profile Updated",
@@ -205,7 +199,7 @@ export default function ProfileForm({
           <div></div>
           <Button
             type='submit'
-            className='w-full text-center'
+            className='w-full text-center text-foreground'
             disabled={isLoading}
           >
             {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}

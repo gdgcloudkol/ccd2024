@@ -13,6 +13,7 @@ export interface UserProfileData {
     };
     pronoun: string;
     profile_lock: boolean;
+    student: boolean;
 }
 
 export interface UserData {
