@@ -1,13 +1,10 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import { AUTH_LOGIN_URL, AUTH_REFRESH_TOKEN_URL, LOGIN_URL } from "./constants/auth";
 import bkFetch from "@/services/backend.services";
 import { Session } from "next-auth";
-import { LOGIN_DJANGO_URL, REFRESH_TOKEN_DJANGO_URL, AUTH_USERS_DJANGO_URL } from "./constants/be";
-
-
-const BASE_URL = process.env.API_BASE_URL;
+import { LOGIN_URL } from "./constants/auth";
+import { AUTH_USERS_DJANGO_URL, LOGIN_DJANGO_URL, REFRESH_TOKEN_DJANGO_URL } from "./constants/be";
 
 export const authOptions: NextAuthOptions = {
     session: {

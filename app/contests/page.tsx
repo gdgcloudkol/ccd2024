@@ -35,7 +35,6 @@ const Events = async () => {
     };
   }
   const { events, attendees } = await getData();
-
   return (
     <CardGrid
       gridData={{

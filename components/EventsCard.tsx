@@ -16,9 +16,10 @@ function EventCard({
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
 
-  attendees?.forEach((attendee) => {
-    eventApplicationStatus.set(attendee.event, attendee.status);
-  });
+  if (attendees?.length)
+    attendees?.forEach((attendee) => {
+      eventApplicationStatus.set(attendee.event, attendee.status);
+    });
 
   return events?.results?.map((card: Event) => (
     <div
