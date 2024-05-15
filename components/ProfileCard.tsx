@@ -51,7 +51,9 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
               <span className='highlight '>
                 {userData?.profile?.pronoun || "Me/mine"}
               </span>
-              . I am associated with{" "}
+              . My supercool username is{" "}
+              <span className='highlight '>{userData?.username}</span> . I am
+              associated with{" "}
               <span className='highlight '>
                 {userData?.profile?.college ||
                   userData?.profile?.company ||

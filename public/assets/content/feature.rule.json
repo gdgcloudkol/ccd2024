@@ -40,6 +40,18 @@
     "showCommunityPartners": true,
     "showSponsors": true
   },
+  "disabledSpeakerContent": {
+    "speakers": false
+  },
+  "disabledTeamsContent": {
+    "team": false
+  },
+  "disabledEventsContent": {
+    "events": true
+  },
+  "disabledContestContent": {
+    "contests": false
+  },
   "disabledFooterContent": {
     "footer": true,
     "section": [

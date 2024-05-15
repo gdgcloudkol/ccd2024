@@ -54,6 +54,7 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         jwt: async ({ token, user, session, trigger, account, profile, isNewUser }) => {
 
+
             if (trigger === "update") {
 
                 const response = await bkFetch(`${AUTH_USERS_DJANGO_URL}`, {

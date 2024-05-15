@@ -21,7 +21,7 @@ const buttonVariants = cva(
         success:
           "bg-google-green text-foreground-foreground opacity-90 hover:opacity-100",
         warning:
-          "bg-google-yellow text-foreground-foreground opacity-90 hover:opacity-100",
+          "bg-google-yellow text-google-darkGrey opacity-90 hover:opacity-100",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-google-blue underline-offset-4 hover:underline",
       },

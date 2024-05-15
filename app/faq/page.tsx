@@ -6,7 +6,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import FAQ from "@/public/assets/content/FAQ/content.json";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions",
+};
 function ContentBlock({
   title,
   description,
@@ -38,7 +41,9 @@ export default function page() {
               value={`faq-content-${idx}`}
               key={`faq-content-${idx}`}
             >
-              <AccordionTrigger className="text-left">{ques?.question}</AccordionTrigger>
+              <AccordionTrigger className='text-left'>
+                {ques?.question}
+              </AccordionTrigger>
               <AccordionContent asChild>
                 <p
                   dangerouslySetInnerHTML={{ __html: ques?.answer }}

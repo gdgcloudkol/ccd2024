@@ -3,7 +3,10 @@ import LoginForm from "./loginForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Login",
+};
 const Page = async () => {
   const session = await getServerSession(authOptions);
   if (session && session?.access) redirect("/profile");
