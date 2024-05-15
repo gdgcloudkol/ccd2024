@@ -1,0 +1,54 @@
+/* eslint-disable @next/next/no-img-element */
+import { ContestCards } from "./models/cardGrid.model";
+
+function ContestCard({ cards }: { cards: ContestCards[] }) {
+  return (
+    cards.map((card: ContestCards) => (
+      <div
+        key={card.id}
+        className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10"
+      >
+        <a href={card.link}>
+          <img
+            className="w-full h-auto"
+            src={card.image || "/assets/images/contestCard.png"}
+            alt={`ContestCard Image ${card.title}`}
+          />
+
+          <div className="p-4 flex flex-col items-center pb-10">
+            <p className="text-gray-900 font-bold text-lg mb-2 block">
+              {card.title}
+            </p>
+            <p className="text-gray-700 text-sm mb-2 min-h-14">
+              {card.content}
+            </p>
+            <div className="flex items-center justify-center">
+              {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
+                <img
+                  className="w-6 h-6 border-[1px] border-black rounded-full"
+                  src="/assets/images/mascot.webp"
+                  alt=""
+                />
+                <img
+                  className="w-6 h-6 border-[1px] border-black rounded-full"
+                  src="/assets/images/mascot.webp"
+                  alt=""
+                />
+              </div>
+              <p className="text-black text-sm mt-4">
+                140+ people participate
+              </p> */}
+              <button
+                className="bg-google-blue p-2 rounded-lg mt-5"
+              >
+                Start Contest
+              </button>
+            </div>
+          </div>
+        </a>
+      </div>
+    ))
+  )
+}
+
+export default ContestCard;

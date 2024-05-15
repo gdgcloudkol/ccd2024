@@ -1,5 +1,119 @@
 {
   "title": "Speakers",
   "description": "We will be revealing our amazing speakers soon!",
-  "color": "red"
+  "color": "red",
+  "allPeople": [
+    {
+      "header": "Chief Guest",
+      "description": "Listen to our honored Chief Guest",
+      "people": [
+        {
+          "id": 1,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://www.linkedin.com",
+          "twitter": "https://www.twitter.com",
+          "image": ""
+        },
+        {
+          "id": 2,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        },
+        {
+          "id": 3,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "header": "Guest of Honour",
+      "description": "Listen to our honored guest of honor",
+      "people": [
+        {
+          "id": 4,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        },
+        {
+          "id": 5,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "header": "Keynote Speakers",
+      "description": "Learn about the newest innovations in cloud computing from leaders in the industry and Google Developer Advocate Leader.",
+      "people": [
+        {
+          "id": 6,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        },
+        {
+          "id": 7,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        },
+        {
+          "id": 8,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "header": "Our Amazing Speakers",
+      "description": "Hear from the experts who are creating the cloud of the future. Our speakers are well-known individuals and friends who have ties to the communities in their organizations, cities, nations, and beyond.",
+      "people": [
+        {
+          "id": 1,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        },
+        {
+          "id": 2,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        },
+        {
+          "id": 3,
+          "title": "Sohail Pathan",
+          "content": "Developer Advocate at ApyHub",
+          "linkedin": "https://example.com/linkedin-icon.png",
+          "twitter": "https://example.com/twitter-icon.png",
+          "image": ""
+        }
+      ]
+    }
+  ]
 }
