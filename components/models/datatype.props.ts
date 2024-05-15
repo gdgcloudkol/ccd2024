@@ -9,7 +9,6 @@ export interface ILazyImgPropsTypes {
     lazy?: boolean;
 }
 export interface ISectionPropsTypes {
-
     title: string;
     description: string;
     color: string;

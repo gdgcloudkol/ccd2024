@@ -1,15 +1,17 @@
-import AlternateHeader from "@/components/blocks/AlternateHeader";
-import Team from "@/public/assets/content/Team/content.json";
-export default function page() {
+import CardGrid from "@/components/CardGrid";
+import { GridData } from "@/components/models/cardGrid.model";
+import TeamList from "@/public/assets/content/Team/content.json";
+
+function Team() {
+  const peopleList: GridData[] = TeamList.allPeople;
   return (
-    <section className='flex flex-col w-full max-w-6xl mx-auto space-y-8'>
-      <section className='flex flex-col local-container gap-6 p-4 space-y-4'>
-        <AlternateHeader
-          title={Team.title}
-          color={Team.color}
-          description={Team.description}
-        />
-      </section>
-    </section>
+    peopleList.map((people: GridData, index: number) => {
+      return (
+        <CardGrid key={index} gridData={people} type='Person' />
+      )
+    })
   );
 }
+
+export default Team;
+

@@ -1,15 +1,12 @@
-import AlternateHeader from "@/components/blocks/AlternateHeader";
-import Contests from "@/public/assets/content/Contest/content.json";
-export default function page() {
+import CardGrid from "@/components/CardGrid";
+import contestData from "@/public/assets/content/Contest/content.json";
+
+function Contest() {
   return (
-    <section className='flex flex-col w-full max-w-6xl mx-auto space-y-8'>
-      <section className='flex flex-col local-container gap-6 p-4 space-y-4'>
-        <AlternateHeader
-          title={Contests.title}
-          color={Contests.color}
-          description={Contests.description}
-        />
-      </section>
-    </section>
+    <>
+      <CardGrid gridData={contestData} type="Contest"></CardGrid>
+    </>
   );
 }
+
+export default Contest;
