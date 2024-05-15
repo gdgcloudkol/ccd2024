@@ -1,6 +1,7 @@
 {
-  "header": "Contests",
+  "title": "Contests",
   "description": "Take part in the constest listed below and stand a chance to get exclusive invitation to GCCD Kolkata. TnC applied.",
+  "color": "yellow",
   "cards": [
     {
       "id": 1,

@@ -1,5 +1,9 @@
 import AlternateHeader from "@/components/blocks/AlternateHeader";
 import Schedule from "@/public/assets/content/Schedule/content.json";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Schedule",
+};
 export default function page() {
   return (
     <section className='flex flex-col w-full max-w-6xl mx-auto space-y-8'>

@@ -10,3 +10,8 @@ export const RESEND_DJANGO_URL = CCD2024_BE_BASE_URL + "/resend"
 export const REFRESH_TOKEN_DJANGO_URL = CCD2024_BE_BASE_URL + "/token/refresh"
 export const AUTH_USERS_DJANGO_URL = CCD2024_BE_BASE_URL + "/auth/user"
 export const USERS_DJANGO_URL = CCD2024_BE_BASE_URL + "/users/profile/"
+
+
+
+export const EVENTS_DJANGO_URL = CCD2024_BE_BASE_URL + "/events/"
+export const ATTENDEES_DJANGO_URL = CCD2024_BE_BASE_URL + "/attendees/"

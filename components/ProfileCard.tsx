@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import gcp_logo from "../public/assets/images/gcp_logo.png";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import ProfileForm from "@/app/profile/profileForm";
 import { UserData } from "./models/login/datatype";
@@ -11,14 +10,15 @@ import { DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME } from "@/lib/constants/generic";
 const ProfileCard = ({ user }: { user?: UserData }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState<UserData | undefined>(user);
+
   useEffect(() => {
     setUserData(() => user);
   }, [user]);
-  window.scrollTo(0, 0);
+
   return (
     <div
       className={cn(
-        "bg-white p-8 mx-6 my-14 rounded-lg max-w-2xl sm:mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4",
+        "bg-white p-8 px-4 lg:px-8 mx-6 my-14 rounded-lg max-w-2xl sm:mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4",
         isEditing && "lg:grid-cols-1 place-content-center "
       )}
     >
@@ -32,6 +32,7 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
         src={"/assets/images/mascot.webp"}
         alt='gccd kol mascot'
       />
+
       <div className='text-xl text-black leading-10 flex flex-col space-y-4'>
         {isEditing ? (
           <ProfileForm
@@ -50,7 +51,9 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
               <span className='highlight '>
                 {userData?.profile?.pronoun || "Me/mine"}
               </span>
-              . I am associated with{" "}
+              . My supercool username is{" "}
+              <span className='highlight '>{userData?.username}</span> . I am
+              associated with{" "}
               <span className='highlight '>
                 {userData?.profile?.college ||
                   userData?.profile?.company ||
