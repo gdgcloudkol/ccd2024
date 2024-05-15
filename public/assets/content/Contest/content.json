@@ -12,28 +12,37 @@
     {
       "id": 2,
       "title": "Web Insights",
-      "image": "",
-      "content": "Improve the Lighthouse rating of the HTML CSS and JS files provided. Download them and edit and submit back to us for evaluation."
+      "content": "Improve the Lighthouse rating of the HTML CSS and JS files provided. Download them and edit and submit back to us for evaluation.",
+      "image": "/assets/images/contestCard.png",
+      "link": "/#"
     },
     {
       "id": 3,
       "title": "Lauki",
-      "content": "Count and return the number of laukis given by our API"
+      "content": "Count and return the number of laukis given by our API",
+      "image": "/assets/images/contestCard.png",
+      "link": "/#"
     },
     {
       "id": 4,
       "title": "Name of the Contest",
-      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus",
+      "image": "/assets/images/contestCard.png",
+      "link": "/#"
     },
     {
       "id": 5,
       "title": "Name of the Contest",
-      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus",
+      "image": "/assets/images/contestCard.png",
+      "link": "/#"
     },
     {
       "id": 6,
       "title": "Name of the Contest",
-      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus vulputate venenatis sit vulputate vel. Posuere nunc mauris non dictum eget. Ac neque diam augue aenean."
+      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus",
+      "image": "/assets/images/contestCard.png",
+      "link": "/#"
     }
   ]
 }

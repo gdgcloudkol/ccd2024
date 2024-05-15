@@ -13,7 +13,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://www.linkedin.com",
           "twitter": "https://www.twitter.com",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 2,
@@ -21,7 +21,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 3,
@@ -29,7 +29,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         }
       ]
     },
@@ -43,7 +43,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 5,
@@ -51,7 +51,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         }
       ]
     },
@@ -65,7 +65,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 7,
@@ -73,7 +73,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 8,
@@ -81,7 +81,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         }
       ]
     },
@@ -95,7 +95,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 2,
@@ -103,7 +103,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         },
         {
           "id": 3,
@@ -111,7 +111,7 @@
           "content": "Developer Advocate at ApyHub",
           "linkedin": "https://example.com/linkedin-icon.png",
           "twitter": "https://example.com/twitter-icon.png",
-          "image": ""
+          "image": "/assets/images/mascot.webp"
         }
       ]
     }

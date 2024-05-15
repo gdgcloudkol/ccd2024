@@ -15,7 +15,7 @@ function PeopleCard({ cards }: { cards: PeopleCards[] }) {
             <div className="text-center my-4">
               <img
                 className="h-32 w-32 rounded-full border-4 border-white dark:border-t-red-500 border-l-green-500 border-r-amber-500 border-b-blue-500 mx-auto my-4"
-                src="/assets/images/Ellipse 34.png"
+                src={card.image}
                 alt=""
               />
               <div className="py-2 font-google-sans m-4">
@@ -56,7 +56,7 @@ function PeopleCard({ cards }: { cards: PeopleCards[] }) {
               <div className="text-center">
                 <img
                   className="h-16 w-16 rounded-full border-4 border-white dark:border-t-red-500 border-l-green-500 border-r-amber-500 border-b-blue-500 mx-auto my-4"
-                  src="/assets/images/Ellipse 34.png"
+                  src={card.image}
                   alt=""
                 />
               </div>
