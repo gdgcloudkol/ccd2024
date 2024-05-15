@@ -3,7 +3,10 @@ import CommunityData from "@/public/assets/content/CommunityPartners/content.jso
 import GdscBanner from "./GdscBanner";
 import Link from "next/link";
 
+import FeatureRuleContent from "@/public/assets/content/feature.rule.json";
 const CommunityPartners = () => {
+  const disabledCommunityPartners =
+    FeatureRuleContent.disabledCommunityPartners;
   return (
     <div>
       <div className='bg-background py-10 px-4'>
@@ -14,44 +17,46 @@ const CommunityPartners = () => {
           {CommunityData.description}
         </h3>
         <div className='grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 place-items-center m-8'>
-          {CommunityData.community.map((item) => (
-            <div
-              key={`community-partner-${item.name}`}
-              className={`bg-white p-4 w-64 h-64 md:w-48 md:h-52 xl:w-64 xl:h-64 flex items-center justify-center rounded ${
-                item.hidden ? "blur-sm grayscale" : ""
-              }`}
-            >
-              {!item.logo ? (
-                <Link
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  href={item.hyperlink}
-                >
-                  <GdscBanner label={item?.name} />
-                </Link>
-              ) : (
-                <>
-                  {/* Else Part */}
-                  <div className='col-span-1  align-middle rounded-lg text-black'>
-                    <div className='w-fit flex justify-center'>
-                      <Link
-                        href={item.hyperlink}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
-                        <img
-                          src={item.logo}
-                          alt=''
-                          className='w-full'
-                          loading='lazy'
-                        />
-                      </Link>
+          {CommunityData.community.map((partner) =>
+            disabledCommunityPartners.every((i) => i !== partner?.partnerId) ? (
+              <div
+                key={`community-partner-${partner.name}`}
+                className={`bg-white p-4 w-64 h-64 md:w-48 md:h-52 xl:w-64 xl:h-64 flex items-center justify-center rounded ${
+                  partner.hidden ? "blur-sm grayscale" : ""
+                }`}
+              >
+                {!partner.logo ? (
+                  <Link
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={partner.hyperlink}
+                  >
+                    <GdscBanner label={partner?.name} />
+                  </Link>
+                ) : (
+                  <>
+                    {/* Else Part */}
+                    <div className='col-span-1  align-middle rounded-lg text-black'>
+                      <div className='w-fit flex justify-center'>
+                        <Link
+                          href={partner.hyperlink}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          <img
+                            src={partner.logo}
+                            alt=''
+                            className='w-full'
+                            loading='lazy'
+                          />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
+                  </>
+                )}
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     </div>

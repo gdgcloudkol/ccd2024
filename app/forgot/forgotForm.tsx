@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import useErrorToasts from "@/components/error-toast";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -24,9 +25,8 @@ const formSchema = z.object({
 
 export default function ForgotForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [showSucessMessage, setShowSuccessMessage]=useState<boolean>(false)
-
-  // 1. Define the form.
+  const [showSucessMessage, setShowSuccessMessage] = useState<boolean>(false);
+  const { triggerErrorToasts } = useErrorToasts();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,14 +34,26 @@ export default function ForgotForm() {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-
-    // handle operation with form values.
-    // ✅ This will be type-safe and validated.
-
-    setShowSuccessMessage(true)
+    setShowSuccessMessage(false);
+    const exec = async (values: z.infer<typeof formSchema>) => {
+      let response = await fetch("/api/auth/forgot", {
+        method: "POST",
+        body: JSON.stringify({
+          email: values.email,
+        }),
+      });
+      setIsLoading(false);
+      if (!response.ok) {
+        const error = await response.json();
+        console.log(error);
+        // triggerErrorToasts(error);
+      } else {
+        setShowSuccessMessage(true);
+      }
+    };
+    exec(values);
   }
 
   return (
@@ -56,37 +68,43 @@ export default function ForgotForm() {
         ></p>
       </div>
 
-      {!showSucessMessage ? <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-          <FormField
-            control={form.control}
-            name='email'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder='john@example.com'
-                    type='email'
-                    className='bg-white text-black'
-                    {...field}
-                  />
-                </FormControl>
+      {!showSucessMessage ? (
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
+            <FormField
+              control={form.control}
+              name='email'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='john@example.com'
+                      type='email'
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button
-            type='submit'
-            className='w-full text-center'
-            disabled={isLoading}
-          >
-            {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
-            Reset Password
-          </Button>
-        </form>
-      </Form> : <h3 className='text-3xl bold'>Please check your email for further steps</h3>}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              type='submit'
+              className='w-full text-center'
+              disabled={isLoading}
+            >
+              {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
+              Reset Password
+            </Button>
+          </form>
+        </Form>
+      ) : (
+        <h3 className='text-3xl bold'>
+          Please check your email for further steps
+        </h3>
+      )}
       <p className='text-center'>
         Remember Your Password?{" "}
         <Link href={"/login"} className='text-google-blue hover:underline'>

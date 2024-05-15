@@ -1,5 +1,6 @@
 import AlternateHeader from "@/components/blocks/AlternateHeader";
 import COC from "@/public/assets/content/CodeOfConduct/content.json";
+import { Metadata } from "next";
 
 function ContentBlock({
   title,
@@ -15,7 +16,9 @@ function ContentBlock({
     </div>
   );
 }
-
+export const metadata: Metadata = {
+  title: "Code Of Conduct",
+};
 export default function page() {
   return (
     <section className='flex flex-col w-full max-w-6xl mx-auto space-y-8'>

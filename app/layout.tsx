@@ -11,6 +11,7 @@ import { NavigationEvents } from "@/components/blocks/NavigationEvents";
 import { Toaster } from "@/components/ui/toaster";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import siteConfig from "@/public/assets/content/site-config.json";
 const googleSans = localFont({
   src: [
     {
@@ -25,9 +26,24 @@ const googleSans = localFont({
   variable: "--font-google",
 });
 export const metadata: Metadata = {
-  title: "Cloud community days 2024 | GDG Cloud Kolkata",
-  description: "CCD 2024 Website of GDG Cloud Kolkata",
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.title}`,
+  },
+
+  description: siteConfig.description,
+  authors: siteConfig.authors,
+
   icons: "./favicon.ico",
+  openGraph: {
+    title: siteConfig.title,
+    images: [`${siteConfig.ogImage ?? ""}`],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    images: [`${siteConfig.ogImage ?? ""}`],
+  },
 };
 export default async function RootLayout({
   children,

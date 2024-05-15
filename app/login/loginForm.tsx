@@ -21,6 +21,7 @@ import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { signIn } from "next-auth/react";
 import LoadLink from "@/components/blocks/LoadLink";
+import { useSearchParams } from "next/navigation";
 
 const formSchema = z.object({
   username: z.string(),
@@ -31,7 +32,7 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
+  const searchParams = useSearchParams();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -105,6 +106,7 @@ export default function LoginForm() {
               Forgot Password?
             </Link>
           </div>
+
           <Button
             type='submit'
             className='w-full text-center'
@@ -113,6 +115,13 @@ export default function LoginForm() {
             {isLoading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />}
             Log in
           </Button>
+          {searchParams.get("error") && (
+            <p className='text-2xl text-google-red'>
+              {searchParams.get("error") == "CredentialsSignin"
+                ? "Invalid credentials"
+                : searchParams.get("error")}
+            </p>
+          )}
         </form>
       </Form>
       <p className='text-center'>
