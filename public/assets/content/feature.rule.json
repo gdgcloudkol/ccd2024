@@ -7,6 +7,7 @@
     "navbarSpatialLoggedInBT": true
   },
   "disabledRoutes": ["/dashboard", "/termsAndCondition"],
+  "XOrganizerEnabledRoutes": ["/event-manager"],
   "disabledPartnerTitles": [],
   "disabledPartners": [],
   "disabledCommunityPartners": [],
@@ -35,7 +36,8 @@
     "events": true
   },
   "disabledContestContent": {
-    "contests": false
+    "contests": false,
+    "maxApproved": 3
   },
   "disabledFooterContent": {
     "footer": true,
@@ -58,6 +60,5 @@
     ]
   },
   "disabledSocial": [],
-  "disabledSpeakers": [],
-  "referral": true
+  "disabledSpeakers": []
 }

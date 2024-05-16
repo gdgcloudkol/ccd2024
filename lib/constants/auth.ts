@@ -24,6 +24,5 @@ export const AuthRoles = {
     volunteer: "volunteer",
     Xorganizer: "x-organizer",
     Xvolunteer: "x-volunteer",
-    moderator: "moderator",
     attendee: "attendee"
 }

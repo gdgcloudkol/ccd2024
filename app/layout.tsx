@@ -10,6 +10,7 @@ import { NavigationEvents } from "@/components/blocks/NavigationEvents";
 import { Toaster } from "@/components/ui/toaster";
 import siteConfig from "@/public/assets/content/site-config.json";
 import NavbarSSR from "@/components/navigation/NavbarSSR";
+import GoTop from "@/components/blocks/GoTop";
 const googleSans = localFont({
   src: [
     {
@@ -65,6 +66,7 @@ export default async function RootLayout({
               {children}
               <Footer />
               <Toaster />
+              <GoTop />
               <Suspense fallback={null}>
                 <NavigationEvents />
               </Suspense>

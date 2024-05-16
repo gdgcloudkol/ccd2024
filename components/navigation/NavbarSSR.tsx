@@ -15,13 +15,13 @@ const NavbarSSR = async () => {
   if (session) {
     navAdditional = NavRuleContent.navbarSpatialLoggedIn;
     navUser = NavRuleContent.navbarUserAttendeeLoggedIn;
-    if (session.user.profile.role == AuthRoles.moderator) {
+    if (session.user.profile.event_role == AuthRoles.Xorganizer) {
       navAdditional = [
-        ...NavRuleContent.navbarUserModeratorLoggedIn,
+        ...NavRuleContent.navbarUserXOrganizerLoggedIn,
         ...NavRuleContent.navbarSpatialLoggedIn,
       ];
       navUser = [
-        ...NavRuleContent.navbarUserModeratorLoggedIn,
+        ...NavRuleContent.navbarUserXOrganizerLoggedIn,
         ...NavRuleContent.navbarUserAttendeeLoggedIn,
       ];
     }

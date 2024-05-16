@@ -6,7 +6,37 @@ import { Attendee } from "./models/attendees/datatype";
 import { Ban, Ticket, TicketCheck, TicketX } from "lucide-react";
 import EventApply from "./EventApply";
 import { TicketChoices } from "@/lib/constants/tickets";
+import FeatureRule from "@/public/assets/content/feature.rule.json";
+export function returnVariant(ticketChoice: string | undefined) {
+  if (!ticketChoice || ticketChoice == undefined) return "default";
+  switch (ticketChoice) {
+    case TicketChoices.applied:
+      return "default";
 
+    case TicketChoices.approved:
+      return "success";
+    case TicketChoices.rejected:
+      return "destructive";
+
+    default:
+      return "warning";
+  }
+}
+function returnIcon(ticketChoice: string | undefined) {
+  if (!ticketChoice || ticketChoice == undefined) return "default";
+  switch (ticketChoice) {
+    case TicketChoices.applied:
+      return <TicketCheck className='h-4 w-4 mr-2' />;
+
+    case TicketChoices.approved:
+      return <TicketCheck className='h-4 w-4 mr-2' />;
+    case TicketChoices.rejected:
+      return <TicketX className='h-4 w-4 mr-2' />;
+
+    default:
+      return <Ticket className='h-4 w-4 mr-2' />;
+  }
+}
 function EventCard({
   events,
   attendees,
@@ -21,37 +51,6 @@ function EventCard({
     attendees?.forEach((attendee) => {
       eventApplicationStatus.set(attendee.event, attendee.status);
     });
-
-  function returnVariant(ticketChoice: string | undefined) {
-    if (!ticketChoice || ticketChoice == undefined) return "default";
-    switch (ticketChoice) {
-      case TicketChoices.applied:
-        return "warning";
-
-      case TicketChoices.approved:
-        return "success";
-      case TicketChoices.rejected:
-        return "destructive";
-
-      default:
-        return "warning";
-    }
-  }
-  function returnIcon(ticketChoice: string | undefined) {
-    if (!ticketChoice || ticketChoice == undefined) return "default";
-    switch (ticketChoice) {
-      case TicketChoices.applied:
-        return <TicketCheck className='h-4 w-4 mr-2' />;
-
-      case TicketChoices.approved:
-        return <TicketCheck className='h-4 w-4 mr-2' />;
-      case TicketChoices.rejected:
-        return <TicketX className='h-4 w-4 mr-2' />;
-
-      default:
-        return <Ticket className='h-4 w-4 mr-2' />;
-    }
-  }
 
   return events?.results?.map((card: Event) => (
     <div
@@ -106,7 +105,7 @@ function EventCard({
 
           {/* Fetch event id from the MAP and set ticket status accordingly. */}
 
-          {eventApplicationStatus.get(card.id) ? (
+          {eventApplicationStatus?.get(card.id) ? (
             <Button
               variant={returnVariant(eventApplicationStatus.get(card.id))}
               className='capitalize disabled cursor-not-allowed w-full'
@@ -114,10 +113,14 @@ function EventCard({
               {returnIcon(eventApplicationStatus.get(card.id))}
               {eventApplicationStatus.get(card.id)}
             </Button>
-          ) : attendees && attendees?.length > 4 ? (
-            <Button>
+          ) : attendees &&
+            attendees?.filter(
+              (attendee) => attendee?.status == TicketChoices?.approved
+            )?.length >= FeatureRule.disabledContestContent.maxApproved ? (
+            <Button disabled>
               <Ban className='h-4 w-4 mr-2' />
-              Applied to 3 events already
+              Approved to {FeatureRule.disabledContestContent.maxApproved}{" "}
+              events already
             </Button>
           ) : (
             <EventApply

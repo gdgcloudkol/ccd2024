@@ -14,6 +14,8 @@ export interface UserProfileData {
     pronoun: string;
     profile_lock: boolean;
     student: boolean;
+    event_role: string;
+    x_event: number | null
 }
 
 export interface UserData {

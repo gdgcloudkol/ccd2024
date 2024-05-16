@@ -55,7 +55,7 @@
       "link": "/profile"
     }
   ],
-  "navbarUserModeratorLoggedIn": [
+  "navbarUserXOrganizerLoggedIn": [
     {
       "title": "Event Manager",
       "link": "/event-manager"

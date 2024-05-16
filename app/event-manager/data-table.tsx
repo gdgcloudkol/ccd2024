@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import * as React from "react";
 import {
+  ColumnDef,
   ColumnFiltersState,
-  PaginationState,
   SortingState,
   VisibilityState,
   flexRender,
@@ -13,8 +13,19 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { ArrowUpDown, Bell, ChevronDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -24,172 +35,139 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { DataTablePagination } from "./data-table-pagination";
-import { Session } from "next-auth";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import useErrorToasts from "@/components/error-toast";
-
-interface DataTableProps {
-  columns: any;
-  data: any;
-  count: number;
-  next: string;
-  previous: string;
-  session: Session;
-  localSearch?: boolean;
-  searchTerm?: string;
-  page_index?: number;
-  page_size?: number;
-}
+import { cn } from "@/lib/utils";
+import { AttendeeData } from "./column";
+import {
+  Dialog,
+  DialogFooter,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+  DialogHeader,
+  DialogContent,
+} from "@/components/ui/dialog";
+import { useToast } from "@/components/ui/use-toast";
 
 export function DataTable({
-  columns,
   data,
-  count,
-  next,
-  previous,
-  localSearch = false,
-  page_index = 1,
-  page_size = 10,
-  searchTerm = "",
-}: DataTableProps) {
-  const [tableData, setTableData] = useState<any>(data);
-  const [tableCount, setTableCount] = useState<number>(count);
-  const [baseUrl, setBaseUrl] = useState<string>("randomAPI");
-  const [nextUrl, setNextUrl] = useState<string>(next);
-  const [prevUrl, setPrevUrl] = useState<string>(previous);
-  const [currentPageIndex, setCurrentPageIndex] = useState(page_index - 1);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [paginate, setPaginate] = useState<boolean>(true);
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [searchQuery, setSearchQuery] = useState(searchTerm);
-  const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
-    pageIndex: page_index - 1,
-    pageSize: page_size,
-  });
-
-  const pagination = useMemo(
-    () => ({
-      pageIndex,
-      pageSize,
-    }),
-    [pageIndex, pageSize]
+  columns,
+}: {
+  data: AttendeeData[];
+  columns: any;
+}) {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
   );
-  const current = usePathname();
-  const search = useSearchParams();
+  const [tableData, setTableData] = React.useState(data);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const { toast } = useToast();
 
-  const router = useRouter();
-  const { triggerErrorToasts } = useErrorToasts();
-  const fetchData = useCallback(
-    async (url: string) => {
-      setPaginate(true);
-      setIsLoading(true);
-
-      const response = await fetch(fetchUrl, {
-        method: "GET",
-        cache: "no-store",
-      });
-
-      if (!response.ok) {
-        const data = await response.json();
-        triggerErrorToasts(data);
-        const message = `An error has occurred: ${response.status}`;
-        setIsLoading(false);
-        throw new Error(message);
-      } else {
-        const data = await response.json();
-        setIsLoading(false);
-        setTableData(data.results);
-        setNextUrl(data.next);
-        setTableCount(data.count);
-        setPrevUrl(data.previous);
-      }
-    },
-    [current]
-  );
-
-  let fetchUrl = "";
-
-  useEffect(() => {
-    let BaseURL = baseUrl;
-    let query = search.get("search");
-    if (searchQuery !== "" && query !== "" && query !== null) {
-      if (!baseUrl?.includes("find")) BaseURL = `${baseUrl}find/`;
-    }
-
-    fetchUrl = `${BaseURL}?page=${page_index}&page_size=${pageSize}`;
-    if (pageIndex == 0) {
-      fetchUrl = `${BaseURL}?page_size=${pageSize}`;
-    } else if (pageIndex == currentPageIndex + 1) {
-      fetchUrl = nextUrl;
-    } else if (pageIndex == currentPageIndex - 1) {
-      fetchUrl = prevUrl;
-    } else if (pageIndex == table.getPageCount() - 1) {
-      fetchUrl = `${BaseURL}?page=${table.getPageCount()}&page_size=${pageSize}`;
-    } else if (
-      pageIndex !== currentPageIndex &&
-      pageIndex !== currentPageIndex - 1 &&
-      pageIndex !== currentPageIndex + 1 &&
-      pageIndex < table.getPageCount()
-    ) {
-      fetchUrl = `${BaseURL}?page=${page_index}&page_size=${pageSize}`;
-    }
-    setCurrentPageIndex(pageIndex);
-    if (
-      fetchUrl !== "" &&
-      searchQuery == "" &&
-      (query == "" || query == undefined || query == null)
-    ) {
-      fetchData(fetchUrl);
-    }
-    table.getColumn("email")?.setFilterValue(searchQuery);
-  }, [searchQuery, pageIndex, pageSize]);
   const table = useReactTable({
     data: tableData,
     columns,
-    getCoreRowModel: getCoreRowModel(),
     manualPagination: true,
-    pageCount: Math.ceil(tableCount / pageSize),
     onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
-      pagination,
       columnFilters,
+      columnVisibility,
+      rowSelection,
     },
-    onPaginationChange: setPagination,
   });
+  let tableHeaderGroup = React.useMemo(() => table?.getHeaderGroups(), [table]);
+  const informAll = () => {
+    fetch("/api/attendee/informAll", { method: "POST" });
+    setDialogOpen(false);
+  };
+  React.useEffect(() => {
+    if (searchQuery == "" || searchQuery == undefined || searchQuery == null) {
+      setTableData(data);
+      return;
+    } else {
+      setTableData(() => {
+        return data.filter(
+          (element: AttendeeData) =>
+            element?.user?.email
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+            element?.user?.profile?.first_name
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+            element?.user?.profile?.last_name
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+            element?.status.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      });
+    }
+  }, [searchQuery]);
   return (
     <div className='w-full'>
-      <div className='flex items-center py-4'>
+      <div className='flex flex-wrap items-center justify-between gap-4 py-4'>
         <Input
-          placeholder='Search emails...'
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder='Search emails, names, status...'
+          value={searchQuery}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            setSearchQuery(() => event.target.value.trim().toLowerCase())
           }
-          className='max-w-sm'
+          className='max-w-xl'
         />
-        {table.getSelectedRowModel().rows.length > 0 && (
-          <div className='flex items-center gap-2 ml-auto'>
-            <Button variant={"destructive"}>Approve selected</Button>
-            <Button variant={"default"}>Reject selected</Button>
-          </div>
-        )}
+
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogTrigger asChild>
+            <Button variant={"secondary"}>
+              <Bell className='h-4 w-4 mr-2' /> Inform All
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Inform all attendees?</DialogTitle>
+              <DialogDescription></DialogDescription>
+              <p>
+                {" "}
+                Confirming this action would inform all attendees about their
+                ticket status. This action is irreversible!
+              </p>
+            </DialogHeader>
+            <DialogFooter>
+              <Button variant={"ghost"} onClick={() => setDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button
+                variant={"default"}
+                className='text-white'
+                onClick={informAll}
+              >
+                <Bell className='h-4 w-4 mr-2' />
+                Inform
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
       <div className='rounded-md border'>
         <Table>
           <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
+            {tableHeaderGroup?.map((headerGroup, idx) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className={cn(idx == 0 && "pl-3")}
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -232,15 +210,6 @@ export function DataTable({
           </TableBody>
         </Table>
       </div>
-      <>
-        <DataTablePagination
-          table={table}
-          count={99}
-          tableLength={100}
-          loading={false}
-          //   searchQuery={searchQuery ?? ""}
-        />
-      </>
     </div>
   );
 }
