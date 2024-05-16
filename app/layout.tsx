@@ -54,7 +54,7 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${googleSans.className} w-full max-w-screen-2xl mx-auto`}
+        className={`${googleSans.className} w-full max-w-screen-4xl mx-auto scrollbar-hide`}
       >
         {" "}
         <LoadingContextProvider>
