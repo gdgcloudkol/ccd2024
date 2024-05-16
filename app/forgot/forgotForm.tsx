@@ -38,7 +38,7 @@ export default function ForgotForm() {
     setIsLoading(true);
     setShowSuccessMessage(false);
     const exec = async (values: z.infer<typeof formSchema>) => {
-      let response = await fetch("/api/auth/forgot", {
+      let response = await fetch("/api/auth/password/reset", {
         method: "POST",
         body: JSON.stringify({
           email: values.email,
@@ -48,7 +48,7 @@ export default function ForgotForm() {
       if (!response.ok) {
         const error = await response.json();
         console.log(error);
-        // triggerErrorToasts(error);
+        triggerErrorToasts(error);
       } else {
         setShowSuccessMessage(true);
       }
