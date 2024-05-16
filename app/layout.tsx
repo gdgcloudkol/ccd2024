@@ -3,15 +3,14 @@ import "@/styles/globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme-provider";
 import { NextAuthProvider } from "@/app/session-provider";
-import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/Footer";
 import { LoadingContextProvider } from "./loading-provider";
 import { Suspense } from "react";
 import { NavigationEvents } from "@/components/blocks/NavigationEvents";
 import { Toaster } from "@/components/ui/toaster";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import siteConfig from "@/public/assets/content/site-config.json";
+import NavbarSSR from "@/components/navigation/NavbarSSR";
+import GoTop from "@/components/blocks/GoTop";
 const googleSans = localFont({
   src: [
     {
@@ -50,11 +49,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions);
   return (
     <html lang='en'>
       <body
-        className={`${googleSans.className} w-full max-w-screen-2xl mx-auto`}
+        className={`${googleSans.className} w-full max-w-screen-4xl mx-auto scrollbar-hide`}
       >
         {" "}
         <LoadingContextProvider>
@@ -62,13 +60,13 @@ export default async function RootLayout({
             <ThemeProvider
               attribute='class'
               defaultTheme='dark'
-              enableSystem
               disableTransitionOnChange
             >
-              <Navbar session={session} />
+              <NavbarSSR />
               {children}
               <Footer />
               <Toaster />
+              <GoTop />
               <Suspense fallback={null}>
                 <NavigationEvents />
               </Suspense>

@@ -18,3 +18,11 @@ export const FORGOT_API = AUTH_API_BASE_URL + "/forgot"
 export const VERIFY_API = AUTH_API_BASE_URL + "/verify"
 export const RESEND_API = AUTH_API_BASE_URL + "/resend"
 export const AUTH_REFRESH_TOKEN_URL = AUTH_BASE_URL + "/token/refresh/"
+
+export const AuthRoles = {
+    organizer: "organizer",
+    volunteer: "volunteer",
+    Xorganizer: "x-organizer",
+    Xvolunteer: "x-volunteer",
+    attendee: "attendee"
+}

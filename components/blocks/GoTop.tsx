@@ -1,17 +1,47 @@
-import React from "react";
+"use client";
+import { cn } from "@/lib/utils";
 import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
-interface PropsType {
-  showGoTop: string;
-  scrollUp: () => void;
-}
+const GoTop: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-const GoTop: React.FC<PropsType> = (props) => {
+  useEffect(() => {
+    const toggleVisibility = () => {
+      // if the user scrolls down, show the button
+      window.scrollY > 500 ? setIsVisible(true) : setIsVisible(false);
+    };
+    // listen for scroll events
+    window.addEventListener("scroll", toggleVisibility);
+
+    // clear the listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
+
+  // handles the animation when scrolling to the top
+  const scrollToTop = () => {
+    isVisible &&
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
+  };
   return (
-    <div className={`${props.showGoTop}`} onClick={props.scrollUp}>
-      <button className=' block'>
-        <div className=' block z-50 fixed w-10 h-10 rounded-3xl right-4 bottom-4 cursor-pointer leading-7 text-center'>
-          <ArrowUp color={`#8AB4F8`} size={40} />
+    <div
+      className={cn(
+        `absolute right-10 bottom-10 group`,
+        !isVisible ? "hidden" : "inline-block"
+      )}
+      onClick={scrollToTop}
+    >
+      <button className='block'>
+        <div className='grid  place-content-center z-50 fixed w-12 h-12 rounded-full right-4 bottom-4 cursor-pointer leading-7 text-center bg-secondary p-4 group-hover:bg-gray-700 duration-150'>
+          <ArrowUp
+            color={`#8AB4F8`}
+            className='h-5 w-5 group-hover:translate-y-[-4px] duration-100'
+          />
         </div>
       </button>
     </div>
