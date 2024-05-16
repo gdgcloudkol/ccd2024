@@ -9,5 +9,6 @@
   "signupFormTitle": "Create new account",
   "signupFormDescription": "You can reach out to us at anytime via  <a style=\"color:#4285f4\" href=\"mailto:gdgcloudkol@gmail.com\">gdgcloudkol@gmail.com</a>",
   "resetFormTitle": "Reset your password",
-  "singupSuccessMessage": "An email has been sent to your registered email id. Please activate your account first to continue!"
+  "singupSuccessMessage": "An email has been sent to your registered email id. Please activate your account first to continue!",
+  "resetSuccessMessage": "Your password has been changed successfully. Please login to continue"
 }
