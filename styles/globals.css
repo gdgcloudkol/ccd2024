@@ -95,6 +95,11 @@
   }
 }
 
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+}
 .animate-progress{
   
   animation: 2s progress infinite ;
@@ -114,6 +119,7 @@
   width: 100%;
   overflow: hidden;
 }
+
 
 .progress-bar-value {
   width: 100%;
