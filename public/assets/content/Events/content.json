@@ -1,5 +1,114 @@
 {
   "title": "Extended Events",
   "description": "Extended events are organized with community partners. Attending these events give you a chance to attend the main event and connect with awesome people around.",
-  "color": "blue"
+  "color": "blue",
+  "demoContents": [
+    {
+      "id": 1,
+      "title": "GCCD Extended Events: GCCD Kolkata x GDSC FIEM",
+      "description": "Future Institute of Engineering and Management",
+      "start_date": "2024-05-18T11:00:00+05:30",
+      "stop_date": "2024-05-18T17:00:00+05:30",
+      "mode": "offline",
+      "slug": "gdscfiem",
+      "manager": null,
+      "technologies": [1],
+      "volunteers": [3, 2]
+    },
+    {
+      "id": 2,
+      "title": "GCCD Extended Events: GCCD Kolkata x Flutter",
+      "description": "Future Institute of Engineering and Management",
+      "start_date": "2024-05-18T11:00:00+05:30",
+      "stop_date": "2024-05-18T17:00:00+05:30",
+      "mode": "offline",
+      "slug": "gdscfiem",
+      "manager": null,
+      "technologies": [1],
+      "volunteers": [3, 2]
+    },
+    {
+      "id": 3,
+      "title": "GCCD Extended Events: GCCD Kolkata x Tfug",
+      "description": "Future Institute of Engineering and Management",
+      "start_date": "2024-05-18T11:00:00+05:30",
+      "stop_date": "2024-05-18T17:00:00+05:30",
+      "mode": "offline",
+      "slug": "gdscfiem",
+      "manager": null,
+      "technologies": [1],
+      "volunteers": [3, 2]
+    },
+    {
+      "id": 4,
+      "title": "GCCD Extended Events: GCCD Kolkata x Polygon",
+      "description": "Future Institute of Engineering and Management",
+      "start_date": "2024-05-18T11:00:00+05:30",
+      "stop_date": "2024-05-18T17:00:00+05:30",
+      "mode": "offline",
+      "slug": "gdscfiem",
+      "manager": null,
+      "technologies": [1],
+      "volunteers": [3, 2]
+    },
+    {
+      "id": 5,
+      "title": "GCCD Extended Events: GCCD Kolkata x H4B",
+      "description": "Future Institute of Engineering and Management",
+      "start_date": "2024-05-18T11:00:00+05:30",
+      "stop_date": "2024-05-18T17:00:00+05:30",
+      "mode": "offline",
+      "slug": "gdscfiem",
+      "manager": null,
+      "technologies": [1],
+      "volunteers": [3, 2]
+    }
+  ],
+
+  "demoAttendee": [
+    {
+      "id": 1,
+      "status": "approved",
+      "created_at": "2024-05-15T12:45:07.054624+05:30",
+      "updated_at": "2024-05-15T14:08:18.018926+05:30",
+      "checked_in": false,
+      "checker": null,
+      "viewer": null,
+      "user": 6,
+      "event": 1
+    },
+    {
+      "id": 2,
+      "status": "applied",
+      "created_at": "2024-05-15T12:45:07.054624+05:30",
+      "updated_at": "2024-05-15T14:08:18.018926+05:30",
+      "checked_in": false,
+      "checker": null,
+      "viewer": null,
+      "user": 6,
+      "event": 2
+    },
+    {
+      "id": 3,
+      "status": "approved",
+      "created_at": "2024-05-15T12:45:07.054624+05:30",
+      "updated_at": "2024-05-15T14:08:18.018926+05:30",
+      "checked_in": false,
+      "checker": null,
+      "viewer": null,
+      "user": 6,
+      "event": 3
+    },
+    {
+      "id": 4,
+      "status": "approved",
+      "created_at": "2024-05-15T12:45:07.054624+05:30",
+      "updated_at": "2024-05-15T14:08:18.018926+05:30",
+      "checked_in": false,
+      "checker": null,
+      "viewer": null,
+      "user": 6,
+      "event": 4
+    }
+  ]
 }

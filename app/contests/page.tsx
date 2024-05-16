@@ -68,7 +68,7 @@ async function Contest() {
                 <Suspense
                   fallback={
                     <div className='flex items-center gap-x-2'>
-                      <Loader2 className='h-4 w-4' /> Loading events...
+                      <Loader2 className='h-4 w-4 animate-spin' /> Loading events...
                     </div>
                   }
                 >

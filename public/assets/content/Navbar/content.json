@@ -45,12 +45,20 @@
       "link": "/profile"
     },
     {
-      "title": "Buy Tickets",
-      "link": "/tickets"
-    },
+      "title": "Log out",
+      "link": "/logout"
+    }
+  ],
+  "navbarUserAttendeeLoggedIn": [
     {
-      "title": "Dashboard",
-      "link": "/dashboard"
+      "title": "Profile",
+      "link": "/profile"
+    }
+  ],
+  "navbarUserXOrganizerLoggedIn": [
+    {
+      "title": "Event Manager",
+      "link": "/event-manager"
     }
   ],
   "navbarSpatialNotLoggedIn": [
