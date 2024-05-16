@@ -1,23 +1,8 @@
 {
-  "signup": ["foodPref", "reset", "cancel"],
-  "login": {
-    "accountType": false,
-    "username": true,
-    "email": false,
-    "password": true,
-    "oneTimeLink": false,
-    "submit": true,
-    "cancel": false
-  },
-  "forgetPassword": {
-    "accountType": true,
-    "email": true,
-    "submit": true,
-    "cancel": true
-  },
   "navbar": {
     "navbarPermanent": true,
     "navbarSpatialLoggedIn": true,
+    "navbarSpatialModeratorLoggedIn": true,
     "navbarSpatialNotLoggedIn": true,
     "navbarSpatialLoggedInBT": true
   },

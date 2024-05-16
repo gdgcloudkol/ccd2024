@@ -11,8 +11,22 @@ import { useLoadingContext } from "@/app/loading-provider";
 import { Button } from "../ui/button";
 import { Session } from "next-auth";
 import PrivateNav from "./PrivateNav";
-
-export default function Navbar({ session }: { session: Session | null }) {
+export interface navLinkProps {
+  title: string;
+  link: string;
+  desktopVisible?: boolean;
+}
+export default function Navbar({
+  session,
+  navBarPermanent,
+  navBarAdditional,
+  navBarUser,
+}: {
+  session: Session | null;
+  navBarPermanent: navLinkProps[];
+  navBarAdditional: navLinkProps[];
+  navBarUser?: navLinkProps[];
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -41,6 +55,7 @@ export default function Navbar({ session }: { session: Session | null }) {
     setOpen(() => false);
   }, [active]);
   const { loading } = useLoadingContext();
+
   return (
     <nav
       className={cn(
@@ -65,7 +80,7 @@ export default function Navbar({ session }: { session: Session | null }) {
           </LoadLink>
           <div className='hidden md:flex h-20 md:gap-10 px-2 lg:gap-x-24 max-w-screen-2xl items-center justify-between'>
             <div className='flex'>
-              {NavbarData.navbarPermanent
+              {navBarPermanent
                 .filter((item) => item.desktopVisible)
                 .map((title, key) => {
                   return (
@@ -92,7 +107,7 @@ export default function Navbar({ session }: { session: Session | null }) {
             </div>
             <div>
               {!session ? (
-                NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
+                navBarAdditional.map((title, key) => {
                   return (
                     <LoadLink href={title.link} key={key}>
                       <Button className='px-5'>{title.title}</Button>
@@ -100,7 +115,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                   );
                 })
               ) : (
-                <PrivateNav user={session?.user} />
+                <PrivateNav user={session?.user} navUser={navBarUser} />
               )}
             </div>
           </div>
@@ -172,7 +187,7 @@ export default function Navbar({ session }: { session: Session | null }) {
               );
             })}
             {!session
-              ? NavbarData.navbarSpatialNotLoggedIn.map((title, key) => {
+              ? navBarAdditional.map((title, key) => {
                   return (
                     <LoadLink
                       href={title.link}
@@ -192,28 +207,26 @@ export default function Navbar({ session }: { session: Session | null }) {
                     </LoadLink>
                   );
                 })
-              : NavbarData.navbarSpatialLoggedIn
-                  .slice(0, 1)
-                  .map((title, key) => {
-                    return (
-                      <LoadLink
-                        href={title.link}
-                        className={cn(
-                          "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
-                          pathname !== "/" &&
-                            title.link.startsWith(active) &&
-                            "bg-blue-200 dark:text-google-darkGrey",
-                          pathname == "/" &&
-                            active.startsWith(title.link) &&
-                            "bg-blue-200 dark:text-google-darkGrey"
-                        )}
-                        key={key}
-                        onClick={() => setActive(title.link)}
-                      >
-                        {title.title}
-                      </LoadLink>
-                    );
-                  })}
+              : navBarAdditional.map((title, key) => {
+                  return (
+                    <LoadLink
+                      href={title.link}
+                      className={cn(
+                        "p-2 hover:bg-blue-200 hover:border-l-2 dark:hover:text-google-darkGrey hover:border-l-google-blue",
+                        pathname !== "/" &&
+                          title.link.startsWith(active) &&
+                          "bg-blue-200 dark:text-google-darkGrey",
+                        pathname == "/" &&
+                          active.startsWith(title.link) &&
+                          "bg-blue-200 dark:text-google-darkGrey"
+                      )}
+                      key={key}
+                      onClick={() => setActive(title.link)}
+                    >
+                      {title.title}
+                    </LoadLink>
+                  );
+                })}
           </div>
         )}
       </div>
