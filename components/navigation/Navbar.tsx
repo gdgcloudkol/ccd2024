@@ -207,7 +207,7 @@ export default function Navbar({
                     </LoadLink>
                   );
                 })
-              : navBarAdditional.map((title, key) => {
+              : navBarUser?.map((title, key) => {
                   return (
                     <LoadLink
                       href={title.link}

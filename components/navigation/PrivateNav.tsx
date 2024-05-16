@@ -74,13 +74,16 @@ export default function PrivateNav({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {}
-          <LoadLink href={"/profile"} prefetch={false}>
-            <DropdownMenuItem>
-              <Settings2 className='mr-2 h-4 w-4' />
-              <span>Profile</span>
-            </DropdownMenuItem>
-          </LoadLink>
+          {navUser?.map((link) => (
+            <>
+              <LoadLink href={link.link} prefetch={false} key={link.link}>
+                <DropdownMenuItem>
+                  {/* <Settings2 className='mr-2 h-4 w-4' /> */}
+                  <span>{link.title}</span>
+                </DropdownMenuItem>
+              </LoadLink>
+            </>
+          ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>
