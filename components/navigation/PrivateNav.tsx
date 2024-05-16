@@ -18,6 +18,7 @@ import {
 import LoadLink from "@/components/blocks/LoadLink";
 import { UserData, UserProfileData } from "../models/login/datatype";
 import { DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME } from "@/lib/constants/generic";
+import { navLinkProps } from "./Navbar";
 
 interface LoggedInUser {
   pk: number;
@@ -35,7 +36,13 @@ interface LoggedInUser {
   };
 }
 
-export default function PrivateNav({ user }: { user: UserData | undefined }) {
+export default function PrivateNav({
+  user,
+  navUser,
+}: {
+  user: UserData | undefined;
+  navUser?: navLinkProps[];
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -67,13 +74,16 @@ export default function PrivateNav({ user }: { user: UserData | undefined }) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {}
-          <LoadLink href={"/profile"} prefetch={false}>
-            <DropdownMenuItem>
-              <Settings2 className='mr-2 h-4 w-4' />
-              <span>Profile</span>
-            </DropdownMenuItem>
-          </LoadLink>
+          {navUser?.map((link) => (
+            <>
+              <LoadLink href={link.link} prefetch={false}>
+                <DropdownMenuItem>
+                  {/* <Settings2 className='mr-2 h-4 w-4' /> */}
+                  <span>{link.title}</span>
+                </DropdownMenuItem>
+              </LoadLink>
+            </>
+          ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>

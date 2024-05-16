@@ -3,8 +3,9 @@ import { convertTimeFormat } from "@/lib/utils";
 import { Event, EventsResponse } from "./models/events/datatype";
 import { Button } from "./ui/button";
 import { Attendee } from "./models/attendees/datatype";
-import { Ban, TicketCheck } from "lucide-react";
+import { Ban, Ticket, TicketCheck, TicketX } from "lucide-react";
 import EventApply from "./EventApply";
+import { TicketChoices } from "@/lib/constants/tickets";
 
 function EventCard({
   events,
@@ -20,12 +21,43 @@ function EventCard({
     eventApplicationStatus.set(attendee.event, attendee.status);
   });
 
+  function returnVariant(ticketChoice: string | undefined) {
+    if (!ticketChoice || ticketChoice == undefined) return "default";
+    switch (ticketChoice) {
+      case TicketChoices.applied:
+        return "warning";
+
+      case TicketChoices.approved:
+        return "success";
+      case TicketChoices.rejected:
+        return "destructive";
+
+      default:
+        return "warning";
+    }
+  }
+  function returnIcon(ticketChoice: string | undefined) {
+    if (!ticketChoice || ticketChoice == undefined) return "default";
+    switch (ticketChoice) {
+      case TicketChoices.applied:
+        return <TicketCheck className='h-4 w-4 mr-2' />;
+
+      case TicketChoices.approved:
+        return <TicketCheck className='h-4 w-4 mr-2' />;
+      case TicketChoices.rejected:
+        return <TicketX className='h-4 w-4 mr-2' />;
+
+      default:
+        return <Ticket className='h-4 w-4 mr-2' />;
+    }
+  }
+
   return events?.results?.map((card: Event) => (
     <div
       key={card.id}
       className='bg-white w-full border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10'
     >
-      <div className='flex flex-col items-center justify-center relative'>
+      <div className='flex flex-col items-center justify-center relative p-2'>
         <img
           className='w-full h-auto '
           src={"/assets/images/contestCard.png"}
@@ -75,14 +107,10 @@ function EventCard({
 
           {eventApplicationStatus.get(card.id) ? (
             <Button
-              variant={
-                eventApplicationStatus.get(card.id) == "applied"
-                  ? "warning"
-                  : "success"
-              }
+              variant={returnVariant(eventApplicationStatus.get(card.id))}
               className='capitalize disabled cursor-not-allowed w-full'
             >
-              <TicketCheck className='h-4 w-4 mr-2' />
+              {returnIcon(eventApplicationStatus.get(card.id))}
               {eventApplicationStatus.get(card.id)}
             </Button>
           ) : attendees && attendees?.length > 4 ? (

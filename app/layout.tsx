@@ -3,15 +3,13 @@ import "@/styles/globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme-provider";
 import { NextAuthProvider } from "@/app/session-provider";
-import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/Footer";
 import { LoadingContextProvider } from "./loading-provider";
 import { Suspense } from "react";
 import { NavigationEvents } from "@/components/blocks/NavigationEvents";
 import { Toaster } from "@/components/ui/toaster";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import siteConfig from "@/public/assets/content/site-config.json";
+import NavbarSSR from "@/components/navigation/NavbarSSR";
 const googleSans = localFont({
   src: [
     {
@@ -50,7 +48,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions);
   return (
     <html lang='en'>
       <body
@@ -62,10 +59,9 @@ export default async function RootLayout({
             <ThemeProvider
               attribute='class'
               defaultTheme='dark'
-              enableSystem
               disableTransitionOnChange
             >
-              <Navbar session={session} />
+              <NavbarSSR />
               {children}
               <Footer />
               <Toaster />

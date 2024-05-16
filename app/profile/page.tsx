@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 };
 const page = async () => {
   const session: Session | null = await getServerSession(authOptions);
-
   if (!session?.user) redirect("/login");
   return (
     <div>
