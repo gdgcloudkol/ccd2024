@@ -113,7 +113,7 @@ function EventCard({
               {returnIcon(eventApplicationStatus.get(card.id))}
               {eventApplicationStatus.get(card.id)}
             </Button>
-          ) : attendees &&
+          ) : attendees && attendees.length &&
             attendees?.filter(
               (attendee) => attendee?.status == TicketChoices?.approved
             )?.length >= FeatureRule.disabledContestContent.maxApproved ? (
