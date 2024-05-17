@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { DataTable } from "./data-table";
 import { AttendeeData, columns } from "./column";
-import { VolunteerColumns } from "./volunteer-column";
 import { AuthRoles } from "@/lib/constants/auth";
 import FeatureRuleContent from "@/public/assets/content/feature.rule.json";
 import bkFetch from "@/services/backend.services";
@@ -15,9 +14,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InformAll from "./inform-all";
 import { Loader2 } from "lucide-react";
-import { Event } from "@/components/models/events/datatype";
-import AddVolunteer from "./(volunteer-manager)/add-volunteer";
 import LoadLink from "@/components/blocks/LoadLink";
+import { TicketChoices } from "@/lib/constants/tickets";
 
 const AttendeeManager = async ({ session }: { session: Session }) => {
   let data: AttendeeData[] = [];
@@ -42,6 +40,30 @@ const AttendeeManager = async ({ session }: { session: Session }) => {
         <h2 className='my-2 text-3xl font-bold'>Manage Attendees</h2>
         <InformAll />
       </div>
+      <div className='flex flex-wrap w-full gap-4 items-center justify-between bg-google-darkGrey p-2 rounded my-4 '>
+        <div className='flex items-center  gap-2'>
+          <span>
+            {
+              data?.filter(
+                (attendee) => attendee.status == TicketChoices.approved
+              ).length
+            }{" "}
+            approved
+          </span>
+          <span>
+            {
+              data?.filter(
+                (attendee) => attendee.status == TicketChoices.rejected
+              ).length
+            }{" "}
+            rejected
+          </span>
+          <span> of {data.length} registrations</span>
+        </div>
+        <span>
+          {data?.filter((attendee) => attendee.checked_in)?.length} checked in
+        </span>
+      </div>
       <DataTable
         data={data}
         columns={columns}
@@ -50,7 +72,7 @@ const AttendeeManager = async ({ session }: { session: Session }) => {
     </>
   );
 };
-const Page = async ({ searchParams }: { searchParams: { active: string } }) => {
+const Page = async () => {
   const session = await getServerSession(authOptions);
   const allowedRoles = [AuthRoles.organizer, AuthRoles.Xorganizer];
 
