@@ -59,6 +59,16 @@
     {
       "title": "Event Manager",
       "link": "/event-manager"
+    },
+    {
+      "title": "Attendee Manager",
+      "link": "/attendee-manager"
+    }
+  ],
+  "navbarUserXVolunteerLoggedIn": [
+    {
+      "title": "Attendee Manager",
+      "link": "/attendee-manager"
     }
   ],
   "navbarSpatialNotLoggedIn": [

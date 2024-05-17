@@ -55,9 +55,9 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
               <span className='highlight '>{userData?.username}</span> . I am
               associated with{" "}
               <span className='highlight '>
-                {userData?.profile?.college ||
-                  userData?.profile?.company ||
-                  "no organizations yet"}
+                {(userData?.profile?.student
+                  ? userData?.profile?.college
+                  : userData?.profile?.company) || "no organizations yet"}
               </span>{" "}
               {(userData?.profile?.college?.trim() !== "" ||
                 userData?.profile?.company?.trim() !== "") && (
