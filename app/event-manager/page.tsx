@@ -17,33 +17,8 @@ import InformAll from "./inform-all";
 import { Loader2 } from "lucide-react";
 import { Event } from "@/components/models/events/datatype";
 import AddVolunteer from "./(volunteer-manager)/add-volunteer";
+import LoadLink from "@/components/blocks/LoadLink";
 
-const VolunteerManager = async ({ session }: { session: Session }) => {
-  async function getEvent() {
-    let response = await bkFetch(
-      EVENTS_DJANGO_URL + session.user.profile.x_event,
-      { method: "GET" }
-    );
-    if (!response.ok) {
-      throw new Error(`An error occurred :${response.status}`);
-    }
-    return await response.json();
-  }
-  const volunteerData: Event = await getEvent();
-  return (
-    <>
-      <div className='flex flex-wrap w-full gap-2 items-center justify-between'>
-        <h2 className='my-2 text-3xl font-bold'>Manage Volunteers</h2>
-        <AddVolunteer id={session?.user?.profile?.x_event} />
-      </div>
-      <DataTable
-        data={volunteerData.volunteers}
-        columns={VolunteerColumns}
-        key={`event-volunteer-data-${session?.user.profile.x_event}`}
-      />
-    </>
-  );
-};
 const AttendeeManager = async ({ session }: { session: Session }) => {
   let data: AttendeeData[] = [];
   const response = await bkFetch(
@@ -96,10 +71,12 @@ const Page = async ({ searchParams }: { searchParams: { active: string } }) => {
 
   return (
     <section className='w-full max-w-6xl mx-auto py-10 px-4'>
-      <Tabs defaultValue={searchParams.active.toLowerCase() || "attendees"}>
+      <Tabs defaultValue={"attendees"} className='space-y-4'>
         <TabsList>
           <TabsTrigger value='attendees'>Attendees</TabsTrigger>
-          <TabsTrigger value='volunteers'>Volunteers</TabsTrigger>
+          <TabsTrigger value='volunteers'>
+            <LoadLink href={"/event-manager/volunteers"}>Volunteers</LoadLink>
+          </TabsTrigger>
         </TabsList>
         <TabsContent value='attendees'>
           <Suspense
@@ -113,15 +90,10 @@ const Page = async ({ searchParams }: { searchParams: { active: string } }) => {
           </Suspense>
         </TabsContent>
         <TabsContent value='volunteers'>
-          <Suspense
-            fallback={
-              <div className='flex items-center gap-2'>
-                <Loader2 className='h-4 w-4 animate-spin' /> Loading volunteers.
-              </div>
-            }
-          >
-            <VolunteerManager session={session} />
-          </Suspense>
+          <div className='flex items-center gap-2'>
+            <Loader2 className='h-4 w-4 mr-2 animate-spin' /> Loading
+            volunteers...
+          </div>
         </TabsContent>
       </Tabs>
     </section>

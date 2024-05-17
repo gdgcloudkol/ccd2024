@@ -14,11 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Bell } from "lucide-react";
 const InformAll = () => {
   const [dialogOpen, setDialogOpen] = React.useState(false);
-  useEffect(() => {
-    if (window.location.search !== "?active=attendees") {
-      window.location.search = "?active=attendees";
-    }
-  }, []);
+
   const informAll = () => {
     fetch("/api/attendee/informAll", { method: "POST" });
     setDialogOpen(false);
