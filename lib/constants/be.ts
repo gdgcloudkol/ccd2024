@@ -24,5 +24,6 @@ export const ATTENDEES_DJANGO_URL = CCD2024_BE_BASE_URL + "/attendees/"
 export const EVENT_ATTENDEE_UPDATE_URL_SUFFIX = "/update_status/" //+param+suffix
 export const EVENT_ATTENDEE_INFORM_URL_SUFFIX = "/inform/"
 export const EVENT_ATTENDEE_INFORM_ALL_URL = ATTENDEES_DJANGO_URL + "inform_all/"
+export const EVENT_ATTENDEE_CHECKIN_SUFFIX = "/checkin/"
 
 

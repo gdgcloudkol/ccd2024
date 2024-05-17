@@ -25,6 +25,16 @@ const NavbarSSR = async () => {
         ...NavRuleContent.navbarUserAttendeeLoggedIn,
       ];
     }
+    if (session.user.profile.event_role == AuthRoles.Xvolunteer) {
+      navAdditional = [
+        ...NavRuleContent.navbarUserXVolunteerLoggedIn,
+        ...NavRuleContent.navbarSpatialLoggedIn,
+      ];
+      navUser = [
+        ...NavRuleContent.navbarUserXVolunteerLoggedIn,
+        ...NavRuleContent.navbarUserAttendeeLoggedIn,
+      ];
+    }
   }
 
   return (

@@ -7,7 +7,12 @@
     "navbarSpatialLoggedInBT": true
   },
   "disabledRoutes": ["/dashboard", "/termsAndCondition"],
-  "XOrganizerEnabledRoutes": ["/event-manager", "/event-manager/volunteers"],
+  "XOrganizerEnabledRoutes": [
+    "/event-manager",
+    "/event-manager/volunteers",
+    "/attendee-manager"
+  ],
+  "XVolunteerEnabledRoutes": ["/attendee-manager"],
   "disabledPartnerTitles": [],
   "disabledPartners": [],
   "disabledCommunityPartners": [],

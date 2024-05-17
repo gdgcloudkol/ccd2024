@@ -37,8 +37,11 @@ const AddVolunteer = ({ id }: { id: number | null }) => {
     });
     setLoading(false);
     if (!response.ok) {
-      const error = await response.json();
-      toast({ variant: "destructive", title: JSON.stringify(error) });
+      toast({
+        variant: "destructive",
+        title: "Something went wrong",
+        description: "Please make sure you enter the correct email id",
+      });
     } else {
       setEmail("");
       setOpen(false);
