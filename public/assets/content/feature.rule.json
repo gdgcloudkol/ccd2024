@@ -35,6 +35,7 @@
   "disabledEventsContent": {
     "events": true
   },
+  "testEventSlug": "hidden",
   "disabledContestContent": {
     "contests": false,
     "maxApproved": 3

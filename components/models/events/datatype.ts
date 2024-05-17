@@ -14,5 +14,31 @@ export interface Event {
     mode: string;
     slug: string;
     technologies: number[];
-    volunteers: number[];
+    manager: Manager;
+    volunteers: Volunteer[];
+}
+
+
+
+
+
+interface Manager {
+    id: number;
+    profile: Profile;
+    email: string;
+}
+
+interface Profile {
+    first_name: string;
+    last_name: string;
+    company: string;
+    college: string;
+    graduation_year: number;
+    pronoun: string;
+}
+
+interface Volunteer {
+    id: number;
+    profile: Profile;
+    email: string;
 }
