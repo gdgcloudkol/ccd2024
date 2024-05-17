@@ -37,24 +37,10 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { AttendeeData } from "./column";
-import {
-  Dialog,
-  DialogFooter,
-  DialogDescription,
-  DialogTitle,
-  DialogTrigger,
-  DialogHeader,
-  DialogContent,
-} from "@/components/ui/dialog";
+
 import { useToast } from "@/components/ui/use-toast";
 
-export function DataTable({
-  data,
-  columns,
-}: {
-  data: AttendeeData[];
-  columns: any;
-}) {
+export function DataTable({ data, columns }: { data: any[]; columns: any }) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -87,10 +73,7 @@ export function DataTable({
     },
   });
   let tableHeaderGroup = React.useMemo(() => table?.getHeaderGroups(), [table]);
-  const informAll = () => {
-    fetch("/api/attendee/informAll", { method: "POST" });
-    setDialogOpen(false);
-  };
+
   React.useEffect(() => {
     if (searchQuery == "" || searchQuery == undefined || searchQuery == null) {
       setTableData(data);
@@ -108,7 +91,7 @@ export function DataTable({
             element?.user?.profile?.last_name
               .toLowerCase()
               .includes(searchQuery.toLowerCase()) ||
-            element?.status.toLowerCase().includes(searchQuery.toLowerCase())
+            element?.status?.toLowerCase().includes(searchQuery.toLowerCase())
         );
       });
     }
@@ -124,38 +107,6 @@ export function DataTable({
           }
           className='max-w-xl'
         />
-
-        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogTrigger asChild>
-            <Button variant={"secondary"}>
-              <Bell className='h-4 w-4 mr-2' /> Inform All
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Inform all attendees?</DialogTitle>
-              <DialogDescription></DialogDescription>
-              <p>
-                {" "}
-                Confirming this action would inform all attendees about their
-                ticket status. This action is irreversible!
-              </p>
-            </DialogHeader>
-            <DialogFooter>
-              <Button variant={"ghost"} onClick={() => setDialogOpen(false)}>
-                Cancel
-              </Button>
-              <Button
-                variant={"default"}
-                className='text-white'
-                onClick={informAll}
-              >
-                <Bell className='h-4 w-4 mr-2' />
-                Inform
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
       </div>
       <div className='rounded-md border'>
         <Table>

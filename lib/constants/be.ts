@@ -16,9 +16,13 @@ export const USERS_DJANGO_URL = CCD2024_BE_BASE_URL + "/users/profile/"
 export const EVENTS_DJANGO_URL = CCD2024_BE_BASE_URL + "/events/"
 export const EVENT_ATTENDEE_LIST_URL_SUFFIX = "/attendees/" //+param+suffix
 
+export const EVENT_VOLUNTEER_ADD_URL_SUFFIX = "/add_volunteer/"
+export const EVENT_VOLUNTEER_REMOVE_URL_SUFFIX = "/remove_volunteer/"
 
 
 export const ATTENDEES_DJANGO_URL = CCD2024_BE_BASE_URL + "/attendees/"
 export const EVENT_ATTENDEE_UPDATE_URL_SUFFIX = "/update_status/" //+param+suffix
 export const EVENT_ATTENDEE_INFORM_URL_SUFFIX = "/inform/"
 export const EVENT_ATTENDEE_INFORM_ALL_URL = ATTENDEES_DJANGO_URL + "inform_all/"
+
+

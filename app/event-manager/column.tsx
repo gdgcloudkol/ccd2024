@@ -21,6 +21,7 @@ export interface AttendeeData {
   checked_in: boolean;
   checker: null;
   viewer: null;
+  informed: boolean;
   event: number;
 }
 
@@ -143,6 +144,7 @@ export const columns: ColumnDef<AttendeeData>[] = [
           key={row.original.id}
           attendeeId={row.original.id}
           prev_status={row.original.status}
+          informed={row.original.informed}
         />
       );
     },
