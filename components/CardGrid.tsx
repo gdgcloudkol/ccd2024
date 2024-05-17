@@ -4,6 +4,7 @@ import ContestCard from "./ContestCard";
 import EventCard from "./EventsCard";
 import PeopleCard from "./PeopleCard";
 import { GridData } from "./models/cardGrid.model";
+import { ContestResponse } from "./models/contests/datatype";
 
 function CardGrid({
   gridData,
@@ -13,7 +14,7 @@ function CardGrid({
   type: "Contest" | "People" | "Events";
 }) {
   return (
-    <div className='container mx-auto m-10 font-sans'>
+    <div className='container mx-auto m-10 font-sans w-full max-w-6xl'>
       <h1 className='text-center font-bold text-[48px] text-google-yellow leading-[61.06px]'>
         {gridData.title}
       </h1>
@@ -22,7 +23,7 @@ function CardGrid({
       </p>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 justify-center'>
         {type == "Contest" && (
-          <ContestCard cards={gridData.cards || []}></ContestCard>
+          <ContestCard contests={gridData || []}></ContestCard>
         )}
         {type == "People" && (
           <PeopleCard cards={gridData.people || []}></PeopleCard>

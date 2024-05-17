@@ -5,6 +5,8 @@ export interface Attendee {
     updated_at: string;
     user: User;
     event: number;
+    checked_in: boolean;
+    informed: boolean;
 }
 
 interface User {

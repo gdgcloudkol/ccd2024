@@ -43,25 +43,25 @@ const AttendeeManager = async ({ session }: { session: Session }) => {
       <div className='flex flex-wrap w-full gap-4 items-center justify-between bg-google-darkGrey p-2 rounded my-4 '>
         <div className='flex items-center  gap-2'>
           <span>
-            {
+            {data?.length > 0 &&
               data?.filter(
                 (attendee) => attendee.status == TicketChoices.approved
-              ).length
-            }{" "}
+              ).length}{" "}
             approved
           </span>
           <span>
-            {
+            {data?.length > 0 &&
               data?.filter(
                 (attendee) => attendee.status == TicketChoices.rejected
-              ).length
-            }{" "}
+              ).length}{" "}
             rejected
           </span>
           <span> of {data.length} registrations</span>
         </div>
         <span>
-          {data?.filter((attendee) => attendee.checked_in)?.length} checked in
+          {data?.length > 0 &&
+            data?.filter((attendee) => attendee.checked_in)?.length}{" "}
+          checked in
         </span>
       </div>
       <DataTable
