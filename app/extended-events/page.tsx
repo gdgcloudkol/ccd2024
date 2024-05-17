@@ -3,7 +3,7 @@ import AlternateHeader from "@/components/blocks/AlternateHeader";
 import { Event } from "@/components/models/events/datatype";
 import { authOptions } from "@/lib/auth";
 import { ATTENDEES_DJANGO_URL, EVENTS_DJANGO_URL } from "@/lib/constants/be";
-import contestData from "@/public/assets/content/Contest/content.json";
+
 import eventsData from "@/public/assets/content/Events/content.json";
 
 import FeatureRule from "@/public/assets/content/feature.rule.json";
@@ -56,7 +56,6 @@ const Events = async ({ hidden }: { hidden: boolean }) => {
   );
 };
 async function Contest({ searchParams }: { searchParams: { hidden: string } }) {
-  const disabledContestsContent = FeatureRule.disabledContestContent;
   const disabledEventsContent = FeatureRule.disabledEventsContent;
   const session = await getServerSession(authOptions);
   if (!session) redirect("/login");
@@ -88,9 +87,6 @@ async function Contest({ searchParams }: { searchParams: { hidden: string } }) {
                   />
                 </Suspense>
               </>
-            )}
-            {disabledContestsContent.contests && (
-              <CardGrid gridData={contestData} type='Contest'></CardGrid>
             )}
           </section>
         </section>

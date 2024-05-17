@@ -6,24 +6,25 @@ export const VERITY_EMAIL_DJANGO_URL = CCD2024_BE_BASE_URL + '/account-confirm-e
 export const FORGOT_PASSWORD_DJANGO_URL = CCD2024_BE_BASE_URL + '/forgot';
 export const RESET_PASSWORD_MAIL_DJANGO_URL = CCD2024_BE_BASE_URL + '/auth/password/reset/';
 export const RESET_PASSWORD_DJANGO_URL = CCD2024_BE_BASE_URL + '/auth/password/reset/confirm/';
-export const VERIFY_AUTH_DJANGO_URL = CCD2024_BE_BASE_URL + "/verify"
-export const RESEND_DJANGO_URL = CCD2024_BE_BASE_URL + "/resend"
-export const REFRESH_TOKEN_DJANGO_URL = CCD2024_BE_BASE_URL + "/token/refresh"
-export const AUTH_USERS_DJANGO_URL = CCD2024_BE_BASE_URL + "/auth/user"
-export const USERS_DJANGO_URL = CCD2024_BE_BASE_URL + "/users/profile/"
+export const VERIFY_AUTH_DJANGO_URL = CCD2024_BE_BASE_URL + '/verify'
+export const RESEND_DJANGO_URL = CCD2024_BE_BASE_URL + '/resend'
+export const REFRESH_TOKEN_DJANGO_URL = CCD2024_BE_BASE_URL + '/token/refresh'
+export const AUTH_USERS_DJANGO_URL = CCD2024_BE_BASE_URL + '/auth/user'
+export const USERS_DJANGO_URL = CCD2024_BE_BASE_URL + '/users/profile/'
+export const USER_DJANGO_CONTEST_TOKEN = CCD2024_BE_BASE_URL + '/users/';
 
 
-export const EVENTS_DJANGO_URL = CCD2024_BE_BASE_URL + "/events/"
-export const EVENT_ATTENDEE_LIST_URL_SUFFIX = "/attendees/" //+param+suffix
+export const EVENTS_DJANGO_URL = CCD2024_BE_BASE_URL + '/events/'
+export const EVENT_ATTENDEE_LIST_URL_SUFFIX = '/attendees/' //+param+suffix
 
-export const EVENT_VOLUNTEER_ADD_URL_SUFFIX = "/add_volunteer/"
-export const EVENT_VOLUNTEER_REMOVE_URL_SUFFIX = "/remove_volunteer/"
+export const EVENT_VOLUNTEER_ADD_URL_SUFFIX = '/add_volunteer/'
+export const EVENT_VOLUNTEER_REMOVE_URL_SUFFIX = '/remove_volunteer/'
 
 
-export const ATTENDEES_DJANGO_URL = CCD2024_BE_BASE_URL + "/attendees/"
-export const EVENT_ATTENDEE_UPDATE_URL_SUFFIX = "/update_status/" //+param+suffix
-export const EVENT_ATTENDEE_INFORM_URL_SUFFIX = "/inform/"
-export const EVENT_ATTENDEE_INFORM_ALL_URL = ATTENDEES_DJANGO_URL + "inform_all/"
-export const EVENT_ATTENDEE_CHECKIN_SUFFIX = "/checkin/"
+export const ATTENDEES_DJANGO_URL = CCD2024_BE_BASE_URL + '/attendees/'
+export const EVENT_ATTENDEE_UPDATE_URL_SUFFIX = '/update_status/' //+param+suffix
+export const EVENT_ATTENDEE_INFORM_URL_SUFFIX = '/inform/'
+export const EVENT_ATTENDEE_INFORM_ALL_URL = ATTENDEES_DJANGO_URL + 'inform_all/'
+export const EVENT_ATTENDEE_CHECKIN_SUFFIX = '/checkin/'
 
 

@@ -7,6 +7,7 @@ import { Ban, Ticket, TicketCheck, TicketX } from "lucide-react";
 import EventApply from "./EventApply";
 import { TicketChoices } from "@/lib/constants/tickets";
 import FeatureRule from "@/public/assets/content/feature.rule.json";
+import LoadLink from "./blocks/LoadLink";
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
   switch (ticketChoice) {
@@ -54,6 +55,7 @@ function EventCard({
         JSON.stringify({
           status: attendee.status,
           id: attendee.id,
+          checked_in: attendee.checked_in,
         })
       );
     });
@@ -90,7 +92,7 @@ function EventCard({
           )}
         </div>
       </div>
-      <div className='p-4 flex flex-col items-start pb-10 space-y-4'>
+      <div className='p-4 w-full flex flex-col items-start pb-10 space-y-4'>
         <p className='text-gray-900 font-semibold text-lg  block'>
           {card.title}
         </p>
@@ -117,7 +119,7 @@ function EventCard({
           Time: {convertTimeFormat(card.start_date)}-{" "}
           {convertTimeFormat(card.stop_date)}
         </p>
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center w-full'>
           {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
                 <img
                   className="w-6 h-6 border-[1px] border-black rounded-full"
@@ -137,17 +139,29 @@ function EventCard({
           {/* Fetch event id from the MAP and set ticket status accordingly. */}
 
           {eventApplicationStatus?.get(card.id) ? (
-            <Button
-              variant={returnVariant(
-                JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+            <div className='flex flex-wrap gap-2 w-full'>
+              <Button
+                variant={returnVariant(
+                  JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+                )}
+                className='capitalize disabled cursor-not-allowed w-full'
+                disabled
+              >
+                {returnIcon(
+                  JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+                )}
+                {JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status}
+              </Button>
+              {JSON.parse(`${eventApplicationStatus.get(card.id)}`)
+                ?.checked_in && (
+                <LoadLink
+                  href={`/extended-events/${card.id}/contest`}
+                  className='w-full'
+                >
+                  <Button className='capitalize w-full'>View Contests</Button>
+                </LoadLink>
               )}
-              className='capitalize disabled cursor-not-allowed w-full'
-            >
-              {returnIcon(
-                JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
-              )}
-              {JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status}
-            </Button>
+            </div>
           ) : attendees &&
             attendees.length &&
             attendees?.filter(

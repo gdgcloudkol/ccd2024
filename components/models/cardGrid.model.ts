@@ -1,4 +1,5 @@
 import { Attendee } from "./attendees/datatype";
+import { ContestResponse } from "./contests/datatype";
 import { EventsResponse } from "./events/datatype";
 
 export interface ContestCards {
@@ -19,6 +20,7 @@ export interface GridData {
   header?: string;
   description: string;
   cards?: ContestCards[];
+  contests?: ContestResponse[];
   people?: PeopleCards[];
   events?: EventsResponse;
   attendees?: Attendee[]

@@ -42,7 +42,7 @@
   },
   "testEventSlug": "hidden",
   "disabledContestContent": {
-    "contests": false,
+    "contests": true,
     "maxApproved": 3
   },
   "disabledFooterContent": {

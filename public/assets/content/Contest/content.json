@@ -5,45 +5,45 @@
   "cards": [
     {
       "id": 1,
-      "title": "Predict the Prompt",
+      "title": "Predict the Prompt - Cloud",
       "content": "Predict the Prompt and tell us what it was",
       "image": "/assets/images/contestCard.png",
-      "link": "/#"
+      "link": "/api/contest/ptp/cloud"
     },
     {
       "id": 2,
-      "title": "Web Insights",
-      "content": "Improve the Lighthouse rating of the HTML CSS and JS files provided. Download them and edit and submit back to us for evaluation.",
+      "title": "Predict the Prompt - Mobile",
+      "content": "Predict the Prompt and tell us what it was",
       "image": "/assets/images/contestCard.png",
-      "link": "/#"
+      "link": "/api/contest/ptp/app"
     },
     {
       "id": 3,
-      "title": "Lauki",
-      "content": "Count and return the number of laukis given by our API",
+      "title": "Predict the Prompt - Cyber",
+      "content": "Predict the Prompt and tell us what it was",
       "image": "/assets/images/contestCard.png",
-      "link": "/#"
+      "link": "/api/contest/ptp/cyber"
     },
     {
       "id": 4,
-      "title": "Name of the Contest",
-      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus",
+      "title": "Predict the Prompt - ML",
+      "content": "Predict the Prompt and tell us what it was",
       "image": "/assets/images/contestCard.png",
-      "link": "/#"
+      "link": "/api/contest/ptp/ml"
     },
     {
       "id": 5,
-      "title": "Name of the Contest",
-      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus",
+      "title": "Predict the Prompt - Web",
+      "content": "Predict the Prompt and tell us what it was",
       "image": "/assets/images/contestCard.png",
-      "link": "/#"
+      "link": "/api/contest/ptp/web"
     },
     {
       "id": 6,
-      "title": "Name of the Contest",
-      "content": "Lorem ipsum dolor sit amet consectetur. Vitae viverra nisl nunc netus pellentesque proin. Convallis amet fringilla risus",
+      "title": "Web Insights",
+      "content": "Improve the Lighthouse rating of the HTML CSS and JS files provided. Download them and edit and submit back to us for evaluation.",
       "image": "/assets/images/contestCard.png",
-      "link": "/#"
+      "link": "/api/contest/wi"
     }
   ]
 }
