@@ -44,11 +44,6 @@ const RemoveVolunteer = ({
       toast({ variant: "success", title: "Removed volunteer successfully" });
     }
   };
-  useEffect(() => {
-    if (window.location.search !== "?active=volunteers") {
-      window.location.search = "?active=volunteers";
-    }
-  }, []);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

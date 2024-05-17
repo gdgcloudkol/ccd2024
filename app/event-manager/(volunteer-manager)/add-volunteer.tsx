@@ -47,10 +47,6 @@ const AddVolunteer = ({ id }: { id: number | null }) => {
     }
   };
   useEffect(() => {
-    if (window.location.search !== "?active=volunteers") {
-      window.location.search = "?active=volunteers";
-    }
-
     return () => {
       setEmail("");
     };
