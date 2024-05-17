@@ -61,13 +61,13 @@
       "link": "/event-manager"
     },
     {
-      "title": "Attendee Manager",
+      "title": "Check-in Attendees",
       "link": "/attendee-manager"
     }
   ],
   "navbarUserXVolunteerLoggedIn": [
     {
-      "title": "Attendee Manager",
+      "title": "Check-in Attendees",
       "link": "/attendee-manager"
     }
   ],
