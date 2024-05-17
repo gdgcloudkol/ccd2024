@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContestCards, GridData } from "./models/cardGrid.model";
 import { ContestResponse } from "./models/contests/datatype";
 import { Button } from "./ui/button";
+import ContestStart from "@/components/ContestStart";
 
 function ContestCard({ contests }: { contests: GridData }) {
   return (
@@ -12,7 +13,6 @@ function ContestCard({ contests }: { contests: GridData }) {
           key={card.id}
           className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10'
         >
-          <Link href={card.contest.contest_uri}>
             <div className='flex flex-col items-center justify-center relative'>
               <img
                 className='w-full h-auto '
@@ -53,10 +53,9 @@ function ContestCard({ contests }: { contests: GridData }) {
               <p className="text-black text-sm mt-4">
                 140+ people participate
               </p> */}
-                <Button variant={"default"}>Start Contest</Button>
+                <ContestStart contestId={card.contest.id} contestUri={card.contest.contest_uri} />
               </div>
             </div>
-          </Link>
         </div>
       ))}
     </>

@@ -26,5 +26,6 @@ export const EVENT_ATTENDEE_UPDATE_URL_SUFFIX = '/update_status/' //+param+suffi
 export const EVENT_ATTENDEE_INFORM_URL_SUFFIX = '/inform/'
 export const EVENT_ATTENDEE_INFORM_ALL_URL = ATTENDEES_DJANGO_URL + 'inform_all/'
 export const EVENT_ATTENDEE_CHECKIN_SUFFIX = '/checkin/'
+export const EVENT_ATTENDEE_CONTEST_AUTH_TOKEN_URL = ATTENDEES_DJANGO_URL + 'get_contest_start_token/';
 
 
