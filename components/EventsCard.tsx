@@ -68,7 +68,7 @@ function EventCard({
     >
       <div className='flex flex-col items-center justify-center relative p-2 '>
         <img
-          className='w-full h-auto bg-google-darkGrey '
+          className='w-full h-auto'
           src={"/assets/images/contestCard.png"}
           alt={`Event ${card.title}`}
         />

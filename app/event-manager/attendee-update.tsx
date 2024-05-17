@@ -15,9 +15,11 @@ import { useRouter } from "next/navigation";
 
 const AttendeeUpdate = ({
   attendeeId,
+  informed,
   prev_status,
 }: {
   attendeeId: number;
+  informed: boolean;
   prev_status: string;
 }) => {
   const [loading, setLoading] = useState(false);
@@ -62,6 +64,7 @@ const AttendeeUpdate = ({
     setDropDownOpen(false);
     exec();
   };
+  if (informed) return "Informed";
   return (
     <div onClick={(e) => e.stopPropagation()}>
       <DropdownMenu open={dropdownOpen} onOpenChange={setDropDownOpen}>
@@ -77,7 +80,7 @@ const AttendeeUpdate = ({
               size={"sm"}
               className='w-full'
               disabled={loading}
-              variant={"ghost"}
+              variant={"default"}
               onClick={(e) => {
                 e.stopPropagation();
                 updateAttendeeStatus(TicketChoices.reviewed);
@@ -87,12 +90,13 @@ const AttendeeUpdate = ({
               Under Review
             </Button>
           </DropdownMenuItem>
+          <DropdownMenuSeparator />
           <DropdownMenuItem className='p-0'>
             <Button
               size={"sm"}
               className='w-full'
               disabled={loading}
-              variant={"ghost"}
+              variant={"warning"}
               onClick={(e) => {
                 e.stopPropagation();
                 updateAttendeeStatus(TicketChoices.waitlist);
