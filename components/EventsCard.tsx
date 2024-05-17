@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { convertTimeFormat } from "@/lib/utils";
+import { cn, convertTimeFormat } from "@/lib/utils";
 import { Event, EventsResponse } from "./models/events/datatype";
 import { Button } from "./ui/button";
 import { Attendee } from "./models/attendees/datatype";
@@ -47,38 +47,69 @@ function EventCard({
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
 
-  if (attendees?.length)
+  if (attendees && attendees?.length > 0)
     attendees?.forEach((attendee) => {
-      eventApplicationStatus.set(attendee.event, attendee.status);
+      eventApplicationStatus.set(
+        attendee.event,
+        JSON.stringify({
+          status: attendee.status,
+          id: attendee.id,
+        })
+      );
     });
-
   return events?.results?.map((card: Event) => (
     <div
       key={card.id}
-      className='bg-white w-full border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10'
+      className={cn(
+        "bg-white w-full border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10",
+        card.slug == FeatureRule.testEventSlug &&
+          "border-red-500 border-4 bg-slate-300"
+      )}
     >
-      <div className='flex flex-col items-center justify-center relative p-2'>
+      <div className='flex flex-col items-center justify-center relative p-2 '>
         <img
-          className='w-full h-auto '
+          className='w-full h-auto bg-google-darkGrey '
           src={"/assets/images/contestCard.png"}
           alt={`Event ${card.title}`}
         />
         <div className='content absolute'>
-          <p className='text-center text-white font-bold text-base'>
-            GCCD Extended Events
-          </p>
-          <p className='text-center text-google-blue font-bold'>X</p>
-          <p className='text-center font-bold text-google-yellow'>
-            {card.title.split(" x ")[1]}
-          </p>
+          {card.slug == FeatureRule.testEventSlug ? (
+            <p className='text-center text-google-red uppercase font-bold text-xl'>
+              Test Event
+            </p>
+          ) : (
+            <>
+              <p className='text-center text-white font-bold text-base'>
+                GCCD Extended Events
+              </p>
+              <p className='text-center text-google-blue font-bold'>X</p>
+              <p className='text-center font-bold text-google-yellow'>
+                {card.title.split(" x ")[1]}
+              </p>
+            </>
+          )}
         </div>
       </div>
-
       <div className='p-4 flex flex-col items-start pb-10 space-y-4'>
         <p className='text-gray-900 font-semibold text-lg  block'>
           {card.title}
         </p>
-        <p className='text-gray-700 font-bold  text-sm '>{card.description}</p>
+        <p className='text-gray-700 font-bold  text-sm '>
+          {card.description.split("::")[0]}
+        </p>
+
+        {card.description.split("::")[1] && (
+          <p className=' text-gray-700 font-bold  text-sm '>
+            Connect with host at:{" "}
+            <a
+              href={`mailto:${card.description.split("::")[1]}`}
+              className='text-google-blue underline inline'
+            >
+              {card.description.split("::")[1]}
+            </a>
+          </p>
+        )}
+
         <p className='text-gray-700 font-bold text-sm '>
           Date: {card.start_date.split("T")[0]}
         </p>
@@ -107,13 +138,18 @@ function EventCard({
 
           {eventApplicationStatus?.get(card.id) ? (
             <Button
-              variant={returnVariant(eventApplicationStatus.get(card.id))}
+              variant={returnVariant(
+                JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+              )}
               className='capitalize disabled cursor-not-allowed w-full'
             >
-              {returnIcon(eventApplicationStatus.get(card.id))}
-              {eventApplicationStatus.get(card.id)}
+              {returnIcon(
+                JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+              )}
+              {JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status}
             </Button>
-          ) : attendees && attendees.length &&
+          ) : attendees &&
+            attendees.length &&
             attendees?.filter(
               (attendee) => attendee?.status == TicketChoices?.approved
             )?.length >= FeatureRule.disabledContestContent.maxApproved ? (

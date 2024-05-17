@@ -1,5 +1,6 @@
 import CardGrid from "@/components/CardGrid";
 import AlternateHeader from "@/components/blocks/AlternateHeader";
+import { Event } from "@/components/models/events/datatype";
 import { authOptions } from "@/lib/auth";
 import { ATTENDEES_DJANGO_URL, EVENTS_DJANGO_URL } from "@/lib/constants/be";
 import contestData from "@/public/assets/content/Contest/content.json";
@@ -15,7 +16,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Extended Events",
 };
-const Events = async () => {
+const Events = async ({ hidden }: { hidden: boolean }) => {
   async function fetchData(url: string, options: any) {
     const response = await bkFetch(url, options);
     if (!response.ok) {
@@ -34,20 +35,27 @@ const Events = async () => {
       attendees,
     };
   }
+
   const { events, attendees } = await getData();
+
   return (
     <CardGrid
       gridData={{
         title: eventsData.title,
         description: eventsData.description,
-        events: events,
+        events: hidden
+          ? events
+          : {
+              ...events,
+              results: events.results.filter((e: Event) => e.slug !== "hidden"),
+            }, // if hidden flag true then show hidden events
         attendees: attendees,
       }}
       type='Events'
     ></CardGrid>
   );
 };
-async function Contest() {
+async function Contest({ searchParams }: { searchParams: { hidden: string } }) {
   const disabledContestsContent = FeatureRule.disabledContestContent;
   const disabledEventsContent = FeatureRule.disabledEventsContent;
   const session = await getServerSession(authOptions);
@@ -68,11 +76,16 @@ async function Contest() {
                 <Suspense
                   fallback={
                     <div className='flex items-center gap-x-2'>
-                      <Loader2 className='h-4 w-4 animate-spin' /> Loading events...
+                      <Loader2 className='h-4 w-4 animate-spin' /> Loading
+                      events...
                     </div>
                   }
                 >
-                  <Events />
+                  <Events
+                    hidden={
+                      (searchParams.hidden == "true" ? true : false) || false
+                    }
+                  />
                 </Suspense>
               </>
             )}

@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest, { params }: { params: { eventId: number } }) {
     const session = await getServerSession(authOptions)
-    const allowedRoles = [AuthRoles.organizer, AuthRoles.Xorganizer]
+    const allowedRoles = [AuthRoles.organizer, AuthRoles.Xorganizer, AuthRoles.Xvolunteer]
     if (!session) {
         return NextResponse.json({ message: "You do not have permission for this action" }, { status: 401 });
     }
