@@ -109,7 +109,6 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
                 tableData?.length > 0 &&
                 tableData?.map((attendee: AttendeeData) => (
                   <TableRow key={attendee?.id}>
-                    <TableCell>{attendee?.id}</TableCell>
                     <TableCell>
                       {attendee?.user?.profile.first_name}{" "}
                       {attendee?.user?.profile.last_name}
