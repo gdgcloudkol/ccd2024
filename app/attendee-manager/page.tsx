@@ -16,42 +16,58 @@ import { Loader2 } from "lucide-react";
 import AttendeeCheckin from "./attendee-checkin";
 import { maskEmail } from "@/lib/utils";
 const AttendeeManager = async ({ session }: { session: Session }) => {
-  let data: AttendeeData[] = [];
-  const response = await bkFetch(
-    EVENTS_DJANGO_URL +
-      session?.user.profile.x_event +
-      EVENT_ATTENDEE_LIST_URL_SUFFIX,
-    {
-      method: "GET",
-      cache: "no-store",
+  async function fetchData(url: string, options: any) {
+    const response = await bkFetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
     }
-  );
-  if (!response.ok) {
-    throw new Error(`An error occurred: ${response.status}`);
-  } else {
-    data = await response.json();
+    return await response.json();
+  }
+  async function getData() {
+    const [event, attendees] = await Promise.all([
+      fetchData(
+        EVENTS_DJANGO_URL + session?.user.profile.x_event + "?page_size=50",
+        { method: "GET" }
+      ),
+      fetchData(
+        EVENTS_DJANGO_URL +
+          session?.user.profile.x_event +
+          EVENT_ATTENDEE_LIST_URL_SUFFIX,
+        { method: "GET" }
+      ),
+    ]);
 
-    if (Object.keys(data).includes("status")) {
-      data = [];
-    } else {
-      data = data.map((attendee) => ({
-        ...attendee,
-        user: { ...attendee.user, email: maskEmail(attendee.user.email) },
-      }));
-    }
+    return {
+      event,
+      attendees,
+    };
+  }
+
+  const { event, attendees } = await getData();
+
+  let attendeeTemp = structuredClone(attendees);
+
+  if (Object.keys(attendees).includes("status")) {
+    attendeeTemp = [];
+  } else {
+    attendeeTemp = attendees.map((attendee: AttendeeData) => ({
+      ...attendee,
+      user: { ...attendee.user, email: maskEmail(attendee.user.email) },
+    }));
   }
 
   return (
     <>
       {" "}
       <div className='w-full space-y-2 '>
+        <h2 className='my-2 text-3xl font-bold mb-4'>{event.title}</h2>
         <h2 className='my-2 text-3xl font-bold'>Check in Attendees</h2>
         <p className='text-gray-300'>
           {" "}
           Check in attendees. Search their name/email to get results.
         </p>
       </div>
-      <AttendeeCheckin data={data} />
+      <AttendeeCheckin data={attendees} />
     </>
   );
 };
@@ -86,7 +102,7 @@ const Page = async () => {
       <Suspense
         fallback={
           <div className='flex items-center gap-2'>
-            <Loader2 /> Loading attendee check-in
+            <Loader2 className='animate-spin' /> Loading attendee check-in
           </div>
         }
       >
