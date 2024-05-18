@@ -51,8 +51,7 @@
       "partnerId": "pg_kol",
       "name": "Polygon Guild Kolkata",
       "hyperlink": "https://twitter.com/PolygonKolkata",
-      "logo": "/assets/images/cp/pg_kol.jpg",
-      "hidden": true
+      "logo": "/assets/images/cp/pg_kol.jpg"
     },
     {
       "partnerId": "gdsc_bbit",
