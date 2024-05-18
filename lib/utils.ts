@@ -15,6 +15,7 @@ export const debounce = (callback: any, delay: number) => {
     }, delay);
   };
 };
+
 export function convertTimeFormat(timeString: string) {
   let currentTime = new Date(timeString);
   let convertedtimeString = currentTime.toLocaleTimeString('en-IN', { timeStyle: "short", hour12: true });
@@ -56,6 +57,7 @@ export function getPronounLabel(dbPronoun: string, fallback?: string | undefined
     return fallback;
   }
 }
+
 export function extractGithubUsername(url: string): string | null {
   // Define the regex pattern to match the GitHub profile URL and capture the username
   const githubUrlPattern = /^https:\/\/github\.com\/([a-zA-Z0-9-]+)\/?$/;
@@ -66,6 +68,7 @@ export function extractGithubUsername(url: string): string | null {
   // If there is a match, return the captured group (username), otherwise return null
   return match ? match[1] : null;
 }
+
 export function maskPhoneNumber(phoneNumber: string | number): string {
   // Convert the input to a string if it's not already
   const phoneStr = phoneNumber.toString();
@@ -74,4 +77,20 @@ export function maskPhoneNumber(phoneNumber: string | number): string {
   const masked = phoneStr.slice(0, 2) + '******' + phoneStr.slice(-2);
 
   return masked;
+}
+
+export function isLessThan24HoursLeft(eventDateString: string) {
+  const eventDate = new Date(eventDateString);
+
+  // Get the current date and time
+  const currentDate = new Date();
+
+  // Calculate the difference in milliseconds
+  const diffInMs = eventDate.getTime() - currentDate.getTime();
+
+  // Convert the difference from milliseconds to hours
+  const diffInHours = diffInMs / (1000 * 60 * 60);
+
+  // Check if the difference is less than 24 hours
+  return diffInHours <= 24;
 }
