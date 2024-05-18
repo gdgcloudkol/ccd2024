@@ -22,28 +22,30 @@
     {
       "partnerId": "gdsc_aot",
       "name": "Academy of Technology",
-      "hyperlink": "https://gdsc.community.dev/academy-of-technology-hooghly-india/",
-      "hidden": true
+      "hyperlink": "https://gdsc.community.dev/academy-of-technology-hooghly-india/"
     },
     {
       "partnerId": "iei_sc_cse_aot",
       "name": "IEI Students' Chapter CSE (AOT)",
       "hyperlink": "https://sccseaot.com",
-      "logo": "/assets/images/cp/iei_sc_cse_aot.jpg",
-      "hidden": true
+      "logo": "/assets/images/cp/iei_sc_cse_aot.jpg"
     },
     {
       "partnerId": "iei_sc_csbs_aot",
       "name": "IEI Student's Chapter CSBS (AOT)",
       "hyperlink": "https://sc-csbs.vercel.app/",
-      "logo": "/assets/images/cp/sccsbs.png",
-      "hidden": true
+      "logo": "/assets/images/cp/sccsbs.png"
     },
     {
       "partnerId": "gdsc_nsec",
       "name": "Netaji Subhash Engineering College",
-      "hyperlink": "https://gdsc.community.dev/netaji-subhash-engineering-college-kolkata/",
-      "hidden": true
+      "hyperlink": "https://gdsc.community.dev/netaji-subhash-engineering-college-kolkata/"
+    },    
+    {
+      "partnerId": "flutter_kolkata",
+      "name": "Flutter Kolkata",
+      "hyperlink": "https://www.flutterkolkata.dev",
+      "logo": "/assets/images/cp/fk.png"
     },
     {
       "partnerId": "pg_kol",
