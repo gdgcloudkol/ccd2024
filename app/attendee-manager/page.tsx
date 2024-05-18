@@ -67,7 +67,7 @@ const AttendeeManager = async ({ session }: { session: Session }) => {
           Check in attendees. Search their name/email to get results.
         </p>
       </div>
-      <AttendeeCheckin data={attendees} />
+      <AttendeeCheckin data={attendeeTemp} />
     </>
   );
 };
