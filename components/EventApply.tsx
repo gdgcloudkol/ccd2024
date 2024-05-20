@@ -37,6 +37,8 @@ const EventApply = ({
   async function applyToEvent() {
     if(!loggedIn) {
       toast({ variant: "destructive", title: "You are not logged in" });
+      setDialogOpen(false);
+      router.push('/login');
       return;
     }
     if (!eventId) {
