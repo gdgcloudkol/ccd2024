@@ -90,9 +90,31 @@ const Page = async () => {
       redirect("/extended-events");
     }
   }
+  async function fetchData(url: string, options: any) {
+    const response = await bkFetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+    return await response.json();
+  }
+  async function getData() {
+    const [event] = await Promise.all([
+      fetchData(
+        EVENTS_DJANGO_URL + session?.user.profile.x_event + "?page_size=50",
+        { method: "GET" }
+      ),
+    ]);
+
+    return {
+      event,
+    };
+  }
+
+  const { event } = await getData();
 
   return (
     <section className='w-full max-w-6xl mx-auto py-10 px-4'>
+      <h2 className='font-bold text-4xl mb-4'>{event.title}</h2>
       <Tabs defaultValue={"attendees"} className='space-y-4'>
         <TabsList>
           <TabsTrigger value='attendees'>Attendees</TabsTrigger>

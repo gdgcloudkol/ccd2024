@@ -15,10 +15,11 @@ import { returnVariant } from "@/components/EventsCard";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const AttendeeCheckin = ({ data }: { data: any }) => {
   const [tableData, setTableData] = useState<AttendeeData[]>([]);
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     return () => {
@@ -32,7 +33,8 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
       searchQuery == null ||
       searchQuery.length < 3
     ) {
-      setTableData([]);
+      if (searchParams?.get("all_attendees") == "true") setTableData(data);
+      else setTableData([]);
       return;
     } else {
       setTableData(() => {
@@ -52,6 +54,14 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
       });
     }
   }, [searchQuery]);
+
+  useEffect(() => {
+    if (searchParams?.get("all_attendees") == "true") setTableData(data);
+    else setTableData([]);
+    return () => {
+      setTableData([]);
+    };
+  }, [searchParams]);
 
   const { toast } = useToast();
   const router = useRouter();
@@ -99,7 +109,6 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
                 tableData?.length > 0 &&
                 tableData?.map((attendee: AttendeeData) => (
                   <TableRow key={attendee?.id}>
-                    <TableCell>{attendee?.id}</TableCell>
                     <TableCell>
                       {attendee?.user?.profile.first_name}{" "}
                       {attendee?.user?.profile.last_name}
