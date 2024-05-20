@@ -20,10 +20,12 @@ const EventApply = ({
   eventName,
   eventId,
   attended,
+  loggedIn,
 }: {
   eventName: string;
   eventId: number;
   attended: number;
+  loggedIn: boolean | undefined;
 }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -33,6 +35,12 @@ const EventApply = ({
 
   const router = useRouter();
   async function applyToEvent() {
+    if(!loggedIn) {
+      toast({ variant: "destructive", title: "You are not logged in" });
+      setDialogOpen(false);
+      router.push('/login');
+      return;
+    }
     if (!eventId) {
       toast({ variant: "destructive", title: "Must have event id" });
       return;
@@ -62,7 +70,7 @@ const EventApply = ({
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
-        <Button>
+        <Button className="w-full">
           <Ticket className='h-4 w-4 mr-2' />
           Get Ticket
         </Button>

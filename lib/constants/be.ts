@@ -13,8 +13,8 @@ export const AUTH_USERS_DJANGO_URL = CCD2024_BE_BASE_URL + '/auth/user'
 export const USERS_DJANGO_URL = CCD2024_BE_BASE_URL + '/users/profile/'
 export const USER_DJANGO_CONTEST_TOKEN = CCD2024_BE_BASE_URL + '/users/';
 
-
 export const EVENTS_DJANGO_URL = CCD2024_BE_BASE_URL + '/events/'
+export const EVENTS_PUBLIC_URL = CCD2024_BE_BASE_URL + '/events/public_events/'
 export const EVENT_ATTENDEE_LIST_URL_SUFFIX = '/attendees/' //+param+suffix
 
 export const EVENT_VOLUNTEER_ADD_URL_SUFFIX = '/add_volunteer/'
