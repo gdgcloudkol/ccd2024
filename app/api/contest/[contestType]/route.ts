@@ -7,7 +7,7 @@ const CONTEST_FE_URL = process.env.CONTEST_FE_URL;
 
 export async function GET(req: NextRequest, { params }: { params: { contestType: string } }) {
   const contestType = params.contestType;
-  console.log(contestType);
+
   const response = await bkFetch(USER_DJANGO_CONTEST_TOKEN, {
     method: "POST",
     cache: 'no-store'

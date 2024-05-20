@@ -47,7 +47,7 @@ export default function ForgotForm() {
       setIsLoading(false);
       if (!response.ok) {
         const error = await response.json();
-        console.log(error);
+
         triggerErrorToasts(error);
       } else {
         setShowSuccessMessage(true);
