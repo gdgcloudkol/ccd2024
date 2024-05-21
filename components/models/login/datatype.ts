@@ -21,7 +21,7 @@ export interface UserProfileData {
     event_role: string;
     x_event: number | null;
     attempts: number;
-    no_show: number
+    no_show: number;
 }
 
 export interface UserData {

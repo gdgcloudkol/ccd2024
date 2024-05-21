@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { Pronouns } from "./constants/generic";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -39,4 +40,19 @@ export function maskEmail(email: string): string {
 
   // Combine the masked username with the domain
   return `${maskedUsername}@${domain}`;
+}
+
+export function getPronoun(dbPronoun: string, fallback?: string | undefined) {
+  if (Pronouns.hasOwnProperty(dbPronoun)) {
+    return dbPronoun;
+  } else {
+    return fallback;
+  }
+}
+export function getPronounLabel(dbPronoun: string, fallback?: string | undefined) {
+  if (Pronouns.hasOwnProperty(dbPronoun)) {
+    return Pronouns[dbPronoun as keyof typeof Pronouns];
+  } else {
+    return fallback;
+  }
 }

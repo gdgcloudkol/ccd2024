@@ -13,12 +13,22 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
+import { Pronouns } from "@/lib/constants/generic";
+import { getPronoun } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -36,6 +46,10 @@ enum UserFieldsName {
   Designation = "designation",
   GraduationYear = "graduation_year",
   Phone = "phone",
+  Github = "github_username",
+  Linkedin = "linkedin_username",
+  Twitter = "twitter_username",
+  Website = "website",
 }
 
 export default function ProfileForm({
@@ -70,6 +84,12 @@ export default function ProfileForm({
       .refine((phoneNumber) => isValidPhoneNumber(phoneNumber), {
         message: "Invalid phone number. Please enter a 10-digit phone number.",
       }),
+    [UserFieldsName.Github]: z
+      .string()
+      .min(2, { message: "Github username is required" }),
+    [UserFieldsName.Linkedin]: z.string(),
+    [UserFieldsName.Twitter]: z.string(),
+    [UserFieldsName.Website]: z.string(),
   });
   const [isLoading, setIsLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
@@ -84,13 +104,17 @@ export default function ProfileForm({
     defaultValues: {
       first_name: userData?.profile?.first_name,
       last_name: userData?.profile?.last_name,
-      pronoun: userData?.profile?.pronoun,
+      pronoun: getPronoun(`${userData?.profile?.pronoun}`),
       student: userData?.profile?.student?.toString() ?? "true",
       organization: userData?.profile?.student
         ? userData?.profile?.college
         : userData?.profile?.company,
       graduation_year: userData?.profile?.graduation_year.toString(),
       phone: userData?.profile?.phone,
+      github_username: userData?.profile?.socials?.github ?? undefined,
+      twitter_username: userData?.profile?.socials?.twitter ?? undefined,
+      website: userData?.profile?.socials?.website ?? undefined,
+      linkedin_username: userData?.profile?.socials?.linkedin ?? undefined,
     },
   });
 
@@ -115,6 +139,12 @@ export default function ProfileForm({
               : "",
           graduation_year: values[UserFieldsName.GraduationYear],
           phone: values[UserFieldsName.Phone],
+          socials: {
+            github: values[UserFieldsName.Github],
+            linkedin: values[UserFieldsName.Linkedin],
+            twitter: values[UserFieldsName.Twitter],
+            website: values[UserFieldsName.Website],
+          },
         }),
       });
       setIsLoading(false);
@@ -182,7 +212,8 @@ export default function ProfileForm({
                 </FormItem>
               )}
             />
-          </div>
+          </div>{" "}
+          {/* {JSON.stringify(userData?.profile?.pronoun)} */}
           <FormField
             control={form.control}
             name={UserFieldsName.Pronoun}
@@ -193,18 +224,36 @@ export default function ProfileForm({
                   {UserFieldsName.Pronoun.toString().replaceAll("_", " ")}
                 </FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder={"Enter your pronouns"}
-                    className='bg-white text-black'
+                  <Select
+                    defaultValue={field.value}
+                    onValueChange={(e) => {
+                      field.onChange(e);
+                    }}
                     {...field}
-                  />
+                  >
+                    <SelectTrigger className='bg-white text-black'>
+                      <SelectValue placeholder='Select a pronoun' />
+                    </SelectTrigger>
+                    <SelectContent className='bg-white text-black'>
+                      <SelectGroup>
+                        {Object.keys(Pronouns)?.map((pronoun: string) => (
+                          <SelectItem
+                            value={pronoun}
+                            key={pronoun}
+                            className='capitalize'
+                          >
+                            {Pronouns[pronoun as keyof typeof Pronouns]}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </FormControl>
 
                 <FormMessage />
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name={UserFieldsName.Student}
@@ -314,7 +363,92 @@ export default function ProfileForm({
               </FormItem>
             )}
           />
+          <div className='grid grid-cols-2 gap-4'>
+            <FormField
+              control={form.control}
+              name={UserFieldsName.Github}
+              key={UserFieldsName.Github}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='capitalize'>
+                    {UserFieldsName.Github.toString().replaceAll("_", " ")}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder={"Enter your GitHub username"}
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
 
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name={UserFieldsName.Linkedin}
+              key={UserFieldsName.Linkedin}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='capitalize'>
+                    {UserFieldsName.Linkedin.toString().replaceAll("_", " ")}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder={"Enter your Linkedin username"}
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name={UserFieldsName.Twitter}
+              key={UserFieldsName.Twitter}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='capitalize'>
+                    {UserFieldsName.Twitter.toString().replaceAll("_", " ")}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder={"Enter your Twitter username"}
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name={UserFieldsName.Website}
+              key={UserFieldsName.Website}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className='capitalize'>
+                    {UserFieldsName.Website.toString().replaceAll("_", " ")}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder={"https://"}
+                      className='bg-white text-black'
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <div className='grid grid-cols-2 gap-4'>
             <Button
               type='submit'
