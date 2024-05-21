@@ -90,12 +90,12 @@ export default function ProfileForm({
       }),
     [UserFieldsName.Github]: z
       .string()
-      .regex(GITHUB_URL_REGEX, { message: "Github profile url is required" }),
+      .regex(GITHUB_URL_REGEX, { message: "Github profile url is required" }).optional(),
     [UserFieldsName.Linkedin]: z.string().regex(LINKEDIN_URL_REGEX, {
       message: "Linkedin profile url is required",
-    }),
-    [UserFieldsName.Twitter]: z.string(),
-    [UserFieldsName.Website]: z.string(),
+    }).optional(),
+    [UserFieldsName.Twitter]: z.string().optional(),
+    [UserFieldsName.Website]: z.string().optional(),
   });
   const [isLoading, setIsLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);

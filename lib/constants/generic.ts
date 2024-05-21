@@ -14,5 +14,5 @@ export const Pronouns = {
 
 export const GITHUB_URL_REGEX = /^https:\/\/github\.com\/[a-zA-Z0-9-]+$/
 export const TWITTER_URL_REGEX = /^https:\/\/twitter\.com\/[A-Za-z0-9_]{1,15}$/
-export const LINKEDIN_URL_REGEX = /^https:\/\/www\.linkedin\.com\/in\/[A-Za-z0-9-]+\/?$/
+export const LINKEDIN_URL_REGEX = /^https:\/\/(www\.)?linkedin\.com\/in\/[A-Za-z0-9-]+\/?$/
 export const WEBSITE_URL_REGEX = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;%=]*)?$/
