@@ -2,7 +2,11 @@ import CardGrid from "@/components/CardGrid";
 import AlternateHeader from "@/components/blocks/AlternateHeader";
 import { Event } from "@/components/models/events/datatype";
 import { authOptions } from "@/lib/auth";
-import { ATTENDEES_DJANGO_URL, EVENTS_DJANGO_URL, EVENTS_PUBLIC_URL } from "@/lib/constants/be";
+import {
+  ATTENDEES_DJANGO_URL,
+  EVENTS_DJANGO_URL,
+  EVENTS_PUBLIC_URL,
+} from "@/lib/constants/be";
 
 import eventsData from "@/public/assets/content/Events/content.json";
 
@@ -15,7 +19,13 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Extended Events",
 };
-const Events = async ({ hidden, isPublic }: { hidden: boolean, isPublic: boolean }) => {
+const Events = async ({
+  hidden,
+  isPublic,
+}: {
+  hidden: boolean;
+  isPublic: boolean;
+}) => {
   async function fetchData(url: string, options: any) {
     const response = await bkFetch(url, options);
     if (!response.ok) {
@@ -24,7 +34,7 @@ const Events = async ({ hidden, isPublic }: { hidden: boolean, isPublic: boolean
     return await response.json();
   }
   async function getData(isPublic: boolean) {
-    if(!isPublic) {
+    if (!isPublic) {
       const [events, attendees] = await Promise.all([
         fetchData(EVENTS_DJANGO_URL + "?page_size=50", { method: "GET" }),
         fetchData(ATTENDEES_DJANGO_URL, { method: "GET" }),
@@ -36,24 +46,23 @@ const Events = async ({ hidden, isPublic }: { hidden: boolean, isPublic: boolean
     } else {
       const response = await fetch(EVENTS_PUBLIC_URL, {
         method: "GET",
-        cache: 'no-store',
+        cache: "no-store",
         headers: {
-            'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       });
       const results = await response.json();
       return {
         events: {
-          results
+          results,
         },
-        attendees: undefined
-      }
+        attendees: undefined,
+      };
     }
-
   }
 
   const { events, attendees } = await getData(isPublic);
-  
+  const session = await getServerSession(authOptions);
   return (
     <CardGrid
       gridData={{
@@ -68,6 +77,7 @@ const Events = async ({ hidden, isPublic }: { hidden: boolean, isPublic: boolean
         attendees: attendees,
       }}
       type='Events'
+      session={session}
     ></CardGrid>
   );
 };
