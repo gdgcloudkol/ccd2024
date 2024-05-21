@@ -15,6 +15,10 @@ export interface UserProfileData {
     settings: {
         [key: string]: string;
     };
+
+    settings: {
+        [key: string]: string;
+    };
     pronoun: string;
     profile_lock: boolean;
     student: boolean;
