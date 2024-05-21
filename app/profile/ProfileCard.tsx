@@ -38,14 +38,14 @@ const NoShowModal = () => {
           <DialogTitle> What does a no-show mean?</DialogTitle>
         </DialogHeader>
         <p>
-          A no-show refers to a situation where, an attendee{" "}
+          A no-show refers to a situation where an attendee{" "}
           <strong>
             does not show up to the event even when they are approved, without
             informing 24 hours prior to the event!
           </strong>
         </p>
         <p>
-          An attendee gets 3 chances to attend extended events{" "}
+          An attendee gets 3 chances to attend extended events.{" "}
           <strong>Each no-show costs 1 attempt. </strong> E.g. if you have 3
           attempts left, and an approved ticket, not showing up would decrease
           your attempts to 1. (1 subtracted for approved status, another for no
