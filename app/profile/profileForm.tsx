@@ -22,7 +22,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
-import { Pronouns } from "@/lib/constants/generic";
+import {
+  GITHUB_URL_REGEX,
+  LINKEDIN_URL_REGEX,
+  Pronouns,
+} from "@/lib/constants/generic";
 import { getPronoun } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -46,9 +50,9 @@ enum UserFieldsName {
   Designation = "designation",
   GraduationYear = "graduation_year",
   Phone = "phone",
-  Github = "github_username",
-  Linkedin = "linkedin_username",
-  Twitter = "twitter_username",
+  Github = "github_profile_url",
+  Linkedin = "linkedin_profile_url",
+  Twitter = "twitter_profile_url",
   Website = "website",
 }
 
@@ -86,8 +90,10 @@ export default function ProfileForm({
       }),
     [UserFieldsName.Github]: z
       .string()
-      .min(2, { message: "Github username is required" }),
-    [UserFieldsName.Linkedin]: z.string(),
+      .regex(GITHUB_URL_REGEX, { message: "Github profile url is required" }),
+    [UserFieldsName.Linkedin]: z.string().regex(LINKEDIN_URL_REGEX, {
+      message: "Linkedin profile url is required",
+    }),
     [UserFieldsName.Twitter]: z.string(),
     [UserFieldsName.Website]: z.string(),
   });
@@ -111,10 +117,10 @@ export default function ProfileForm({
         : userData?.profile?.company,
       graduation_year: userData?.profile?.graduation_year.toString(),
       phone: userData?.profile?.phone,
-      github_username: userData?.profile?.socials?.github ?? undefined,
-      twitter_username: userData?.profile?.socials?.twitter ?? undefined,
+      github_profile_url: userData?.profile?.socials?.github ?? undefined,
+      twitter_profile_url: userData?.profile?.socials?.twitter ?? undefined,
       website: userData?.profile?.socials?.website ?? undefined,
-      linkedin_username: userData?.profile?.socials?.linkedin ?? undefined,
+      linkedin_profile_url: userData?.profile?.socials?.linkedin ?? undefined,
     },
   });
 
@@ -375,7 +381,7 @@ export default function ProfileForm({
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={"Enter your GitHub username"}
+                      placeholder={"https://github.com/"}
                       className='bg-white text-black'
                       {...field}
                     />
@@ -396,7 +402,7 @@ export default function ProfileForm({
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={"Enter your Linkedin username"}
+                      placeholder={"Enter your Linkedin profile url"}
                       className='bg-white text-black'
                       {...field}
                     />
@@ -417,7 +423,7 @@ export default function ProfileForm({
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={"Enter your Twitter username"}
+                      placeholder={"Enter your Twitter profile url"}
                       className='bg-white text-black'
                       {...field}
                     />
@@ -449,7 +455,7 @@ export default function ProfileForm({
               )}
             />
           </div>
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-2 gap-4 mt-6'>
             <Button
               type='submit'
               className='w-full text-center text-foreground'

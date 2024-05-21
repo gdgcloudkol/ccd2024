@@ -56,3 +56,13 @@ export function getPronounLabel(dbPronoun: string, fallback?: string | undefined
     return fallback;
   }
 }
+export function extractGithubUsername(url: string): string | null {
+  // Define the regex pattern to match the GitHub profile URL and capture the username
+  const githubUrlPattern = /^https:\/\/github\.com\/([a-zA-Z0-9-]+)\/?$/;
+
+  // Execute the regex pattern on the input URL
+  const match = url.match(githubUrlPattern);
+
+  // If there is a match, return the captured group (username), otherwise return null
+  return match ? match[1] : null;
+}
