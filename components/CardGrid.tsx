@@ -28,14 +28,10 @@ function CardGrid({
           <ContestCard contests={gridData || []}></ContestCard>
         )}
         {type == "People" && (
-          <PeopleCard cards={gridData.people || []}></PeopleCard>
+          <PeopleCard cards={gridData.people || []} isToggle={false}></PeopleCard>
         )}
         {type == "Events" && (
-          <EventCard
-            events={gridData.events}
-            attendees={gridData.attendees}
-            session={session}
-          ></EventCard>
+          <EventCard events={gridData.events} attendees={gridData.attendees} session={session}></EventCard>
         )}
       </div>
     </div>
