@@ -53,6 +53,11 @@
     {
       "title": "Profile",
       "link": "/profile"
+    },
+    {
+      "title": "Log out",
+      "link": "/logout",
+      "desktopVisible": false
     }
   ],
   "navbarUserXOrganizerLoggedIn": [

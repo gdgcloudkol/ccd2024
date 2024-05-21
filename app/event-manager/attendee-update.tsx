@@ -36,7 +36,7 @@ const AttendeeUpdate = ({
     setLoading(false);
     if (!response.ok) {
       const error = await response.json();
-      console.log(error);
+
       toast({
         variant: "destructive",
         title: "Something went wrong",
@@ -52,7 +52,7 @@ const AttendeeUpdate = ({
     const exec = async () => {
       fetch(`/api/attendee/${attendeeId}/inform/`, { method: "POST" })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {})
         .catch((error: any) => {
           toast({
             variant: "destructive",

@@ -11,6 +11,7 @@ import {
   DialogHeader,
 } from "@/components/ui/dialog";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import Link from "next/link";
 
 export interface AttendeeData {
   id: number;
@@ -38,6 +39,9 @@ interface Profile {
   college: null;
   graduation_year: number;
   pronoun: null;
+  socials?: {
+    [key: string]: string;
+  };
 }
 
 const DetailsBlock = ({
@@ -99,6 +103,67 @@ export const columns: ColumnDef<AttendeeData>[] = [
               value={row.original.status}
               fallback={null}
             />
+            {row.original.user.profile?.socials &&
+              Object.keys(row.original.user.profile?.socials)?.length > 0 && (
+                <div className='my-4 flex items-center justify-center gap-2 mx-auto row-span-2 col-span-2 '>
+                  {row.original.user.profile?.socials?.github && (
+                    <Link
+                      href={`${row.original.user.profile?.socials?.github}`}
+                      target='_blank'
+                      rel='noopener noreferer'
+                    >
+                      <img
+                        src={"/assets/icons/github.svg"}
+                        alt='github logo'
+                        className='h-8 w-8'
+                        title={`${row.original.user.profile?.socials?.github}`}
+                      />
+                    </Link>
+                  )}
+                  {row.original.user.profile?.socials?.linkedin && (
+                    <Link
+                      href={`${row.original.user.profile?.socials?.linkedin}`}
+                      target='_blank'
+                      rel='noopener noreferer'
+                    >
+                      <img
+                        src={"/assets/icons/linkedin.svg"}
+                        alt='linkedin logo'
+                        className='h-8 w-8'
+                        title={`${row.original.user.profile?.socials?.linkedin}`}
+                      />
+                    </Link>
+                  )}
+                  {row.original.user.profile?.socials?.twitter && (
+                    <Link
+                      href={`${row.original.user.profile?.socials?.twitter}`}
+                      target='_blank'
+                      rel='noopener noreferer'
+                    >
+                      <img
+                        src={"/assets/icons/twitter.svg"}
+                        alt='twitter logo'
+                        className='h-8 w-8'
+                        title={`${row.original.user.profile?.socials?.twitter}`}
+                      />
+                    </Link>
+                  )}
+                  {row.original.user.profile?.socials?.website && (
+                    <Link
+                      href={`${row.original.user.profile?.socials?.website}`}
+                      target='_blank'
+                      rel='noopener noreferer'
+                    >
+                      <img
+                        src={"/assets/icons/website.svg"}
+                        alt='twitter logo'
+                        className='h-8 w-8'
+                        title={`${row.original.user.profile?.socials?.website}`}
+                      />
+                    </Link>
+                  )}
+                </div>
+              )}
           </div>
         </DialogContent>
       </Dialog>
