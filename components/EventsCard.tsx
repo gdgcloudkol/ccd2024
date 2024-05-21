@@ -8,6 +8,7 @@ import EventApply from "./EventApply";
 import { TicketChoices } from "@/lib/constants/tickets";
 import FeatureRule from "@/public/assets/content/feature.rule.json";
 import LoadLink from "./blocks/LoadLink";
+import { Session } from "next-auth";
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
   switch (ticketChoice) {
@@ -41,9 +42,11 @@ function returnIcon(ticketChoice: string | undefined) {
 function EventCard({
   events,
   attendees,
+  session,
 }: {
   events: EventsResponse | undefined;
   attendees: Attendee[] | undefined;
+  session?: Session | null;
 }) {
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
@@ -121,20 +124,20 @@ function EventCard({
         </p>
         <div className='flex items-center justify-center w-full'>
           {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
-                <img
-                  className="w-6 h-6 border-[1px] border-black rounded-full"
-                  src="/assets/images/mascot.webp"
-                  alt=""
-                />
-                <img
-                  className="w-6 h-6 border-[1px] border-black rounded-full"
-                  src="/assets/images/mascot.webp"
-                  alt=""
-                />
-              </div>
-              <p className="text-black text-sm mt-4">
-                140+ people participate
-              </p> */}
+              <img
+                className="w-6 h-6 border-[1px] border-black rounded-full"
+                src="/assets/images/mascot.webp"
+                alt=""
+              />
+              <img
+                className="w-6 h-6 border-[1px] border-black rounded-full"
+                src="/assets/images/mascot.webp"
+                alt=""
+              />
+            </div>
+            <p className="text-black text-sm mt-4">
+              140+ people participate
+            </p> */}
 
           {/* Fetch event id from the MAP and set ticket status accordingly. */}
 
@@ -178,6 +181,7 @@ function EventCard({
               eventId={card.id}
               attended={attendees?.length || 0}
               key={card.id}
+              session={session}
             />
           )}
         </div>
