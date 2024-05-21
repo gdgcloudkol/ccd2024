@@ -16,6 +16,7 @@ export interface Event {
     technologies: number[];
     manager: Manager;
     volunteers: Volunteer[];
+    ended?: boolean,
 }
 
 

@@ -26,7 +26,7 @@ export async function POST(req: NextRequest, { params }: { params: { eventId: st
         }
         else {
             const error = await response.text();
-            console.log(error)
+
             return NextResponse.json(error, { status: response.status });
 
         }

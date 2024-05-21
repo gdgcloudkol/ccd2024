@@ -4,17 +4,17 @@ import { FaXTwitter } from "react-icons/fa6";
 import { PeopleCards } from "./models/cardGrid.model";
 import { useState } from "react";
 
-function PeopleCard({ cards }: { cards: PeopleCards[] }) {
-  const [toggle, setToggle] = useState(true);
+function PeopleCard({ cards, isToggle = true }: { cards: PeopleCards[], isToggle?: boolean }) {
+  const [toggle, setToggle] = useState(isToggle);
 
   return cards.map((card: PeopleCards) =>
-    toggle ? (
+    !isToggle ? (
       <div
         key={card.id}
-        className='relative max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg mb-10 h-80'
+        className='relative max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg mb-10 h-[24rem]'
         onClick={() => setToggle(!toggle)}
       >
-        <div className='px-4 pb-6'>
+        <div className='px-4 pb-6 flex justify-center'>
           <div className='text-center my-4'>
             <img
               className='h-32 w-32 rounded-full border-4 border-white dark:border-t-red-500 border-l-green-500 border-r-google-yellow border-b-blue-500 mx-auto my-4'

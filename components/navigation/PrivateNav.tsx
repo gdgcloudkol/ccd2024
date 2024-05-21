@@ -19,6 +19,7 @@ import LoadLink from "@/components/blocks/LoadLink";
 import { UserData, UserProfileData } from "../models/login/datatype";
 import { DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME } from "@/lib/constants/generic";
 import { navLinkProps } from "./Navbar";
+import { extractGithubUsername } from "@/lib/utils";
 
 interface LoggedInUser {
   pk: number;
@@ -48,10 +49,23 @@ export default function PrivateNav({
       <DropdownMenuTrigger asChild>
         <Button
           variant='ghost'
-          className='relative h-11 w-1h-11 p-2 rounded-full bg-secondary hover:bg-secondary-foreground  '
+          className='relative h-11 w-11 p-1 rounded-full bg-secondary   '
         >
-          <Avatar className='h-8 w-8'>
-            <AvatarImage src={"/assets/images/mascot.webp"} alt='@shadcn' />
+          <Avatar className='h-10 w-10'>
+            <AvatarImage
+              src={
+                (user?.profile?.socials?.github &&
+                  `https://github.com/${extractGithubUsername(
+                    user?.profile?.socials?.github
+                  )}.png`) ||
+                "/assets/images/mascot.webp"
+              }
+              alt={
+                (user?.profile?.socials?.github &&
+                  extractGithubUsername(user?.profile?.socials?.github)) ||
+                "avatar"
+              }
+            />
             <AvatarFallback>{user?.profile?.first_name[0]}</AvatarFallback>
           </Avatar>
         </Button>
@@ -74,16 +88,18 @@ export default function PrivateNav({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {navUser?.map((link) => (
-            <>
-              <LoadLink href={link.link} prefetch={false} key={link.link}>
-                <DropdownMenuItem>
-                  {/* <Settings2 className='mr-2 h-4 w-4' /> */}
-                  <span>{link.title}</span>
-                </DropdownMenuItem>
-              </LoadLink>
-            </>
-          ))}
+          {navUser
+            ?.filter((navItem) => navItem?.desktopVisible !== false)
+            .map((link) => (
+              <>
+                <LoadLink href={link.link} prefetch={false} key={link.link}>
+                  <DropdownMenuItem>
+                    {/* <Settings2 className='mr-2 h-4 w-4' /> */}
+                    <span>{link.title}</span>
+                  </DropdownMenuItem>
+                </LoadLink>
+              </>
+            ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>

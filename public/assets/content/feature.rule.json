@@ -35,7 +35,7 @@
     "speakers": false
   },
   "disabledTeamsContent": {
-    "team": false
+    "team": true
   },
   "disabledEventsContent": {
     "events": true

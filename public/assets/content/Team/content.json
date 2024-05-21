@@ -4,114 +4,294 @@
   "color": "green",
   "allPeople": [
     {
-      "header": "Design Team",
-      "description": "Listen to our honored Chief Guest",
+      "title": "Organizing Team",
+      "description": "Google Cloud Community Days is borought to you by...",
       "people": [
         {
+          "id": 0,
+          "title": "Jyoti Mishra",
+          "content": "SDE IV @ Events",
+          "linkedin": "https://www.linkedin.com/in/jyotim29/",
+          "twitter": "https://www.twitter.com/Jyoti_Mi",
+          "image": "https://www.github.com/jstjyoti.png"
+        },
+        {
           "id": 1,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://www.linkedin.com",
-          "twitter": "https://www.twitter.com",
-          "image": "/assets/images/mascot.webp"
+          "title": "Md Nasirul Haque",
+          "content": "IT Analyst @ TCS",
+          "linkedin": "https://www.linkedin.com/in/mdnasirulhaque/",
+          "twitter": "https://twitter.com/mdnasirulhaque",
+          "image": "https://www.github.com/mdnasirulhaque.png"
         },
         {
           "id": 2,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
-        },
+          "title": "Kazi Haque",
+          "content": "Co-Founder @ Callchimp",
+          "linkedin": "https://www.linkedin.com/in/haquekazi/",
+          "twitter": "https://twitter.com/imkazi23",
+          "image": "https://www.github.com/kazi92.png"
+        },        
         {
           "id": 3,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
-        }
-      ]
-    },
-    {
-      "header": "Guest of Honour",
-      "description": "Listen to our honored guest of honor",
-      "people": [
+          "title": "Rishira Acharya",
+          "content": "ML Engineer @ Tensorlake.ai",
+          "linkedin": "https://www.linkedin.com/in/rishirajacharya/",
+          "twitter": "https://twitter.com/RishirajAcharya",
+          "image": "https://www.github.com/rishiraj.png"
+        },        
         {
           "id": 4,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
-        },
-        {
-          "id": 5,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "title": "Snehangshu Bhattacharya",
+          "content": "Lead Engineer @ Callchimp",
+          "linkedin": "https://www.linkedin.com/in/snehangshub/",
+          "twitter": "https://twitter.com/snehangshu_",
+          "image": "https://www.github.com/f0rkb0mbZ.png"
         }
       ]
     },
     {
-      "header": "Keynote Speakers",
-      "description": "Learn about the newest innovations in cloud computing from leaders in the industry and Google Developer Advocate Leader.",
+      "title": "Design Team",
+      "description": "The beautiful designs created are created by...",
       "people": [
         {
+          "id": 5,
+          "title": "Arindam Dutta",
+          "content": "Founder at Coinclap",
+          "linkedin": "https://www.linkedin.com/in/iarindamofficial/",
+          "twitter": "https://x.com/arindamoriginal",
+          "image": "https://github.com/iarindamofficial.png"
+        },
+        {
           "id": 6,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "title": "Nimesh Kumar",
+          "content": "Student @Sister Nivedita University",
+          "linkedin": "https://www.linkedin.com/in/nimesh-kumar-9079ab225",
+          "twitter": "https://x.com/nimesh_kr_?t=IBzscabT7OxMEnuQdjoD9A&s=09",
+          "image": "https://github.com/nimeshkumar08.png"
         },
         {
           "id": 7,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "title": "Randrita Sarkar",
+          "content": "ASE @ TCS",
+          "linkedin": "https://linkedin.com/in/randritas",
+          "twitter": "https://twitter.com/sarkar_randrita",
+          "image": "https://www.github.com/Randrita.png"
         },
         {
           "id": 8,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "title": "Sarfaraz Ahmad",
+          "content": "Data Engineer @ Cognizant",
+          "linkedin": "https://www.linkedin.com/in/sarfaraz-ahmad-647898209",
+          "twitter": "https://x.com/_n_a_t_u_re_boy",
+          "image": "https://github.com/sarfaraz02.png"
         }
       ]
     },
     {
-      "header": "Our Amazing Speakers",
-      "description": "Hear from the experts who are creating the cloud of the future. Our speakers are well-known individuals and friends who have ties to the communities in their organizations, cities, nations, and beyond.",
+      "title": "Outreach Team",
+      "description": "All the good companies were approached and finalized by...",
       "people": [
         {
-          "id": 1,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "id": 9,
+          "title": "Debanita Roy Bhowmick",
+          "content": "Imagineer at Fractal Analytics",
+          "linkedin": "www.linkedin.com/in/debanita-roy-bhowmick",
+          "twitter": "https://twitter.com/DebanitaRB",
+          "image": "https://avatars.githubusercontent.com/u/89266652?v=4"
         },
         {
-          "id": 2,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "id": 10,
+          "title": "Manish Kumar Barnwal",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/in/imanishbarnwal/",
+          "twitter": "https://twitter.com/imanishbarnwal",
+          "image": "https://github.com/imanishbarnwal.png"
         },
         {
-          "id": 3,
-          "title": "Sohail Pathan",
-          "content": "Developer Advocate at ApyHub",
-          "linkedin": "https://example.com/linkedin-icon.png",
-          "twitter": "https://example.com/twitter-icon.png",
-          "image": "/assets/images/mascot.webp"
+          "id": 11,
+          "title": "Prosenjit Swarnakar",
+          "content": "CSE Undergrad Student @ GCELT",
+          "linkedin": "https://www.linkedin.com/in/prosenjit-swarnakar-5baa59236/",
+          "twitter": "https://x.com/ProsenjitSwarn5",
+          "image": "https://github.com/PROSENJIT-RONI.png"
+        },
+        {
+          "id": 12,
+          "title": "Shubham Tribedi",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        }
+      ]
+    },
+    {
+      "title": "Photography Team",
+      "description": "These amazing moments are captured by...",
+      "people": [
+        {
+          "id": 13,
+          "title": "Anirban Saha",
+          "content": "Developer @ Strength",
+          "linkedin": "https://www.linkedin.com/in/anbsaha/",
+          "twitter": "https://twitter.com/AnbSaha",
+          "image": "https://github.com/Anirban-Saha.png"
+        },
+        {
+          "id": 14,
+          "title": "Ankush Das",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 15,
+          "title": "Soumoydip Halder",
+          "content": "Student -1st Year MCA",
+          "linkedin": "https://www.linkedin.com/in/soumoydiphalder",
+          "twitter": "/",
+          "image": "https://github.com/soumoydip.png"
+        },
+        {
+          "id": 16,
+          "title": "Ritam Mishra",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 17,
+          "title": "Souradip Dasgupta",
+          "content": "SDE Intern @ Zidio Development",
+          "linkedin": "www.linkedin.com/in/souradip-dasgupta",
+          "twitter": "https://twitter.com/Souradip69",
+          "image": "https://github.com/GeeekySouro003.png"
+        }
+      ]
+    },
+    {
+      "title": "Promotions Team",
+      "description": "Great captions and wordings are brought to you by...",
+      "people": [
+        {
+          "id": 18,
+          "title": "Aditya Seth",
+          "content": "Jobless @ Techno Main Salt Lake",
+          "linkedin": "https://adityaseth.in/linkedin",
+          "twitter": "https://adityaseth.in/twitter",
+          "image": "https://github.com/AdityaSeth777.png"
+        },
+        {
+          "id": 19,
+          "title": "Anushka Chowdhury",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 20,
+          "title": "Arunima Chatterjee",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 21,
+          "title": "Kiran Mishra",
+          "content": "Student @ Sister Nivedita University",
+          "linkedin": "https://www.linkedin.com/in/kiranmishra21",
+          "twitter": "https://x.com/kiranmishra1706",
+          "image": "https://github.com/Kirann21.png"
+        },
+        {
+          "id": 22,
+          "title": "Shakshi Das",
+          "content": "Student @ Sister Nivedita University",
+          "linkedin": "https://www.linkedin.com/in/shakshi-das-03822a220",
+          "twitter": "https://twitter.com/i_shakshi_",
+          "image": "https://github.com/Shakshi-das.png"
+        },
+        {
+          "id": 22,
+          "title": "Shubhayu Majumdar",
+          "content": "Associate Cloud Developer @ BlueVectorAI",
+          "linkedin": "https://www.linkedin.com/in/shubhayu64/",
+          "twitter": "https://x.com/shubhayu64",
+          "image": "https://github.com/shubhayu-64.png"
+        }
+      ]
+    },
+    {
+      "title": "Web Team",
+      "description": "These amazing websites, constests and various other technical systems are by...",
+      "people": [
+        {
+          "id": 23,
+          "title": "Alapan Das",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 24,
+          "title": "Gourav Ghoshal",
+          "content": "Frontend developer @ Callchimp",
+          "linkedin": "https://www.linkedin.com/in/gourav-ghosal",
+          "twitter": "https://x.com/gourav_221b",
+          "image": "https://github.com/gourav221b.png"
+        },
+        {
+          "id": 25,
+          "title": "Hemant Bajaj",
+          "content": "ASDE @Swiggy",
+          "linkedin": "https://www.linkedin.com/in/hemant-bajaj-/",
+          "twitter": "https://twitter.com/HemantBajaj_",
+          "image": "https://github.com/orko06.png"
+        },
+        {
+          "id": 26,
+          "title": "Maaz Ahmed",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 27,
+          "title": "Raja Majumdar",
+          "content": "Jobless @ Academy of Technology but ML Researcher @ CU",
+          "linkedin": "https://www.linkedin.com/in/raja-majumdar/",
+          "twitter": "https://twitter.com/r3yc0n1c",
+          "image": "https://github.com/r3yc0n1c.png"
+        },
+        {
+          "id": 28,
+          "title": "Rudramadhaba Mishra",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 29,
+          "title": "Sayak Saha",
+          "content": "Smart helpful monkey at GDG Cloud Kolkata",
+          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
+          "twitter": "https://twitter.com/gdgcloudkol",
+          "image": "https://github.com/lurisan.png"
+        },
+        {
+          "id": 30,
+          "title": "Sitam Meur",
+          "content": "Studio Publisher @LightningAI, GSOC @RUXAILAB, AI/ML Lead @GDSC MSIT, Pre-final year student @MSIT",
+          "linkedin": "https://www.linkedin.com/in/sitammeur/",
+          "twitter": "https://twitter.com/sitammeur",
+          "image": "https://github.com/sitamgithub-MSIT.png"
         }
       ]
     }

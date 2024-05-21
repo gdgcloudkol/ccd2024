@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { Pronouns } from "./constants/generic";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -39,4 +40,29 @@ export function maskEmail(email: string): string {
 
   // Combine the masked username with the domain
   return `${maskedUsername}@${domain}`;
+}
+
+export function getPronoun(dbPronoun: string, fallback?: string | undefined) {
+  if (Pronouns.hasOwnProperty(dbPronoun)) {
+    return dbPronoun;
+  } else {
+    return fallback;
+  }
+}
+export function getPronounLabel(dbPronoun: string, fallback?: string | undefined) {
+  if (Pronouns.hasOwnProperty(dbPronoun)) {
+    return Pronouns[dbPronoun as keyof typeof Pronouns];
+  } else {
+    return fallback;
+  }
+}
+export function extractGithubUsername(url: string): string | null {
+  // Define the regex pattern to match the GitHub profile URL and capture the username
+  const githubUrlPattern = /^https:\/\/github\.com\/([a-zA-Z0-9-]+)\/?$/;
+
+  // Execute the regex pattern on the input URL
+  const match = url.match(githubUrlPattern);
+
+  // If there is a match, return the captured group (username), otherwise return null
+  return match ? match[1] : null;
 }

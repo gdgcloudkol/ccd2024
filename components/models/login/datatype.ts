@@ -11,11 +11,19 @@ export interface UserProfileData {
     socials: {
         [key: string]: string;
     };
+
+    settings: {
+        [key: string]: string;
+    };
+
+
     pronoun: string;
     profile_lock: boolean;
     student: boolean;
     event_role: string;
-    x_event: number | null
+    x_event: number | null;
+    attempts: number;
+    no_show: number;
 }
 
 export interface UserData {
