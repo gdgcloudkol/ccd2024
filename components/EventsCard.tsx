@@ -8,6 +8,7 @@ import EventApply from "./EventApply";
 import { TicketChoices } from "@/lib/constants/tickets";
 import FeatureRule from "@/public/assets/content/feature.rule.json";
 import LoadLink from "./blocks/LoadLink";
+import { Session } from "next-auth";
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
   switch (ticketChoice) {
@@ -41,9 +42,11 @@ function returnIcon(ticketChoice: string | undefined) {
 function EventCard({
   events,
   attendees,
+  session,
 }: {
   events: EventsResponse | undefined;
   attendees: Attendee[] | undefined;
+  session?: Session | null;
 }) {
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
@@ -120,7 +123,7 @@ function EventCard({
           {convertTimeFormat(card.stop_date)}
         </p>
         <div className='flex items-center justify-center w-full'>
-        {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
+          {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
               <img
                 className="w-6 h-6 border-[1px] border-black rounded-full"
                 src="/assets/images/mascot.webp"
@@ -136,51 +139,51 @@ function EventCard({
               140+ people participate
             </p> */}
 
-        {/* Fetch event id from the MAP and set ticket status accordingly. */}
+          {/* Fetch event id from the MAP and set ticket status accordingly. */}
 
-        {eventApplicationStatus?.get(card.id) ? (
-          <div className='flex flex-wrap gap-2 w-full'>
-            <Button
-              variant={returnVariant(
-                JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
-              )}
-              className='capitalize disabled cursor-not-allowed w-full'
-              disabled
-            >
-              {returnIcon(
-                JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
-              )}
-              {JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status}
-            </Button>
-            {JSON.parse(`${eventApplicationStatus.get(card.id)}`)
-              ?.checked_in && (
-              <LoadLink
-                href={`/extended-events/${card.id}/contest`}
-                className='w-full'
+          {eventApplicationStatus?.get(card.id) ? (
+            <div className='flex flex-wrap gap-2 w-full'>
+              <Button
+                variant={returnVariant(
+                  JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+                )}
+                className='capitalize disabled cursor-not-allowed w-full'
+                disabled
               >
-                <Button className='capitalize w-full'>View Contests</Button>
-              </LoadLink>
-            )}
-          </div>
-        ) : attendees &&
-          attendees.length &&
-          attendees?.filter(
-            (attendee) => attendee?.status == TicketChoices?.approved
-          )?.length >= FeatureRule.disabledContestContent.maxApproved ? (
-          <Button disabled>
-            <Ban className='h-4 w-4 mr-2' />
-            Approved to {FeatureRule.disabledContestContent.maxApproved}{" "}
-            events already
-          </Button>
-        ) : (
-          <EventApply
-            eventName={card.title}
-            eventId={card.id}
-            attended={attendees?.length || 0}
-            key={card.id}
-            loggedIn={attendees && attendees?.length > 0}
-          />
-        )}
+                {returnIcon(
+                  JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
+                )}
+                {JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status}
+              </Button>
+              {JSON.parse(`${eventApplicationStatus.get(card.id)}`)
+                ?.checked_in && (
+                <LoadLink
+                  href={`/extended-events/${card.id}/contest`}
+                  className='w-full'
+                >
+                  <Button className='capitalize w-full'>View Contests</Button>
+                </LoadLink>
+              )}
+            </div>
+          ) : attendees &&
+            attendees.length &&
+            attendees?.filter(
+              (attendee) => attendee?.status == TicketChoices?.approved
+            )?.length >= FeatureRule.disabledContestContent.maxApproved ? (
+            <Button disabled>
+              <Ban className='h-4 w-4 mr-2' />
+              Approved to {FeatureRule.disabledContestContent.maxApproved}{" "}
+              events already
+            </Button>
+          ) : (
+            <EventApply
+              eventName={card.title}
+              eventId={card.id}
+              attended={attendees?.length || 0}
+              key={card.id}
+              session={session}
+            />
+          )}
         </div>
       </div>
     </div>

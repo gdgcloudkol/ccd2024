@@ -1,17 +1,19 @@
 "use client";
 
+import { Session } from "next-auth";
 import ContestCard from "./ContestCard";
 import EventCard from "./EventsCard";
 import PeopleCard from "./PeopleCard";
 import { GridData } from "./models/cardGrid.model";
-import { ContestResponse } from "./models/contests/datatype";
 
 function CardGrid({
   gridData,
   type,
+  session,
 }: {
   gridData: GridData;
   type: "Contest" | "People" | "Events";
+  session?: Session | null;
 }) {
   return (
     <div className='container mx-auto m-10 font-sans w-full max-w-6xl'>
@@ -32,6 +34,7 @@ function CardGrid({
           <EventCard
             events={gridData.events}
             attendees={gridData.attendees}
+            session={session}
           ></EventCard>
         )}
       </div>
