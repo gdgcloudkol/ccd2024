@@ -147,14 +147,6 @@
         },
         {
           "id": 15,
-          "title": "Ankush Das",
-          "content": "Smart helpful monkey at GDG Cloud Kolkata",
-          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
-          "twitter": "https://twitter.com/gdgcloudkol",
-          "image": "https://github.com/lurisan.png"
-        },
-        {
-          "id": 16,
           "title": "Soumoydip Halder",
           "content": "Student -1st Year MCA",
           "linkedin": "https://www.linkedin.com/in/soumoydiphalder",
@@ -162,7 +154,7 @@
           "image": "https://github.com/soumoydip.png"
         },
         {
-          "id": 17,
+          "id": 16,
           "title": "Ritam Mishra",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -170,7 +162,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 18,
+          "id": 17,
           "title": "Souradip Dasgupta",
           "content": "SDE Intern @ Zidio Development",
           "linkedin": "www.linkedin.com/in/souradip-dasgupta",
@@ -184,7 +176,7 @@
       "description": "Great captions and wordings are brought to you by...",
       "people": [
         {
-          "id": 19,
+          "id": 18,
           "title": "Aditya Seth",
           "content": "Jobless @ Techno Main Salt Lake",
           "linkedin": "https://adityaseth.in/linkedin",
@@ -192,7 +184,7 @@
           "image": "https://github.com/AdityaSeth777.png"
         },
         {
-          "id": 20,
+          "id": 19,
           "title": "Anushka Chowdhury",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -200,7 +192,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 21,
+          "id": 20,
           "title": "Arunima Chatterjee",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -208,7 +200,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 22,
+          "id": 21,
           "title": "Kiran Mishra",
           "content": "Student @ Sister Nivedita University",
           "linkedin": "https://www.linkedin.com/in/kiranmishra21",
@@ -216,7 +208,7 @@
           "image": "https://github.com/Kirann21.png"
         },
         {
-          "id": 23,
+          "id": 22,
           "title": "Shakshi Das",
           "content": "Student @ Sister Nivedita University",
           "linkedin": "https://www.linkedin.com/in/shakshi-das-03822a220",
@@ -224,7 +216,7 @@
           "image": "https://github.com/Shakshi-das.png"
         },
         {
-          "id": 24,
+          "id": 23,
           "title": "Shubhayu Majumdar",
           "content": "Associate Cloud Developer @ BlueVectorAI",
           "linkedin": "https://www.linkedin.com/in/shubhayu64/",
@@ -238,7 +230,7 @@
       "description": "These amazing websites, constests and various other technical systems are by...",
       "people": [
         {
-          "id": 25,
+          "id": 24,
           "title": "Alapan Das",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -246,7 +238,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 26,
+          "id": 25,
           "title": "Gourav Ghoshal",
           "content": "Frontend developer @ Callchimp",
           "linkedin": "https://www.linkedin.com/in/gourav-ghosal",
@@ -254,7 +246,7 @@
           "image": "https://github.com/gourav221b.png"
         },
         {
-          "id": 27,
+          "id": 26,
           "title": "Hemant Bajaj",
           "content": "ASDE @Swiggy",
           "linkedin": "https://www.linkedin.com/in/hemant-bajaj-/",
@@ -262,7 +254,7 @@
           "image": "https://github.com/orko06.png"
         },
         {
-          "id": 28,
+          "id": 27,
           "title": "Maaz Ahmed",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -270,7 +262,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 29,
+          "id": 28,
           "title": "Raja Majumdar",
           "content": "Jobless @ Academy of Technology but ML Researcher @ CU",
           "linkedin": "https://www.linkedin.com/in/raja-majumdar/",
@@ -278,7 +270,7 @@
           "image": "https://github.com/r3yc0n1c.png"
         },
         {
-          "id": 30,
+          "id": 29,
           "title": "Rudramadhaba Mishra",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -286,7 +278,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 31,
+          "id": 30,
           "title": "Sayak Saha",
           "content": "Smart helpful monkey at GDG Cloud Kolkata",
           "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
@@ -294,7 +286,7 @@
           "image": "https://github.com/lurisan.png"
         },
         {
-          "id": 32,
+          "id": 31,
           "title": "Sitam Meur",
           "content": "Studio Publisher @LightningAI, GSOC @RUXAILAB, AI/ML Lead @GDSC MSIT, Pre-final year student @MSIT",
           "linkedin": "https://www.linkedin.com/in/sitammeur/",
