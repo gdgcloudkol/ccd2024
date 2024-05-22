@@ -19,7 +19,7 @@ function PeopleCard({ cards, isToggle = true }: { cards: PeopleCards[], isToggle
             <img
               className='h-32 w-32 rounded-full border-4 border-white dark:border-t-red-500 border-l-green-500 border-r-google-yellow border-b-blue-500 mx-auto my-4'
               src={card.image}
-              alt=''
+              alt='card-image'
             />
             <div className='py-2 font-google-sans m-4'>
               <h3 className='font-normal text-[28px] text-gray-800 dark:text-gray-900 mb-1 leading-[35.62px] mt-2'>
@@ -64,7 +64,7 @@ function PeopleCard({ cards, isToggle = true }: { cards: PeopleCards[], isToggle
               <img
                 className='h-16 w-16 rounded-full border-4 border-white dark:border-t-red-500 border-l-green-500 border-r-google-yellow border-b-blue-500 mx-auto my-4'
                 src={card.image}
-                alt=''
+                alt='card-image'
               />
             </div>
 
