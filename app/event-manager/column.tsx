@@ -175,14 +175,14 @@ export const columns: ColumnDef<AttendeeData>[] = [
     cell: ({ row }) => <p>{row.original.user.email}</p>,
   },
   {
-    accessorKey: "user,email",
+    accessorKey: "status",
     header: "Ticket Status",
-    cell: ({ row }) => (
+    cell: ({ row, cell }) => (
       <Badge
-        variant={returnVariant(row.original.status)}
+        variant={returnVariant(cell.getValue() as string)}
         className='capitalize text-sm'
       >
-        {row.original.status}
+        {cell.getValue() as string}
       </Badge>
     ),
   },

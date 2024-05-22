@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Bell, Loader2, MoreHorizontalIcon } from "lucide-react";
 import { TicketChoices } from "@/lib/constants/tickets";
 import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const AttendeeUpdate = ({
@@ -24,7 +24,7 @@ const AttendeeUpdate = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
-
+  const [status, setStatus] = useState(prev_status);
   const [dropdownOpen, setDropDownOpen] = useState(false);
   const router = useRouter();
   const updateAttendeeStatus = async (status: string) => {
@@ -44,15 +44,16 @@ const AttendeeUpdate = ({
       throw new Error(`An error occurred while updating : ${response.status}`);
     } else {
       setDropDownOpen(false);
-      window.location.reload();
+      // window.location.reload();
     }
+    router.refresh();
   };
 
   const informAttendee = () => {
     const exec = async () => {
       fetch(`/api/attendee/${attendeeId}/inform/`, { method: "POST" })
         .then((res) => res.json())
-        .then((data) => {})
+        .then((data) => router.refresh())
         .catch((error: any) => {
           toast({
             variant: "destructive",

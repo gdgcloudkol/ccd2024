@@ -10,6 +10,8 @@ import {
   extractGithubUsername,
   getPronoun,
   getPronounLabel,
+  maskEmail,
+  maskPhoneNumber,
 } from "@/lib/utils";
 import { DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME } from "@/lib/constants/generic";
 import { useSession } from "next-auth/react";
@@ -40,8 +42,7 @@ const NoShowModal = () => {
         <p>
           A no-show refers to a situation where an attendee{" "}
           <strong>
-            does not show up to the event even when they are approved, without
-            informing 24 hours prior to the event!
+            does not show up to the event even with an approved ticket.
           </strong>
         </p>
         <p>
@@ -94,10 +95,13 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
             <img
               className={cn(
                 "rounded-full  h-40 w-40 lg:h-64 lg:w-64 mx-auto lg:mx-0  border-[6px] google-border p-1",
-                isEditing && "lg:mx-auto",
-                userData?.profile?.no_show &&
-                  userData?.profile?.no_show > 0 &&
-                  " border-[8px] border-google-red"
+                isEditing && "lg:mx-auto"
+                // userData?.profile?.no_show &&
+                //   userData?.profile?.no_show == 1 &&
+                //   " border-[8px] border-google-yellow",
+                // userData?.profile?.no_show &&
+                //   userData?.profile?.no_show == 2 &&
+                //   " border-[8px] border-google-red"
               )}
               width={500}
               height={500}
@@ -169,13 +173,15 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
                     </>
                   )}
                   . You can reach out at{" "}
-                  <span className='highlight '>{userData?.email}</span>
+                  <span className='highlight '>
+                    {userData?.email && maskEmail(userData?.email)}
+                  </span>
                   {userData?.profile?.phone && (
                     <>
                       {" "}
                       and{" "}
                       <span className='highlight '>
-                        {userData?.profile?.phone}
+                        {maskPhoneNumber(userData?.profile?.phone)}
                       </span>
                     </>
                   )}
@@ -188,23 +194,27 @@ const ProfileCard = ({ user }: { user?: UserData }) => {
                     {userData?.profile?.attempts} more
                   </span>{" "}
                   attempts to attend extended events .{" "}
-                  {approved_events_count > 0 && (
+                  {/* {userData?.profile?.no_show && (
                     <>
-                      I{" "}
-                      {userData?.profile?.no_show == 0 ? (
-                        "showed up for every approved ticket."
-                      ) : (
+                      {userData?.profile?.no_show > 0 && (
                         <>
-                          {" "}
-                          <strong> did not </strong>show up to{" "}
-                          <span className='highlight'>
-                            {userData?.profile?.no_show} events
-                          </span>{" "}
-                          <NoShowModal />
+                          I{" "}
+                          {userData?.profile?.no_show == 0 ? (
+                            "showed up for every approved ticket."
+                          ) : (
+                            <>
+                              {" "}
+                              <strong> did not </strong>show up to{" "}
+                              <span className='highlight'>
+                                {userData?.profile?.no_show} event(s)
+                              </span>{" "}
+                              <NoShowModal />
+                            </>
+                          )}
                         </>
                       )}
                     </>
-                  )}
+                  )} */}
                 </p>
                 <div className='grid grid-cols-1  gap-4'>
                   <LoadLink href={"/extended-events"}>
