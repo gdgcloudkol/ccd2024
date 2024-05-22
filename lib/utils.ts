@@ -66,3 +66,12 @@ export function extractGithubUsername(url: string): string | null {
   // If there is a match, return the captured group (username), otherwise return null
   return match ? match[1] : null;
 }
+export function maskPhoneNumber(phoneNumber: string | number): string {
+  // Convert the input to a string if it's not already
+  const phoneStr = phoneNumber.toString();
+
+  // Create the masked phone number
+  const masked = phoneStr.slice(0, 2) + '******' + phoneStr.slice(-2);
+
+  return masked;
+}

@@ -52,7 +52,7 @@ const AttendeeManager = async ({ session }: { session: Session }) => {
   } else {
     attendeeTemp = attendees.map((attendee: AttendeeData) => ({
       ...attendee,
-      user: { ...attendee.user, email: maskEmail(attendee.user.email) },
+      display_email: maskEmail(attendee.user.email),
     }));
   }
 

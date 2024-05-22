@@ -16,9 +16,12 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 const AttendeeCheckin = ({ data }: { data: any }) => {
   const [tableData, setTableData] = useState<AttendeeData[]>([]);
+  const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
@@ -53,7 +56,7 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
         );
       });
     }
-  }, [searchQuery]);
+  }, [searchQuery, data]);
 
   useEffect(() => {
     if (searchParams?.get("all_attendees") == "true") setTableData(data);
@@ -66,16 +69,21 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
   const { toast } = useToast();
   const router = useRouter();
   const updateCheckin = async (id: number) => {
+    setLoading(true);
     let response = await fetch(`/api/attendee/${id}/checkin`, {
       method: "POST",
       body: JSON.stringify({ id }),
     });
+    setLoading(false);
     if (!response.ok) {
       toast({ variant: "destructive", title: "Error checking in" });
     } else {
       router.refresh();
     }
   };
+  interface AttendeeDataDisplay extends AttendeeData {
+    display_email?: string;
+  }
   return (
     <div className='w-full mt-4'>
       {data?.status ? (
@@ -94,6 +102,7 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
                 <TableHead>Attendee name</TableHead>
                 <TableHead>Attendee email</TableHead>
                 <TableHead>Ticket Status</TableHead>
+                <TableHead>Checkin Status</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -107,13 +116,13 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
 
               {data.length > 0 &&
                 tableData?.length > 0 &&
-                tableData?.map((attendee: AttendeeData) => (
+                tableData?.map((attendee: AttendeeDataDisplay) => (
                   <TableRow key={attendee?.id}>
                     <TableCell>
                       {attendee?.user?.profile.first_name}{" "}
                       {attendee?.user?.profile.last_name}
                     </TableCell>
-                    <TableCell>{attendee?.user?.email}</TableCell>
+                    <TableCell>{attendee?.display_email}</TableCell>
                     <TableCell>
                       <Badge
                         variant={returnVariant(attendee?.status)}
@@ -123,11 +132,25 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
                       </Badge>
                     </TableCell>{" "}
                     <TableCell>
-                      <Checkbox
+                      <Badge
+                        variant={attendee?.checked_in ? "default" : "outline"}
+                      >
+                        {" "}
+                        {attendee?.checked_in ? "Present" : "Absent"}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      {/* <Checkbox
                         defaultChecked={attendee?.checked_in}
                         onCheckedChange={(e) => updateCheckin(attendee.id)}
                         key={attendee.id}
-                      />
+                      /> */}
+                      <Button onClick={() => updateCheckin(attendee.id)}>
+                        {loading && (
+                          <Loader2 className='h-4 w-4 animate-spin mr-2' />
+                        )}{" "}
+                        Check {attendee?.checked_in ? "out" : "in"}
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
