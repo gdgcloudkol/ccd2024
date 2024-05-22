@@ -21,6 +21,9 @@ export const EVENT_WITHDAW_SUFFIX = "/withdraw/" //+param+suffix
 export const EVENT_VOLUNTEER_ADD_URL_SUFFIX = '/add_volunteer/'
 export const EVENT_VOLUNTEER_REMOVE_URL_SUFFIX = '/remove_volunteer/'
 
+export const EVENT_SUBMANAGER_ADD_URL_SUFFIX = '/add_submanager/'
+export const EVENT_SUBMANAGER_REMOVE_URL_SUFFIX = '/remove_submanager/'
+
 
 export const ATTENDEES_DJANGO_URL = CCD2024_BE_BASE_URL + '/attendees/'
 export const EVENT_ATTENDEE_UPDATE_URL_SUFFIX = '/update_status/' //+param+suffix

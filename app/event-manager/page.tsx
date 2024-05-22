@@ -74,7 +74,12 @@ const AttendeeManager = async ({ session }: { session: Session }) => {
 };
 const Page = async () => {
   const session = await getServerSession(authOptions);
-  const allowedRoles = [AuthRoles.organizer, AuthRoles.Xorganizer];
+  const allowedRoles = [
+    AuthRoles.organizer,
+    AuthRoles.Xorganizer,
+    AuthRoles.xsubOrganizer,
+  ];
+  const allowedOrgRoles = [AuthRoles.organizer, AuthRoles.Xorganizer];
 
   if (!session) redirect("/login");
   else {
@@ -115,12 +120,22 @@ const Page = async () => {
   return (
     <section className='w-full max-w-6xl mx-auto py-10 px-4'>
       <h2 className='font-bold text-4xl mb-4'>{event.title}</h2>
+
       <Tabs defaultValue={"attendees"} className='space-y-4'>
         <TabsList>
           <TabsTrigger value='attendees'>Attendees</TabsTrigger>
-          <TabsTrigger value='volunteers'>
+          <TabsTrigger value='volunteers' asChild>
             <LoadLink href={"/event-manager/volunteers"}>Volunteers</LoadLink>
           </TabsTrigger>
+          {allowedOrgRoles.findIndex(
+            (r) => r == session?.user.profile.event_role
+          ) !== -1 && (
+            <TabsTrigger value='sub-managers'>
+              <LoadLink href={"/event-manager/submanagers"}>
+                Sub managers
+              </LoadLink>
+            </TabsTrigger>
+          )}
         </TabsList>
         <TabsContent value='attendees'>
           <Suspense
@@ -139,6 +154,17 @@ const Page = async () => {
             volunteers...
           </div>
         </TabsContent>
+
+        {allowedRoles.findIndex(
+          (r) => r == session?.user.profile.event_role
+        ) !== -1 && (
+          <TabsContent value='submanagers'>
+            <div className='flex items-center gap-2'>
+              <Loader2 className='h-4 w-4 mr-2 animate-spin' /> Loading sub
+              managers...
+            </div>
+          </TabsContent>
+        )}
       </Tabs>
     </section>
   );

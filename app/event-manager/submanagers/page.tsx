@@ -4,7 +4,7 @@ import { DataTable } from "../data-table";
 import bkFetch from "@/services/backend.services";
 import { Session, getServerSession } from "next-auth";
 import { EVENTS_DJANGO_URL } from "@/lib/constants/be";
-import { VolunteerColumns } from "./volunteer-column";
+import { SubManagerColumns } from "./column";
 import { Loader2 } from "lucide-react";
 import { Event, EventsResponse } from "@/components/models/events/datatype";
 import { authOptions } from "@/lib/auth";
@@ -15,20 +15,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LoadLink from "@/components/blocks/LoadLink";
 const VolunteerManager = async ({
   session,
-  volunteerData,
+  subManagerData,
 }: {
   session: Session;
-  volunteerData: Event;
+  subManagerData: Event;
 }) => {
   return (
     <>
       <div className='flex flex-wrap w-full gap-2 items-center justify-between'>
-        <h2 className='my-2 text-3xl font-bold'>Manage Volunteers</h2>
-        <AddCoordinator id={session?.user?.profile?.x_event} />
+        <h2 className='my-2 text-3xl font-bold'>Manage Sub managers</h2>
+        <AddCoordinator
+          id={session?.user?.profile?.x_event}
+          type='sub-managers'
+        />
       </div>
       <DataTable
-        data={volunteerData.volunteers}
-        columns={VolunteerColumns}
+        data={subManagerData.sub_managers}
+        columns={SubManagerColumns}
         key={`event-volunteer-data-${session?.user.profile.x_event}`}
       />
     </>
@@ -67,24 +70,23 @@ const Page = async ({ searchParams }: { searchParams: { active: string } }) => {
     }
     return await response.json();
   }
-  const volunteerData: Event = await getEvent();
+  const subManagerData: Event = await getEvent();
   return (
     <section className='w-full max-w-6xl mx-auto py-10 px-4'>
-      <h2 className='font-bold text-4xl mb-4'>{volunteerData.title}</h2>
-      <Tabs defaultValue={"volunteers"} className='space-y-4'>
+      <h2 className='font-bold text-4xl mb-4'>{subManagerData.title}</h2>
+
+      <Tabs value={"sub-managers"} className='space-y-4'>
         <TabsList>
           <TabsTrigger value='attendees' asChild>
             <LoadLink href={"/event-manager"}> Attendees</LoadLink>
           </TabsTrigger>
-          <TabsTrigger value='volunteers'>Volunteers</TabsTrigger>
+          <TabsTrigger value='volunteers' asChild>
+            <LoadLink href={"/event-manager/volunteers"}>Volunteers</LoadLink>
+          </TabsTrigger>
           {allowedOrgRoles.findIndex(
             (r) => r == session?.user.profile.event_role
           ) !== -1 && (
-            <TabsTrigger value='sub-managers' asChild>
-              <LoadLink href={"/event-manager/submanagers"}>
-                Sub managers
-              </LoadLink>
-            </TabsTrigger>
+            <TabsTrigger value='sub-managers'>Sub managers</TabsTrigger>
           )}
         </TabsList>
         <TabsContent value='attendees'>
@@ -93,24 +95,29 @@ const Page = async ({ searchParams }: { searchParams: { active: string } }) => {
           </div>
         </TabsContent>
         <TabsContent value='volunteers'>
-          <Suspense
-            fallback={
-              <div className='flex items-center gap-2'>
-                <Loader2 className='h-4 w-4 animate-spin' /> Loading volunteers.
-              </div>
-            }
-          >
-            <VolunteerManager session={session} volunteerData={volunteerData} />
-          </Suspense>
+          {" "}
+          <div className='flex items-center gap-2'>
+            <Loader2 className='h-4 w-4 mr-2 animate-spin' /> Loading
+            volunteers...
+          </div>
         </TabsContent>
         {allowedOrgRoles.findIndex(
           (r) => r == session?.user.profile.event_role
         ) !== -1 && (
-          <TabsContent value='submanagers'>
-            <div className='flex items-center gap-2'>
-              <Loader2 className='h-4 w-4 mr-2 animate-spin' /> Loading sub
-              managers...
-            </div>
+          <TabsContent value='sub-managers'>
+            <Suspense
+              fallback={
+                <div className='flex items-center gap-2'>
+                  <Loader2 className='h-4 w-4 animate-spin' /> Loading sub
+                  managers.
+                </div>
+              }
+            >
+              <VolunteerManager
+                session={session}
+                subManagerData={subManagerData}
+              />
+            </Suspense>
           </TabsContent>
         )}
       </Tabs>
