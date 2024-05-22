@@ -9,6 +9,9 @@ import { TicketChoices } from "@/lib/constants/tickets";
 import FeatureRule from "@/public/assets/content/feature.rule.json";
 import LoadLink from "./blocks/LoadLink";
 import { Session } from "next-auth";
+import { useState } from "react";
+import WithdrawEvent from "./WithdrawEvent";
+
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
   switch (ticketChoice) {
@@ -24,6 +27,7 @@ export function returnVariant(ticketChoice: string | undefined) {
       return "warning";
   }
 }
+
 function returnIcon(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
   switch (ticketChoice) {
@@ -39,7 +43,8 @@ function returnIcon(ticketChoice: string | undefined) {
       return <Ticket className='h-4 w-4 mr-2' />;
   }
 }
-function EventCard({
+
+async function EventCard({
   events,
   attendees,
   session,
@@ -48,6 +53,7 @@ function EventCard({
   attendees: Attendee[] | undefined;
   session?: Session | null;
 }) {
+
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
 
@@ -59,10 +65,13 @@ function EventCard({
           status: attendee.status,
           id: attendee.id,
           checked_in: attendee.checked_in,
+          informed: attendee.informed
         })
       );
     });
-  return events?.results?.map((card: Event) => (
+
+
+    return events?.results?.map((card: Event) => (
     <div
       key={card.id}
       className={cn(
@@ -145,7 +154,7 @@ function EventCard({
 
             {eventApplicationStatus?.get(card.id) ? (
               <div className='flex flex-wrap gap-2 w-full'>
-                <Button
+              <Button
                   variant={returnVariant(
                     JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
                   )}
@@ -166,7 +175,14 @@ function EventCard({
                     <Button className='capitalize w-full'>View Contests</Button>
                   </LoadLink>
                 )}
-              </div>
+                  <WithdrawEvent 
+                eventName={card.title}
+                eventId={card.id}
+                key={card.id}
+                startTime={card.start_date}
+                eventApplicationStatus={eventApplicationStatus}
+                />
+            </div>
             ) : attendees &&
               attendees.length &&
               attendees?.filter(
