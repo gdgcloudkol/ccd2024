@@ -40,8 +40,7 @@ const NoShowModal = () => {
         <p>
           A no-show refers to a situation where an attendee{" "}
           <strong>
-            does not show up to the event even when they are approved, without
-            informing 24 hours prior to the event!
+            does not show up to the event even with an approved ticket.
           </strong>
         </p>
         <p>
