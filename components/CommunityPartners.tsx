@@ -44,7 +44,7 @@ const CommunityPartners = () => {
                         >
                           <img
                             src={partner.logo}
-                            alt=''
+                            alt='partner-logo'
                             className='w-full'
                             loading='lazy'
                           />

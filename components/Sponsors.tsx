@@ -28,7 +28,7 @@ const Sponsors = () => {
           <h1 className='text-4xl pt-10 font-bold flex justify-center '>
             {ContentData.sponsortitle}
           </h1>
-          <img className='py-4 block mx-auto' src={logo.src} alt='' />
+          <img className='py-4 block mx-auto' src={logo.src} alt='sponsor logo' />
         </div>
       </div>
       {/* <div className=' py-4 gold-sponsor '>
@@ -60,10 +60,10 @@ const Sponsors = () => {
         {ContentData.pastsponsor}
       </h1>
       <div className='py-4 lg:flex flex-wrap w-full max-w-6xl mx-auto'>
-        <img className='py-4 block mx-auto h-44' src={apyhub.src} alt='' />
-        <img className='py-4 block mx-auto h-44' src={dyno.src} alt='' />
-        <img className='py-4 block mx-auto h-44' src={tg.src} alt='' />
-        <img className='py-4 block mx-auto h-44' src={wnb.src} alt='' />
+        <img className='py-4 block mx-auto h-44' src={apyhub.src} alt='Apyhub logo' />
+        <img className='py-4 block mx-auto h-44' src={dyno.src} alt='Dynopii Logo' />
+        <img className='py-4 block mx-auto h-44' src={tg.src} alt='The Telegraph Logo' />
+        <img className='py-4 block mx-auto h-44' src={wnb.src} alt='Weights and Bias Logo' />
       </div>
     </div>
   );
