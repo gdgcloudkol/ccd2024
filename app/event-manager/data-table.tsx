@@ -74,6 +74,11 @@ export function DataTable({ data, columns }: { data: any[]; columns: any }) {
   });
   let tableHeaderGroup = React.useMemo(() => table?.getHeaderGroups(), [table]);
 
+  // React.useEffect(() => {
+  //   setTableData(data);
+  //   return () => setTableData([]);
+  // }, [data]);
+
   React.useEffect(() => {
     if (searchQuery == "" || searchQuery == undefined || searchQuery == null) {
       setTableData(data);
@@ -95,7 +100,7 @@ export function DataTable({ data, columns }: { data: any[]; columns: any }) {
         );
       });
     }
-  }, [searchQuery]);
+  }, [searchQuery, data]);
   return (
     <div className='w-full'>
       <div className='flex flex-wrap items-center justify-between gap-4 py-4'>

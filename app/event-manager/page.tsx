@@ -16,6 +16,7 @@ import InformAll from "./inform-all";
 import { Loader2 } from "lucide-react";
 import LoadLink from "@/components/blocks/LoadLink";
 import { TicketChoices } from "@/lib/constants/tickets";
+import EventManagerTable from "./event-manager-table";
 
 const AttendeeManager = async ({ session }: { session: Session }) => {
   let data: AttendeeData[] = [];
