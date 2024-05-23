@@ -17,18 +17,24 @@ import { useRouter } from "next/navigation";
 
 import React, { useEffect, useState } from "react";
 
-const AddVolunteer = ({ id }: { id: number | null }) => {
+const AddCoordinator = ({
+  id,
+  type = "volunteers",
+}: {
+  id: number | null;
+  type?: string;
+}) => {
   const [email, setEmail] = useState("");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
-  const addVolunteer = async () => {
+  const addCoordinator = async () => {
     if (email == "") {
       toast({ variant: "destructive", title: "Enter email id to continue" });
     }
     setLoading(true);
-    let response = await fetch(`/api/volunteers/add`, {
+    let response = await fetch(`/api/${type}/add`, {
       method: "POST",
       body: JSON.stringify({
         id,
@@ -45,7 +51,7 @@ const AddVolunteer = ({ id }: { id: number | null }) => {
     } else {
       setEmail("");
       setOpen(false);
-      toast({ variant: "success", title: "Added volunteer successfully" });
+      toast({ variant: "success", title: `Added ${type} successfully` });
       window.location.reload();
     }
   };
@@ -58,16 +64,16 @@ const AddVolunteer = ({ id }: { id: number | null }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={"secondary"}>
+        <Button variant={"secondary"} className='capitalize'>
           <PlusCircleIcon className='h-4 w-4 mr-2' />
-          Add Volunteer
+          Add {type}
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add Volunteer</DialogTitle>
+          <DialogTitle>Add {type}</DialogTitle>
           <DialogDescription>
-            Enter volunteer email id to add them.
+            Enter {type} email id to add them.
           </DialogDescription>
         </DialogHeader>
         <div className='grid w-full max-w-sm items-center gap-1.5'>
@@ -89,9 +95,13 @@ const AddVolunteer = ({ id }: { id: number | null }) => {
           >
             Cancel
           </Button>
-          <Button disabled={loading} variant={"default"} onClick={addVolunteer}>
-            {loading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />} Add
-            Volunteer
+          <Button
+            disabled={loading}
+            variant={"default"}
+            onClick={addCoordinator}
+          >
+            {loading && <Loader2 className='h-4 w-4 mr-2 animate-spin' />} Add{" "}
+            {type}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -99,4 +109,4 @@ const AddVolunteer = ({ id }: { id: number | null }) => {
   );
 };
 
-export default AddVolunteer;
+export default AddCoordinator;

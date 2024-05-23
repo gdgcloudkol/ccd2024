@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/dialog";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { Checkbox } from "@/components/ui/checkbox";
-import RemoveVolunteer from "./(volunteer-manager)/remove-volunteer";
-export interface VolunteerData {
+import RemoveCoordinator from "../(coordinator-manager)/remove-coordinator";
+import { getPronounLabel } from "@/lib/utils";
+export interface SubManagerData {
   id: number;
   profile: Profile;
   email: string;
@@ -41,10 +42,10 @@ const DetailsBlock = ({
   );
 };
 
-export const VolunteerColumns: ColumnDef<VolunteerData>[] = [
+export const SubManagerColumns: ColumnDef<SubManagerData>[] = [
   {
     accessorKey: "name",
-    header: "Volunteer name",
+    header: "SubManager name",
     cell: ({ row }) => (
       <Dialog>
         <DialogTrigger className='underline underline-offset-1 text-google-blue text-left'>
@@ -83,13 +84,13 @@ export const VolunteerColumns: ColumnDef<VolunteerData>[] = [
   },
   {
     accessorKey: "email",
-    header: "Volunteer Email",
+    header: "SubManager Email",
     cell: ({ row }) => <p>{row.original.email}</p>,
   },
   {
     accessorKey: "pronoun",
     header: "Pronouns",
-    cell: ({ row }) => <p>{row.original.profile.pronoun}</p>,
+    cell: ({ row }) => <p>{getPronounLabel(row.original.profile.pronoun)}</p>,
   },
 
   {
@@ -99,7 +100,11 @@ export const VolunteerColumns: ColumnDef<VolunteerData>[] = [
     cell: ({ row }) => {
       return (
         <>
-          <RemoveVolunteer id={row.original.id} email={row.original.email} />
+          <RemoveCoordinator
+            id={row.original.id}
+            email={row.original.email}
+            type='sub-managers'
+          />
         </>
       );
     },

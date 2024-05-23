@@ -108,7 +108,7 @@ export function DataTable({ data, columns }: { data: any[]; columns: any }) {
           placeholder='Search emails, names, status...'
           value={searchQuery}
           onChange={(event) =>
-            setSearchQuery(() => event.target.value.trim().toLowerCase())
+            setSearchQuery(() => event.target.value.toLowerCase())
           }
           className='max-w-xl'
         />
