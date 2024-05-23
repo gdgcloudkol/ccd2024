@@ -49,10 +49,15 @@ const AddCoordinator = ({
         description: "Please make sure you enter the correct email id",
       });
     } else {
+      let data = await response.json();
       setEmail("");
       setOpen(false);
-      toast({ variant: "success", title: `Added ${type} successfully` });
-      window.location.reload();
+      if (data.status !== "ok") {
+        toast({ variant: "destructive", title: data?.status });
+      } else {
+        toast({ variant: "success", title: `Added ${type} successfully` });
+        window.location.reload();
+      }
     }
   };
   useEffect(() => {
