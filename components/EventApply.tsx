@@ -81,9 +81,16 @@ const EventApply = ({
           <DialogTitle>Register for {eventName ?? "event"}</DialogTitle>
         </DialogHeader>
         <p>
-          {" "}
-          Are you sure you want to register for the event? You can apply for{" "}
-          <strong> {3 - Number(attended)} more events</strong> .
+          Are you sure you want to register for the event?
+          {session ? (
+            <>
+              You can apply for{' '}
+              <strong> {session.user.profile.attempts} more events.</strong>
+            </>
+          ) : (
+            ''
+          )}
+          
         </p>
         <p>
           Note:{" "}
@@ -96,7 +103,7 @@ const EventApply = ({
           <Button
             onClick={applyToEvent}
             variant={"default"}
-            disabled={isLoading}
+            disabled={session ? session.user.profile.attempts > 0 ? isLoading : true : isLoading}
             className='text-white'
           >
             {isLoading ? (
