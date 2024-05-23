@@ -100,7 +100,14 @@ const Page = async ({ searchParams }: { searchParams: { active: string } }) => {
               </div>
             }
           >
-            <VolunteerManager session={session} volunteerData={volunteerData} />
+            {allowedRoles.findIndex(
+              (r) => r == session?.user.profile.event_role
+            ) !== -1 && (
+              <VolunteerManager
+                session={session}
+                volunteerData={volunteerData}
+              />
+            )}
           </Suspense>
         </TabsContent>
         {allowedOrgRoles.findIndex(

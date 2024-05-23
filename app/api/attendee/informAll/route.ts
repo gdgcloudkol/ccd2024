@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     if (!session) {
         return NextResponse.json({ message: "You do not have permission for this action" }, { status: 401 });
     }
-    const allowedRoles = [AuthRoles.organizer, AuthRoles.Xorganizer]
+    const allowedRoles = [AuthRoles.organizer, AuthRoles.Xorganizer, AuthRoles.xsubOrganizer]
     let matchRole = allowedRoles.findIndex(r => r == session?.user.profile.event_role)
 
 
