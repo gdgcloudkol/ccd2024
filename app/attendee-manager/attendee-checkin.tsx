@@ -24,6 +24,9 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentAttendeeId, setCurrentAttendeeId] = useState<string | number>(
+    ""
+  );
   useEffect(() => {
     return () => {
       setSearchQuery("");
@@ -70,11 +73,13 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
   const router = useRouter();
   const updateCheckin = async (id: number) => {
     setLoading(true);
+    setCurrentAttendeeId(id);
     let response = await fetch(`/api/attendee/${id}/checkin`, {
       method: "POST",
       body: JSON.stringify({ id }),
     });
     setLoading(false);
+    setCurrentAttendeeId("");
     if (!response.ok) {
       toast({ variant: "destructive", title: "Error checking in" });
     } else {
@@ -145,8 +150,11 @@ const AttendeeCheckin = ({ data }: { data: any }) => {
                         onCheckedChange={(e) => updateCheckin(attendee.id)}
                         key={attendee.id}
                       /> */}
-                      <Button onClick={() => updateCheckin(attendee.id)}>
-                        {loading && (
+                      <Button
+                        disabled={loading && currentAttendeeId == attendee.id}
+                        onClick={() => updateCheckin(attendee.id)}
+                      >
+                        {loading && currentAttendeeId == attendee.id && (
                           <Loader2 className='h-4 w-4 animate-spin mr-2' />
                         )}{" "}
                         Check {attendee?.checked_in ? "out" : "in"}

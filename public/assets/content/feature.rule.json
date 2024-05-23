@@ -32,7 +32,7 @@
     "showSponsors": true
   },
   "disabledSpeakerContent": {
-    "speakers": false
+    "speakers": true
   },
   "disabledTeamsContent": {
     "team": true

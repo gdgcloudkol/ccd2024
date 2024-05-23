@@ -77,6 +77,7 @@ const Page = async () => {
     AuthRoles.organizer,
     AuthRoles.Xorganizer,
     AuthRoles.Xvolunteer,
+    AuthRoles.xsubOrganizer,
   ];
 
   if (!session) redirect("/login");
