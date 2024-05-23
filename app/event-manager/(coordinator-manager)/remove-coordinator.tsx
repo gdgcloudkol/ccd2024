@@ -43,10 +43,14 @@ const RemoveCoordinator = ({
       const error = await response.json();
       toast({ variant: "destructive", title: JSON.stringify(error) });
     } else {
-      window.location.reload();
-
+      let data = await response.json();
       setOpen(false);
-      toast({ variant: "success", title: `Removed ${type} successfully` });
+      if (data.status !== "ok") {
+        toast({ variant: "destructive", title: data?.status });
+      } else {
+        toast({ variant: "success", title: `Removed ${type} successfully` });
+        window.location.reload();
+      }
     }
   };
 
