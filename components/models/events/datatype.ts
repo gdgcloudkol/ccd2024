@@ -15,6 +15,7 @@ export interface Event {
     slug: string;
     technologies: number[];
     manager: Manager;
+    sub_managers: Volunteer[];
     volunteers: Volunteer[];
     ended?: boolean,
 }
