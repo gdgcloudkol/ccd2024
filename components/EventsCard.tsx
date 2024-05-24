@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import { TicketChoices } from "@/lib/constants/tickets";
 import { cn, convertTimeFormat } from "@/lib/utils";
+import eventContent from "@/public/assets/content/events/content.json";
+import FeatureRule from "@/public/assets/content/feature.rule.json";
+import { Ban, Ticket, TicketCheck, TicketX } from "lucide-react";
+import { Session } from "next-auth";
+import EventApply from "./EventApply";
+import WithdrawEvent from "./WithdrawEvent";
+import LoadLink from "./blocks/LoadLink";
+import { Attendee } from "./models/attendees/datatype";
 import { Event, EventsResponse } from "./models/events/datatype";
 import { Button } from "./ui/button";
-import { Attendee } from "./models/attendees/datatype";
-import { Ban, Ticket, TicketCheck, TicketX } from "lucide-react";
-import EventApply from "./EventApply";
-import { TicketChoices } from "@/lib/constants/tickets";
-import FeatureRule from "@/public/assets/content/feature.rule.json";
-import LoadLink from "./blocks/LoadLink";
-import { Session } from "next-auth";
-import { useState } from "react";
-import WithdrawEvent from "./WithdrawEvent";
 
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
@@ -71,13 +71,15 @@ async function EventCard({
     });
 
 
-    return events?.results?.map((card: Event) => (
+  return events?.results?.map((card: Event) => (
     <div
       key={card.id}
       className={cn(
         "bg-white w-full border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10",
         card.slug == FeatureRule.testEventSlug &&
-          "border-red-500 border-4 bg-slate-300"
+        "border-red-500 border-4 bg-slate-300",
+        card.ended &&
+        "border-green-500 border-4"
       )}
     >
       <div className='flex flex-col items-center justify-center relative p-2 '>
@@ -154,7 +156,7 @@ async function EventCard({
 
             {eventApplicationStatus?.get(card.id) ? (
               <div className='flex flex-wrap gap-2 w-full'>
-              <Button
+                <Button
                   variant={returnVariant(
                     JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
                   )}
@@ -168,21 +170,21 @@ async function EventCard({
                 </Button>
                 {JSON.parse(`${eventApplicationStatus.get(card.id)}`)
                   ?.checked_in && (
-                  <LoadLink
-                    href={`/extended-events/${card.id}/contest`}
-                    className='w-full'
-                  >
-                    <Button className='capitalize w-full'>View Contests</Button>
-                  </LoadLink>
-                )}
-                  <WithdrawEvent 
-                eventName={card.title}
-                eventId={card.id}
-                key={card.id}
-                startTime={card.start_date}
-                eventApplicationStatus={eventApplicationStatus}
+                    <LoadLink
+                      href={`/extended-events/${card.id}/contest`}
+                      className='w-full'
+                    >
+                      <Button className='capitalize w-full'>View Contests</Button>
+                    </LoadLink>
+                  )}
+                <WithdrawEvent
+                  eventName={card.title}
+                  eventId={card.id}
+                  key={card.id}
+                  startTime={card.start_date}
+                  eventApplicationStatus={eventApplicationStatus}
                 />
-            </div>
+              </div>
             ) : attendees &&
               attendees.length &&
               attendees?.filter(
@@ -204,6 +206,34 @@ async function EventCard({
                 session={session}
               />
             )}
+          </div>
+        )}
+
+        {card.ended && (
+          <div className='flex flex-wrap gap-2 w-full'>
+            {/* <LoadLink
+              // @ts-ignore
+              href={eventContent[card.slug].split('::')[1]}
+              className='w-full'
+            >
+              <Button
+                className='capitalize cursor-pointer w-full bg-green-500'
+              >
+                View Leaderboard
+              </Button>
+            </LoadLink> */}
+
+            <LoadLink
+              // @ts-ignore
+              href={eventContent[card.slug].split('::')[0]}
+              className='w-full'
+            >
+              <Button
+                className='capitalize cursor-pointer w-full bg-green-500'
+              >
+                View Gallery
+              </Button>
+            </LoadLink>
           </div>
         )}
       </div>
