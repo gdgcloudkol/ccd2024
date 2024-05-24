@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { TicketChoices } from "@/lib/constants/tickets";
 import { cn, convertTimeFormat } from "@/lib/utils";
-import eventContent from "@/public/assets/content/events/content.json";
+import eventContent from "@/public/assets/content/Events/content.json";
 import FeatureRule from "@/public/assets/content/feature.rule.json";
 import { Ban, Ticket, TicketCheck, TicketX } from "lucide-react";
 import { Session } from "next-auth";
