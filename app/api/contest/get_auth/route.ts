@@ -1,6 +1,6 @@
 import { authOptions } from '@/lib/auth';
 import { AuthRoles } from '@/lib/constants/auth';
-import { EVENTS_DJANGO_URL, EVENT_ATTENDEE_CONTEST_AUTH_TOKEN_URL } from '@/lib/constants/be';
+import { EVENT_ATTENDEE_CONTEST_AUTH_TOKEN_URL } from '@/lib/constants/be';
 import bkFetch from '@/services/backend.services';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';

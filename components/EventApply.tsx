@@ -1,21 +1,20 @@
 "use client";
 
-import {
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-  DialogTrigger,
-  Dialog,
-  DialogHeader,
-  DialogFooter,
-} from "./ui/dialog";
-import { Button } from "./ui/button";
 import { Loader2, Ticket } from "lucide-react";
-import { useToast } from "./ui/use-toast";
+import { Session } from "next-auth";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useErrorToasts from "./error-toast";
-import { useRouter } from "next/navigation";
-import { Session } from "next-auth";
+import { Button } from "./ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "./ui/dialog";
+import { useToast } from "./ui/use-toast";
 
 const EventApply = ({
   eventName,
@@ -73,7 +72,7 @@ const EventApply = ({
       <DialogTrigger asChild>
         <Button className='w-full'>
           <Ticket className='h-4 w-4 mr-2' />
-          Get Ticket
+          Apply for Ticket
         </Button>
       </DialogTrigger>
       <DialogContent>
@@ -90,7 +89,7 @@ const EventApply = ({
           ) : (
             ''
           )}
-          
+
         </p>
         <p>
           Note:{" "}
