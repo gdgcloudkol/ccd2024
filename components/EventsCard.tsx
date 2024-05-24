@@ -11,6 +11,7 @@ import LoadLink from "./blocks/LoadLink";
 import { Attendee } from "./models/attendees/datatype";
 import { Event, EventsResponse } from "./models/events/datatype";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
@@ -54,6 +55,7 @@ async function EventCard({
   session?: Session | null;
 }) {
 
+  const router = useRouter();
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
 
@@ -211,17 +213,14 @@ async function EventCard({
 
         {card.ended && (
           <div className='flex flex-wrap gap-2 w-full'>
-            <LoadLink
-              // @ts-ignore
-              href={`/api/contest/leaderboard/${card.id}`}
-              className='w-full'
+            <Button
+              className='capitalize cursor-pointer w-full bg-green-500'
+              onClick={() => {
+                router.push('https://contest.gdgcloudkol.org/leaderboard?eventId=' + card.id)
+              }}
             >
-              <Button
-                className='capitalize cursor-pointer w-full bg-green-500'
-              >
-                View Leaderboard
-              </Button>
-            </LoadLink>
+              View Leaderboard
+            </Button>
 
             <LoadLink
               // @ts-ignore
