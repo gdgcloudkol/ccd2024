@@ -8,7 +8,7 @@ import {
   EVENTS_PUBLIC_URL,
 } from "@/lib/constants/be";
 
-import eventsData from "@/public/assets/content/events/content.json";
+import eventContent from "@/public/assets/content/Events/content.json";
 
 import FeatureRule from "@/public/assets/content/feature.rule.json";
 import bkFetch from "@/services/backend.services";
@@ -66,8 +66,8 @@ const Events = async ({
   return (
     <CardGrid
       gridData={{
-        title: eventsData.title,
-        description: eventsData.description,
+        title: eventContent.title,
+        description: eventContent.description,
         events: hidden
           ? events
           : {
@@ -90,9 +90,9 @@ async function Contest({ searchParams }: { searchParams: { hidden: string } }) {
         <section className='flex flex-col local-container gap-6 p-4 space-y-4'>
           {!disabledEventsContent.events ? (
             <AlternateHeader
-              title={eventsData.title}
-              color={eventsData.color}
-              description={eventsData.description}
+              title={eventContent.title}
+              color={eventContent.color}
+              description={eventContent.description}
             />
           ) : (
             <>
