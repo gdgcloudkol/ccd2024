@@ -8,8 +8,8 @@
       "description": "Here are our great speakers at our extended events",
       "people": [
         {
-          "id": 3,
-          "title": "Rishira Acharya",
+          "id": 1,
+          "title": "Rishiraj Acharya",
           "content": "ML Engineer @ Tensorlake.ai.",
           "linkedin": "https://www.linkedin.com/in/rishirajacharya/",
           "twitter": "https://twitter.com/RishirajAcharya",
