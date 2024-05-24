@@ -211,9 +211,9 @@ async function EventCard({
 
         {card.ended && (
           <div className='flex flex-wrap gap-2 w-full'>
-            {/* <LoadLink
+            <LoadLink
               // @ts-ignore
-              href={eventContent[card.slug].split('::')[1]}
+              href={`/api/contest/leaderboard/${card.id}`}
               className='w-full'
             >
               <Button
@@ -221,7 +221,7 @@ async function EventCard({
               >
                 View Leaderboard
               </Button>
-            </LoadLink> */}
+            </LoadLink>
 
             <LoadLink
               // @ts-ignore
