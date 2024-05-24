@@ -8,7 +8,7 @@ import {
   EVENTS_PUBLIC_URL,
 } from "@/lib/constants/be";
 
-import eventsData from "@/public/assets/content/Events/content.json";
+import eventsData from "@/public/assets/content/events/content.json";
 
 import FeatureRule from "@/public/assets/content/feature.rule.json";
 import bkFetch from "@/services/backend.services";
