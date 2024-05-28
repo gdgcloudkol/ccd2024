@@ -155,14 +155,6 @@
         },
         {
           "id": 16,
-          "title": "Ritam Mishra",
-          "content": "Smart helpful monkey at GDG Cloud Kolkata",
-          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
-          "twitter": "https://twitter.com/gdgcloudkol",
-          "image": "https://github.com/lurisan.png"
-        },
-        {
-          "id": 17,
           "title": "Souradip Dasgupta",
           "content": "SDE Intern @ Zidio Development",
           "linkedin": "www.linkedin.com/in/souradip-dasgupta",
@@ -176,7 +168,7 @@
       "description": "Great captions and wordings are brought to you by...",
       "people": [
         {
-          "id": 18,
+          "id": 17,
           "title": "Aditya Seth",
           "content": "DevOps Co-Lead @ GDSC TMSL | Freelancer",
           "linkedin": "https://adityaseth.in/linkedin",
@@ -184,7 +176,7 @@
           "image": "https://github.com/AdityaSeth777.png"
         },
         {
-          "id": 19,
+          "id": 18,
           "title": "Anushka Chowdhury",
           "content": "Team Member @ GDSC TMSL",
           "linkedin": "https://www.linkedin.com/in/anushka-chowdhury-6ab63a247/",
@@ -192,7 +184,7 @@
           "image": "https://github.com/anushka190902.png"
         },
         {
-          "id": 20,
+          "id": 19,
           "title": "Arunima Chatterjee",
           "content": "Student @ Sister Nivedita University",
           "linkedin": "https://www.linkedin.com/in/arunima-chatterjee-439821213/",
@@ -200,7 +192,7 @@
           "image": "https://www.github.com/TheHappyBaloney.png"
         },
         {
-          "id": 21,
+          "id": 20,
           "title": "Kiran Mishra",
           "content": "Student @ Sister Nivedita University",
           "linkedin": "https://www.linkedin.com/in/kiranmishra21",
@@ -208,7 +200,7 @@
           "image": "https://github.com/Kirann21.png"
         },
         {
-          "id": 22,
+          "id": 21,
           "title": "Shakshi Das",
           "content": "Student @ Sister Nivedita University",
           "linkedin": "https://www.linkedin.com/in/shakshi-das-03822a220",
@@ -216,7 +208,7 @@
           "image": "https://github.com/Shakshi-das.png"
         },
         {
-          "id": 23,
+          "id": 22,
           "title": "Shubhayu Majumdar",
           "content": "Associate Cloud Developer @ BlueVectorAI",
           "linkedin": "https://www.linkedin.com/in/shubhayu64/",
@@ -230,7 +222,7 @@
       "description": "These amazing websites, constests and various other technical systems are by...",
       "people": [
         {
-          "id": 24,
+          "id": 23,
           "title": "Alapan Das",
           "content": "Junior Developer",
           "linkedin": "https://www.linkedin.com/in/alapandas3",
@@ -238,7 +230,7 @@
           "image": "https://github.com/AlapanDas.png"
         },
         {
-          "id": 25,
+          "id": 24,
           "title": "Gourav Ghosal",
           "content": "Frontend developer @ Callchimp",
           "linkedin": "https://www.linkedin.com/in/gourav-ghosal",
@@ -246,7 +238,7 @@
           "image": "https://github.com/gourav221b.png"
         },
         {
-          "id": 26,
+          "id": 25,
           "title": "Hemant Bajaj",
           "content": "ASDE @Swiggy",
           "linkedin": "https://www.linkedin.com/in/hemant-bajaj-/",
@@ -254,12 +246,12 @@
           "image": "https://github.com/orko06.png"
         },
         {
-          "id": 27,
+          "id": 26,
           "title": "Maaz Ahmed",
-          "content": "Smart helpful monkey at GDG Cloud Kolkata",
-          "linkedin": "https://www.linkedin.com/company/gdgcloudkol/",
-          "twitter": "https://twitter.com/gdgcloudkol",
-          "image": "https://github.com/lurisan.png"
+          "content": "Student @ TINT",
+          "linkedin": "https://www.linkedin.com/in/maaz-ahmed-699484199",
+          "twitter": "https://x.com/imox919",
+          "image": "https://pbs.twimg.com/profile_images/1691039252405002240/kzdd-j0A.jpg"
         },
         {
           "id": 28,
