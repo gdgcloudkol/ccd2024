@@ -30,6 +30,14 @@
           "linkedin": "https://www.linkedin.com/in/imranfosec",
           "twitter": "https://twitter.com/imranfosec",
           "image": "https://pbs.twimg.com/profile_images/1767598349254103043/eA26RPxn_400x400.jpg"
+        },
+        {
+          "id": 4,
+          "title": "Ritwik Raha",
+          "content": "Machine Learning Engineer @PyImageSearch | GDE in ML",
+          "linkedin": "https://www.linkedin.com/in/ritwik-raha",
+          "twitter": "https://twitter.com/ritwik_raha",
+          "image": "https://github.com/ritwikraha.png"
         }
       ]
     }
