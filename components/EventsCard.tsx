@@ -54,7 +54,6 @@ async function EventCard({
   attendees: Attendee[] | undefined;
   session?: Session | null;
 }) {
-
   const router = useRouter();
   // Create a map to store the applied status for each event
   const eventApplicationStatus = new Map<number, string>();
@@ -67,78 +66,77 @@ async function EventCard({
           status: attendee.status,
           id: attendee.id,
           checked_in: attendee.checked_in,
-          informed: attendee.informed
+          informed: attendee.informed,
         })
       );
     });
 
-
-  return events?.results?.map((card: Event) => (
-    <div
-      key={card.id}
-      className={cn(
-        "bg-white w-full border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10",
-        card.slug == FeatureRule.testEventSlug &&
-        "border-red-500 border-4 bg-slate-300",
-        card.ended &&
-        "border-green-500 border-4"
-      )}
-    >
-      <div className='flex flex-col items-center justify-center relative p-2 '>
-        <img
-          className='w-full h-auto'
-          src={"/assets/images/contestCard.png"}
-          alt={`Event ${card.title}`}
-        />
-        <div className='content absolute'>
-          {card.slug == FeatureRule.testEventSlug ? (
-            <p className='text-center text-google-red uppercase font-bold text-xl'>
-              Test Event
-            </p>
-          ) : (
-            <>
-              <p className='text-center text-white font-bold text-base'>
-                GCCD Extended Events
-              </p>
-              <p className='text-center text-google-blue font-bold'>X</p>
-              <p className='text-center font-bold text-google-yellow'>
-                {card.title.split(" x ")[1]}
-              </p>
-            </>
-          )}
-        </div>
-      </div>
-      <div className='p-4 w-full flex flex-col items-start pb-10 space-y-4'>
-        <p className='text-gray-900 font-semibold text-lg  block'>
-          {card.title}
-        </p>
-        <p className='text-gray-700 font-bold  text-sm '>
-          {card.description.split("::")[0]}
-        </p>
-
-        {card.description.split("::")[1] && (
-          <p className=' text-gray-700 font-bold  text-sm '>
-            Connect with host at:{" "}
-            <a
-              href={`mailto:${card.description.split("::")[1]}`}
-              className='text-google-blue underline inline'
-            >
-              {card.description.split("::")[1]}
-            </a>
-          </p>
+  if (events && events.results)
+    return events.results.map((card: Event) => (
+      <div
+        key={card.id}
+        className={cn(
+          "bg-white w-full border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-10",
+          card.slug == FeatureRule.testEventSlug &&
+            "border-red-500 border-4 bg-slate-300",
+          card.ended && "border-green-500 border-4"
         )}
+      >
+        <div className='flex flex-col items-center justify-center relative p-2 '>
+          <img
+            className='w-full h-auto'
+            src={"/assets/images/contestCard.png"}
+            alt={`Event ${card.title}`}
+          />
+          <div className='content absolute'>
+            {card.slug == FeatureRule.testEventSlug ? (
+              <p className='text-center text-google-red uppercase font-bold text-xl'>
+                Test Event
+              </p>
+            ) : (
+              <>
+                <p className='text-center text-white font-bold text-base'>
+                  GCCD Extended Events
+                </p>
+                <p className='text-center text-google-blue font-bold'>X</p>
+                <p className='text-center font-bold text-google-yellow'>
+                  {card.title?.split(" x ")[1]}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+        <div className='p-4 w-full flex flex-col items-start pb-10 space-y-4'>
+          <p className='text-gray-900 font-semibold text-lg  block'>
+            {card.title}
+          </p>
+          <p className='text-gray-700 font-bold  text-sm '>
+            {card.description?.split("::")[0]}
+          </p>
 
-        <p className='text-gray-700 font-bold text-sm '>
-          Date: {card.start_date.split("T")[0]}
-        </p>
-        <p className='text-gray-700 font-bold text-sm '>
-          Time: {convertTimeFormat(card.start_date)}-{" "}
-          {convertTimeFormat(card.stop_date)}
-        </p>
+          {card.description?.split("::")[1] && (
+            <p className=' text-gray-700 font-bold  text-sm '>
+              Connect with host at:{" "}
+              <a
+                href={`mailto:${card.description?.split("::")[1]}`}
+                className='text-google-blue underline inline'
+              >
+                {card.description?.split("::")[1]}
+              </a>
+            </p>
+          )}
 
-        {!card.ended && (
-          <div className='flex items-center justify-center w-full'>
-            {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
+          <p className='text-gray-700 font-bold text-sm '>
+            Date: {card.start_date?.split("T")[0]}
+          </p>
+          <p className='text-gray-700 font-bold text-sm '>
+            Time: {convertTimeFormat(card.start_date)}-{" "}
+            {convertTimeFormat(card.stop_date)}
+          </p>
+
+          {!card.ended && (
+            <div className='flex items-center justify-center w-full'>
+              {/* <div className="flex -space-x-4 rtl:space-x-reverse mt-3">
               <img
                 className="w-6 h-6 border-[1px] border-black rounded-full"
                 src="/assets/images/mascot.webp"
@@ -154,90 +152,106 @@ async function EventCard({
               140+ people participate
             </p> */}
 
-            {/* Fetch event id from the MAP and set ticket status accordingly. */}
+              {/* Fetch event id from the MAP and set ticket status accordingly. */}
 
-            {eventApplicationStatus?.get(card.id) ? (
-              <div className='flex flex-wrap gap-2 w-full'>
-                <Button
-                  variant={returnVariant(
-                    JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
-                  )}
-                  className='capitalize disabled cursor-not-allowed w-full'
-                  disabled
-                >
-                  {returnIcon(
-                    JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status
-                  )}
-                  {JSON.parse(`${eventApplicationStatus.get(card.id)}`)?.status}
-                </Button>
-                {JSON.parse(`${eventApplicationStatus.get(card.id)}`)
-                  ?.checked_in && (
+              {eventApplicationStatus?.get(card.id) ? (
+                <div className='flex flex-wrap gap-2 w-full'>
+                  <Button
+                    variant={returnVariant(
+                      JSON.parse(`${eventApplicationStatus.get(card.id)}`)
+                        ?.status
+                    )}
+                    className='capitalize disabled cursor-not-allowed w-full'
+                    disabled
+                  >
+                    {returnIcon(
+                      JSON.parse(`${eventApplicationStatus.get(card.id)}`)
+                        ?.status
+                    )}
+                    {
+                      JSON.parse(`${eventApplicationStatus.get(card.id)}`)
+                        ?.status
+                    }
+                  </Button>
+                  {JSON.parse(`${eventApplicationStatus.get(card.id)}`)
+                    ?.checked_in && (
                     <LoadLink
                       href={`/extended-events/${card.id}/contest`}
                       className='w-full'
                     >
-                      <Button className='capitalize w-full'>View Contests</Button>
+                      <Button className='capitalize w-full'>
+                        View Contests
+                      </Button>
                     </LoadLink>
                   )}
-                <WithdrawEvent
+                  <WithdrawEvent
+                    eventName={card.title}
+                    eventId={card.id}
+                    key={card.id}
+                    startTime={card.start_date}
+                    eventApplicationStatus={eventApplicationStatus}
+                  />
+                </div>
+              ) : attendees &&
+                attendees.length &&
+                attendees?.filter(
+                  (attendee) => attendee?.status == TicketChoices?.approved
+                )?.length >= FeatureRule.disabledContestContent.maxApproved ? (
+                <Button disabled>
+                  <Ban className='h-4 w-4 mr-2' />
+                  Approved to {
+                    FeatureRule.disabledContestContent.maxApproved
+                  }{" "}
+                  events already
+                </Button>
+              ) : (
+                <EventApply
                   eventName={card.title}
                   eventId={card.id}
+                  attended={attendees?.length || 0}
                   key={card.id}
-                  startTime={card.start_date}
-                  eventApplicationStatus={eventApplicationStatus}
+                  session={session}
                 />
-              </div>
-            ) : attendees &&
-              attendees.length &&
-              attendees?.filter(
-                (attendee) => attendee?.status == TicketChoices?.approved
-              )?.length >= FeatureRule.disabledContestContent.maxApproved ? (
-              <Button disabled>
-                <Ban className='h-4 w-4 mr-2' />
-                Approved to {
-                  FeatureRule.disabledContestContent.maxApproved
-                }{" "}
-                events already
-              </Button>
-            ) : (
-              <EventApply
-                eventName={card.title}
-                eventId={card.id}
-                attended={attendees?.length || 0}
-                key={card.id}
-                session={session}
-              />
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          )}
 
-        {card.ended && (
-          <div className='flex flex-wrap gap-2 w-full'>
-            <Button
-              className='capitalize cursor-pointer w-full bg-green-500'
-              onClick={() => {
-                router.push('https://contest.gdgcloudkol.org/leaderboard?eventId=' + card.id)
-              }}
-            >
-              View Leaderboard
-            </Button>
-
-            <LoadLink
-              // @ts-ignore
-              href={eventContent[card.slug].split('::')[0]}
-              className='w-full'
-            >
+          {card.ended && (
+            <div className='flex flex-wrap gap-2 w-full'>
               <Button
                 className='capitalize cursor-pointer w-full bg-green-500'
+                onClick={() => {
+                  router.push(
+                    "https://contest.gdgcloudkol.org/leaderboard?eventId=" +
+                      card.id
+                  );
+                }}
               >
-                View Gallery
+                View Leaderboard
               </Button>
-            </LoadLink>
-          </div>
-        )}
+
+              {card.slug &&
+                eventContent[card.slug as keyof typeof eventContent]?.includes(
+                  "https://photos.app.goo.gl"
+                ) && (
+                  <LoadLink
+                    href={
+                      eventContent[
+                        card.slug as keyof typeof eventContent
+                      ]?.split("::")[0]
+                    }
+                    className='w-full'
+                  >
+                    <Button className='capitalize cursor-pointer w-full bg-green-500'>
+                      View Gallery
+                    </Button>
+                  </LoadLink>
+                )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  ));
+    ));
 }
 
 export default EventCard;
