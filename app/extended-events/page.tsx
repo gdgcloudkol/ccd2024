@@ -52,7 +52,6 @@ const Events = async ({
         },
       });
       const results = await response.json();
-      console.log(results);
       return {
         events: {
           results,

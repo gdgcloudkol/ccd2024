@@ -12,6 +12,7 @@ import { Attendee } from "./models/attendees/datatype";
 import { Event, EventsResponse } from "./models/events/datatype";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function returnVariant(ticketChoice: string | undefined) {
   if (!ticketChoice || ticketChoice == undefined) return "default";
@@ -234,18 +235,23 @@ async function EventCard({
                 eventContent[card.slug as keyof typeof eventContent]?.includes(
                   "https://photos.app.goo.gl"
                 ) && (
-                  <LoadLink
+                  <Link
+                    target='_blank'
                     href={
                       eventContent[
                         card.slug as keyof typeof eventContent
                       ]?.split("::")[0]
+                        ? eventContent[
+                            card.slug as keyof typeof eventContent
+                          ]?.split("::")[0]
+                        : ""
                     }
                     className='w-full'
                   >
                     <Button className='capitalize cursor-pointer w-full bg-green-500'>
                       View Gallery
                     </Button>
-                  </LoadLink>
+                  </Link>
                 )}
             </div>
           )}

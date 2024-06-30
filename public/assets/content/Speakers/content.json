@@ -38,6 +38,22 @@
           "linkedin": "https://www.linkedin.com/in/ritwik-raha",
           "twitter": "https://twitter.com/ritwik_raha",
           "image": "https://github.com/ritwikraha.png"
+        },
+        {
+          "id": 5,
+          "title": "Anubhav Singh",
+          "content": "Co-founder @Callchimp.ai | GDE in ML & GCP",
+          "linkedin": "https://www.linkedin.com/in/xprilion/",
+          "twitter": "https://twitter.com/xprilion",
+          "image": "https://github.com/xprilion.png"
+        },
+        {
+          "id": 6,
+          "title": "Aritra Roy Gosthipaty",
+          "content": "ML Engineer @PyImageSearch | GDE in ML",
+          "linkedin": "https://www.linkedin.com/in/arig23498/",
+          "twitter": "https://twitter.com/ariG23498",
+          "image": "https://github.com/ariG23498.png"
         }
       ]
     }
