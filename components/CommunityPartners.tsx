@@ -2,8 +2,9 @@ import React from "react";
 import CommunityData from "@/public/assets/content/CommunityPartners/content.json";
 import GdscBanner from "./GdscBanner";
 import Link from "next/link";
-
+import { CommunityPartnersMModel } from "./models/datatype.props";
 import FeatureRuleContent from "@/public/assets/content/feature.rule.json";
+
 const CommunityPartners = () => {
   const disabledCommunityPartners =
     FeatureRuleContent.disabledCommunityPartners;
@@ -17,7 +18,7 @@ const CommunityPartners = () => {
           {CommunityData.description}
         </h3>
         <div className='grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 place-items-center m-8'>
-          {CommunityData.community.map((partner) =>
+          {CommunityData.community.map((partner: CommunityPartnersMModel) =>
             disabledCommunityPartners.every((i) => i !== partner?.partnerId) ? (
               <div
                 key={`community-partner-${partner.name}`}
