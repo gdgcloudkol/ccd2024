@@ -25,7 +25,7 @@ const CFS = () => {
               href={CFSContent.CFS}
               target='_blank'
               rel='noopener noreferrer'
-              className='bg-google-blue w-fit py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
+              className='bg-google-blue w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
             >
               <span className='flex items-center text-2xl gap-2 font-light'>
                 {
@@ -37,7 +37,7 @@ const CFS = () => {
             </Link>
           )}
           {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfsc" && (
-            <div className='bg-google-red w-fit py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
+            <div className='bg-google-red w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
               <span className='flex items-center text-2xl gap-2 font-light'>
                 {
                   ContentData.buttons.find((button) => button?.id == "cfsc")

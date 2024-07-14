@@ -69,19 +69,6 @@
       "partnerId": "gdsc_msit",
       "name": "Meghnad Saha Institute of Technology",
       "hyperlink": "https://gdsc.community.dev/meghnad-saha-institute-of-technology-kolkata-india/"
-    },
-    {
-      "partnerId": "skepsis",
-      "name": "Skepsis",
-      "hyperlink": "https://twitter.com/skepsis_snu",
-      "logo": "/assets/images/cp/skepsis.jpg",
-      "hidden": true
-    },
-    {
-      "partnerId": "gdsc_bbit",
-      "name": "Budge Budge Institute of Technology",
-      "hyperlink": "https://gdsc.community.dev/budge-budge-institute-of-technology-kolkata-india/",
-      "hidden": true
     }
   ]
 }
