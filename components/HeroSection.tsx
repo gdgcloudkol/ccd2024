@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import HeroData from "@/public/assets/content/HeroSection/content.json";
+import EventData from "@/public/assets/content/EventGeneric/content.json";
 import Image from "next/image";
 import { IconButton } from "./ui/icon-button";
 import { ArrowUpRight } from "lucide-react";
@@ -33,7 +34,7 @@ function HeroSection() {
           {HeroData.description}
         </div>
         <div className='lg:text-xl text-lg mt-4'>
-          {HeroData.dateTitle}: {HeroData.date}
+          {HeroData.dateTitle}: {EventData.date}
         </div>
         <div className='lg:text-xl text-lg'>
           {HeroData.locationTitle}: {HeroData.locationName}
