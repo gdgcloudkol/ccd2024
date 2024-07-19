@@ -54,6 +54,14 @@
       "description": "The beautiful designs created are created by...",
       "people": [
         {
+          "id": 14,
+          "title": "Anirban Saha",
+          "content": "Developer @ Strength",
+          "linkedin": "https://www.linkedin.com/in/anbsaha/",
+          "twitter": "https://twitter.com/AnbSaha",
+          "image": "https://github.com/Anirban-Saha.png"
+        },
+        {
           "id": 5,
           "title": "Ankush Das",
           "content": "Cloud Co-Head @ GDSC Techno Main Salt Lake",
@@ -137,14 +145,6 @@
       "title": "Photography Team",
       "description": "These amazing moments are captured by...",
       "people": [
-        {
-          "id": 14,
-          "title": "Anirban Saha",
-          "content": "Developer @ Strength",
-          "linkedin": "https://www.linkedin.com/in/anbsaha/",
-          "twitter": "https://twitter.com/AnbSaha",
-          "image": "https://github.com/Anirban-Saha.png"
-        },
         {
           "id": 15,
           "title": "Soumoydip Halder",
