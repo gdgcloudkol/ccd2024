@@ -4,7 +4,7 @@ import HeroData from "@/public/assets/content/HeroSection/content.json";
 import EventData from "@/public/assets/content/EventGeneric/content.json";
 import Image from "next/image";
 import { IconButton } from "./ui/icon-button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const HeroBackground = dynamic(() => import("@/components/HeroBackground"));
@@ -33,11 +33,20 @@ function HeroSection() {
         <div className='lg:w-3/5 md:w-4/5 lg:text-2xl md:text-xl text-lg px-4'>
           {HeroData.description}
         </div>
-        <div className='lg:text-xl text-lg mt-4'>
+        <div className='lg:text-2xl text-lg mt-4'>
           {HeroData.dateTitle}: {EventData.date}
         </div>
-        <div className='lg:text-xl text-lg'>
-          {HeroData.locationTitle}: {HeroData.locationName}
+        <div className='lg:text-2xl text-lg'>
+          {HeroData.locationTitle}:{" "}
+          <Link
+            href={EventData.venue.mapsLink}
+            target='_blank'
+            className='hover:underline'
+          >
+            {" "}
+            {EventData.venue.label}{" "}
+            <ExternalLink className='size-4 ml-0.5 inline-block' />
+          </Link>
         </div>
         <Link href={"/login"}>
           <IconButton
