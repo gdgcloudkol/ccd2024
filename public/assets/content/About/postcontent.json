@@ -16,6 +16,12 @@
       "color": "blue"
     },
     {
+      "id": "cfscs",
+      "buttondesc": "CFS Closing Soon",
+      "link": "https://bit.ly/gccd-x-cfs-form",
+      "color": "yellow"
+    },
+    {
       "id": "cfsc",
       "buttondesc": "CFS Closed",
       "link": "#",
