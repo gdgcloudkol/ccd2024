@@ -36,6 +36,22 @@ const CFS = () => {
               </span>
             </Link>
           )}
+          {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfscs" && (
+            <Link
+              href={CFSContent.CFS}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='bg-google-yellow w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
+            >
+              <span className='flex items-center text-2xl gap-2 font-light'>
+                {
+                  ContentData.buttons.find((button) => button?.id == "cfscs")
+                    ?.buttondesc
+                }
+                <ArrowUpRight className='rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150' />
+              </span>
+            </Link>
+          )}
           {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfsc" && (
             <div className='bg-google-red w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
               <span className='flex items-center text-2xl gap-2 font-light'>
