@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Speakers",
 };
 function Speakers() {
-  const peopleList: GridData[] = speakerList.allPeople;
+  const peopleList: GridData[] = speakerList.allPeople as GridData[];
   const disabledSpeakersContent = FeatureRule.disabledSpeakerContent;
   return (
     <section className='flex flex-col w-full max-w-6xl mx-auto space-y-8'>
