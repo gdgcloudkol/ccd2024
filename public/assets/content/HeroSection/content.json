@@ -6,47 +6,40 @@
   "hashtagEventName": "#GoogleCloudCommunityDays",
   "description": "A community organized Cloud Conference with industry experts presenting on cutting-edge topics! Cloud Community Day is powered by our shared belief that when developers come together to exchange ideas, remarkable things can happen.",
   "dateTitle": "Date",
-  "date": "TBD",
+  "date": "17th August, 2024",
   "locationTitle": "Venue",
-  "locationName": "TBD",
-  "location": "https://example.com",
-  "ticketButton": [
-    {
-      "id": "cs",
-      "title": "Tickets Coming Soon",
-      "color": "green",
-      "hoverColor": "blue",
-      "link": ""
-    },
-    {
+  "locationName": "Biswa Bangla Exibition Center",
+  "location": "https://www.google.com/maps/place/Biswa+Bangla+Exhibition+Centre/@22.5809106,88.4712012,17z/data=!3m1!4b1!4m6!3m5!1s0x3a027568c8ede75f:0xb1afa7cb8accae51!8m2!3d22.5809106!4d88.4737761!16s%2Fg%2F11vj9xm6bz?entry=ttu",
+  "ticketButton": {
+    "gs": {
       "id": "gs",
       "title": "Get Started",
       "color": "red",
       "hoverColor": "blue",
       "link": "/login"
     },
-    {
-      "id": "bt",
-      "title": "Buy Ticket",
+    "tc": {
+      "id": "tc",
+      "title": "Tickets Closed",
+      "color": "red",
+      "hoverColor": "blue",
+      "link": "/"
+    },
+    "btp": {
+      "id": "btp",
+      "title": "Get Professional Ticket",
       "color": "yellow",
       "hoverColor": "green",
-      "link": "/tickets"
+      "link": "https://www.commudle.com/communities/gdg-cloud-kolkata/events/google-cloud-community-day-2024-kolkata"
     },
-    {
-      "id": "vt",
-      "title": "View Ticket",
-      "color": "green",
-      "hoverColor": "yellow",
-      "link": "/tickets"
-    },
-    {
-      "id": "rt",
-      "title": "Request Ticket",
-      "color": "blue",
-      "hoverColor": "yellow",
-      "link": ""
+    "bts": {
+      "id": "bts",
+      "title": "Get Student Ticket",
+      "color": "yellow",
+      "hoverColor": "green",
+      "link": "https://www.commudle.com/communities/gdg-cloud-kolkata/events/google-cloud-community-day-2024-kolkata"
     }
-  ],
+  },
   "cfsButton": [
     {
       "id": "cfscs",

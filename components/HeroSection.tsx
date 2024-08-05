@@ -1,14 +1,21 @@
-import React from "react";
+"use client";
 import dynamic from "next/dynamic";
 import HeroData from "@/public/assets/content/HeroSection/content.json";
+import EventData from "@/public/assets/content/EventGeneric/content.json";
+import FeatureRule from "@/public/assets/content/feature.rule.json";
 import Image from "next/image";
 import { IconButton } from "./ui/icon-button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { Session } from "next-auth";
 
 const HeroBackground = dynamic(() => import("@/components/HeroBackground"));
 
-function HeroSection() {
+function HeroSection({ session }: { session: Session | null }) {
+  const [ticketState, setTicketState] = useState("");
+
   return (
     <div className='relative min-h-[90vh] flex flex-col items-center justify-center py-10'>
       <HeroBackground className='absolute h-full w-full z-0' />
@@ -32,25 +39,80 @@ function HeroSection() {
         <div className='lg:w-3/5 md:w-4/5 lg:text-2xl md:text-xl text-lg px-4'>
           {HeroData.description}
         </div>
-        <div className='lg:text-xl text-lg mt-4'>
-          {HeroData.dateTitle}: {HeroData.date}
+        <div className='lg:text-2xl text-lg mt-4'>
+          {HeroData.dateTitle}: {EventData.date}
         </div>
-        <div className='lg:text-xl text-lg'>
-          {HeroData.locationTitle}: {HeroData.locationName}
-        </div>
-        <Link href={"/login"}>
-          <IconButton
-            className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group'
-            endIcon={
-              <ArrowUpRight
-                size='1em'
-                className='ml-2 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150'
-              />
-            }
+        <div className='lg:text-2xl text-lg'>
+          {HeroData.locationTitle}:{" "}
+          <Link
+            href={EventData.venue.mapsLink}
+            target='_blank'
+            className='hover:underline'
           >
-            {HeroData.ticketButton[1].title}
-          </IconButton>
-        </Link>
+            {" "}
+            {EventData.venue.label}{" "}
+            <ExternalLink className='size-4 ml-0.5 inline-block' />
+          </Link>
+        </div>
+        {FeatureRule.home.ticketButtonStateLogin == "tc" ||
+        FeatureRule.home.ticketButtonStateNotLogin == "tc" ? (
+          <Link href={HeroData.ticketButton["tc"].link} target='_blank'>
+            <IconButton
+              className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group bg-google-red dark:bg-google-red'
+              endIcon={<></>}
+            >
+              {HeroData.ticketButton["tc"].title}
+            </IconButton>
+          </Link>
+        ) : (
+          <>
+            {session == null && (
+              <>
+                {FeatureRule.home.ticketButtonStateNotLogin == "gs" && (
+                  <Link href={HeroData.ticketButton["gs"].link}>
+                    <IconButton
+                      className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group'
+                      endIcon={
+                        <ArrowUpRight
+                          size='1em'
+                          className='ml-2 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150'
+                        />
+                      }
+                    >
+                      {HeroData.ticketButton["gs"].title}
+                    </IconButton>
+                  </Link>
+                )}
+              </>
+            )}
+            {session && session?.user && (
+              <>
+                {!session?.user.profile.student && (
+                  <>
+                    {FeatureRule.home.ticketButtonStateLogin == "bt" && (
+                      <Link
+                        href={HeroData.ticketButton["btp"].link}
+                        target='_blank'
+                      >
+                        <IconButton
+                          className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group bg-google-green dark:bg-google-green'
+                          endIcon={
+                            <ArrowUpRight
+                              size='1em'
+                              className='ml-2 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150'
+                            />
+                          }
+                        >
+                          {HeroData.ticketButton["btp"].title}
+                        </IconButton>
+                      </Link>
+                    )}
+                  </>
+                )}
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

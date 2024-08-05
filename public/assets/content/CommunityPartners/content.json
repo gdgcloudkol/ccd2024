@@ -1,6 +1,6 @@
 {
   "title": "Community Partners",
-  "description": "We're pleased to introduce our Community Partners.",
+  "description": "We're pleased to introduce our Community Partners and Extended Events Partners",
   "community": [
     {
       "partnerId": "wtm",
@@ -40,7 +40,7 @@
       "partnerId": "gdsc_nsec",
       "name": "Netaji Subhash Engineering College",
       "hyperlink": "https://gdsc.community.dev/netaji-subhash-engineering-college-kolkata/"
-    },    
+    },
     {
       "partnerId": "flutter_kolkata",
       "name": "Flutter Kolkata",
@@ -54,10 +54,21 @@
       "logo": "/assets/images/cp/pg_kol.jpg"
     },
     {
-      "partnerId": "gdsc_bbit",
-      "name": "Budge Budge Institute of Technology",
-      "hyperlink": "https://gdsc.community.dev/budge-budge-institute-of-technology-kolkata-india/",
-      "hidden": true
+      "partnerId": "h4b",
+      "name": "Hack4Bengal",
+      "hyperlink": "https://twitter.com/hack4bengal",
+      "logo": "/assets/images/cp/h4b.webp"
+    },
+    {
+      "partnerId": "samarth_tmsl",
+      "name": "Samarth TMSL",
+      "hyperlink": "https://twitter.com/SamarthTmsl",
+      "logo": "/assets/images/cp/samarth_tmsl.png"
+    },
+    {
+      "partnerId": "gdsc_msit",
+      "name": "Meghnad Saha Institute of Technology",
+      "hyperlink": "https://gdsc.community.dev/meghnad-saha-institute-of-technology-kolkata-india/"
     }
   ]
 }

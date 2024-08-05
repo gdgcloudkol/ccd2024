@@ -1,182 +1,180 @@
 [
-    {
-        "date": "2022-08-28T00:00:00",
-        "title":"Day 1",
-        "index":1,
-        "events": [
-          {
-            "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-            "title": "Registration",
-            "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
-            "isServiceSession": true,
-            "isPlenumSession": true,
-            "speakers": [],
-            "categories": [],
-            "roomId": 27325,
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          },
-          {
-            "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-            "title": "Registration je",
-            "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
-            "isServiceSession": true,
-            "isPlenumSession": true,
-            "speakers": [],
-            "categories": [],
-            "roomId": 27325,
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          }
-        ]
-    
+  {
+    "date": "2022-08-28T00:00:00",
+    "title": "Day 1",
+    "index": 1,
+    "events": [
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration",
+        "description": null,
+        "startsAt": "2022-08-28T08:30:00",
+        "endsAt": "2022-08-28T09:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "categories": [],
+        "roomId": 27325,
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
       },
       {
-        "date": "2022-08-28T00:00:00",
-        "title":"Day 2",
-        "index": 2,
-        "events": [
-          {
-            "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-            "title": "Registration",
-            "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
-            "isServiceSession": true,
-            "isPlenumSession": true,
-            "technologies":[],
-            "speakers": [],
-            "categories": [],
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          },
-          {
-            "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-            "title": "Registration je",
-            "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
-            "isServiceSession": true,
-            "isPlenumSession": true,
-            "speakers": [],
-            "technologies":[],
-            "categories": [],
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          }
-        ]
-      },
-      {
-        "date": "2022-08-28T00:00:00",
-        "title":"Day 3",
-        "index":3,
-        "events": [
-          {
-            "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-            "title": "Registration",
-            "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
-            "isServiceSession": true,
-            "isPlenumSession": true,
-            "technologies":[],
-            "speakers": [],
-            "categories": [],
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          },
-          {
-            "id": "373531",
-            "title": "Transformers Assemble",
-            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
-            "startsAt": "2022-08-27T12:15:00",
-            "endsAt": "2022-08-27T12:45:00",
-            "isServiceSession": false,
-            "isPlenumSession": true,
-            "speakers": [
-              {
-                "id": "3",
-                "name": "Rishiraj Acharya",
-                "image": "https://www.github.com/rishiraj.png"
-              }
-            ],
-            "technologies": [
-                  {
-                    "id": 130789,
-                    "name": "Cloud"
-                  },
-                  {
-                    "id": 130791,
-                    "name": "Machine Learning"
-                  }
-            ],
-            "roomId": 27325,
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          }
-        ]
-      },
-      {
-        "date": "2022-08-28T00:00:00",
-        "title":"Day 4",
-        "index":4,
-        "events": [
-          {
-            "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-            "title": "Registration",
-            "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
-            "isServiceSession": true,
-            "isPlenumSession": true,
-            "technologies":[],
-            "speakers": [],
-            "categories": [],
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          },
-          {
-            "id": "373531",
-            "title": "Transformers Assemble",
-            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
-            "startsAt": "2022-08-27T12:15:00",
-            "endsAt": "2022-08-27T12:45:00",
-            "isServiceSession": false,
-            "isPlenumSession": true,
-            "speakers": [
-              {
-                "id": "1",
-                "name": "Dikshita Desai",
-                "image":""
-
-              }
-            ],
-            "technologies": [
-                  {
-                    "id": 130789,
-                    "name": "Cloud"
-                  },
-                  {
-                    "id": 130791,
-                    "name": "Machine Learning"
-                  }
-            ],
-            "roomId": 27325,
-            "room": "Megh 1",
-            "liveUrl": null,
-            "recordingUrl": null
-          }
-        ]
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration je",
+        "description": null,
+        "startsAt": "2022-08-28T08:30:00",
+        "endsAt": "2022-08-28T09:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "categories": [],
+        "roomId": 27325,
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
       }
     ]
+  },
+  {
+    "date": "2022-08-28T00:00:00",
+    "title": "Day 2",
+    "index": 2,
+    "events": [
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration",
+        "description": null,
+        "startsAt": "2022-08-28T08:30:00",
+        "endsAt": "2022-08-28T09:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "technologies": [],
+        "speakers": [],
+        "categories": [],
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration je",
+        "description": null,
+        "startsAt": "2022-08-28T08:30:00",
+        "endsAt": "2022-08-28T09:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "technologies": [],
+        "categories": [],
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
+      }
+    ]
+  },
+  {
+    "date": "2022-08-28T00:00:00",
+    "title": "Day 3",
+    "index": 3,
+    "events": [
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration",
+        "description": null,
+        "startsAt": "2022-08-28T08:30:00",
+        "endsAt": "2022-08-28T09:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "technologies": [],
+        "speakers": [],
+        "categories": [],
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "373531",
+        "title": "Transformers Assemble",
+        "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+        "startsAt": "2022-08-27T12:15:00",
+        "endsAt": "2022-08-27T12:45:00",
+        "isServiceSession": false,
+        "isPlenumSession": true,
+        "speakers": [
+          {
+            "id": "3",
+            "name": "Rishiraj Acharya",
+            "image": "https://www.github.com/rishiraj.png"
+          }
+        ],
+        "technologies": [
+          {
+            "id": 130789,
+            "name": "Cloud"
+          },
+          {
+            "id": 130791,
+            "name": "Machine Learning"
+          }
+        ],
+        "roomId": 27325,
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
+      }
+    ]
+  },
+  {
+    "date": "2022-08-28T00:00:00",
+    "title": "Day 4",
+    "index": 4,
+    "events": [
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration",
+        "description": null,
+        "startsAt": "2022-08-28T08:30:00",
+        "endsAt": "2022-08-28T09:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "technologies": [],
+        "speakers": [],
+        "categories": [],
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "373531",
+        "title": "Transformers Assemble",
+        "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+        "startsAt": "2022-08-27T12:15:00",
+        "endsAt": "2022-08-27T12:45:00",
+        "isServiceSession": false,
+        "isPlenumSession": true,
+        "speakers": [
+          {
+            "id": "1",
+            "name": "Dikshita Desai",
+            "image": ""
+          }
+        ],
+        "technologies": [
+          {
+            "id": 130789,
+            "name": "Cloud"
+          },
+          {
+            "id": 130791,
+            "name": "Machine Learning"
+          }
+        ],
+        "roomId": 27325,
+        "room": "Megh 1",
+        "liveUrl": null,
+        "recordingUrl": null
+      }
+    ]
+  }
+]

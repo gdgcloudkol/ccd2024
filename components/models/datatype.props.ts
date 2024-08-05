@@ -73,3 +73,11 @@ export interface FeatureRule {
     disabledSocial: string[];
     referral: boolean;
 }
+
+export interface CommunityPartnersMModel {
+    partnerId: string;
+    name: string;
+    hyperlink: string;
+    logo?: string;
+    hidden?: boolean;
+}

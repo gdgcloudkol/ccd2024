@@ -2,8 +2,9 @@ import React from "react";
 import CommunityData from "@/public/assets/content/CommunityPartners/content.json";
 import GdscBanner from "./GdscBanner";
 import Link from "next/link";
-
+import { CommunityPartnersMModel } from "./models/datatype.props";
 import FeatureRuleContent from "@/public/assets/content/feature.rule.json";
+
 const CommunityPartners = () => {
   const disabledCommunityPartners =
     FeatureRuleContent.disabledCommunityPartners;
@@ -17,18 +18,19 @@ const CommunityPartners = () => {
           {CommunityData.description}
         </h3>
         <div className='grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 place-items-center m-8'>
-          {CommunityData.community.map((partner) =>
+          {CommunityData.community.map((partner: CommunityPartnersMModel) =>
             disabledCommunityPartners.every((i) => i !== partner?.partnerId) ? (
               <div
                 key={`community-partner-${partner.name}`}
-                className={`bg-white p-4 w-64 h-64 md:w-48 md:h-52 xl:w-64 xl:h-64 flex items-center justify-center rounded ${partner.hidden ? "blur-sm grayscale" : ""
-                  }`}
+                className={`bg-white p-4 w-64 h-64 md:w-48 md:h-52 xl:w-64 xl:h-64 flex items-center justify-center rounded ${
+                  partner.hidden ? "blur-sm grayscale" : ""
+                }`}
               >
                 {!partner.logo ? (
                   <Link
                     target='_blank'
                     rel='noopener noreferrer'
-                    href={partner.hidden ? '/' : partner.hyperlink}
+                    href={partner.hidden ? "/" : partner.hyperlink}
                   >
                     <GdscBanner label={partner?.name} />
                   </Link>
@@ -38,7 +40,7 @@ const CommunityPartners = () => {
                     <div className='col-span-1  align-middle rounded-lg text-black'>
                       <div className='w-fit flex justify-center'>
                         <Link
-                          href={partner.hidden ? '/' : partner.hyperlink}
+                          href={partner.hidden ? "/" : partner.hyperlink}
                           target='_blank'
                           rel='noopener noreferrer'
                         >

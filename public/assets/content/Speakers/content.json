@@ -30,7 +30,46 @@
           "linkedin": "https://www.linkedin.com/in/imranfosec",
           "twitter": "https://twitter.com/imranfosec",
           "image": "https://pbs.twimg.com/profile_images/1767598349254103043/eA26RPxn_400x400.jpg"
-        }
+        },
+        {
+          "id": 4,
+          "title": "Ritwik Raha",
+          "content": "Machine Learning Engineer @PyImageSearch | GDE in ML",
+          "linkedin": "https://www.linkedin.com/in/ritwik-raha",
+          "twitter": "https://twitter.com/ritwik_raha",
+          "image": "https://github.com/ritwikraha.png"
+        },
+        {
+          "id": 5,
+          "title": "Anubhav Singh",
+          "content": "Co-founder @Callchimp.ai | GDE in ML & GCP",
+          "linkedin": "https://www.linkedin.com/in/xprilion/",
+          "twitter": "https://twitter.com/xprilion",
+          "image": "https://github.com/xprilion.png"
+        },
+        {
+          "id": 6,
+          "title": "Aritra Roy Gosthipaty",
+          "content": "ML Engineer @PyImageSearch | GDE in ML",
+          "linkedin": "https://www.linkedin.com/in/arig23498/",
+          "twitter": "https://twitter.com/ariG23498",
+          "image": "https://github.com/ariG23498.png"
+        },
+        {
+          "id": 7,
+          "title": "Avirup Basu",
+          "content": "Technical Lead @P360",
+          "linkedin": "https://in.linkedin.com/in/avirup171",
+          "twitter": "https://x.com/avirup171",
+          "image": "https://media.licdn.com/dms/image/D5603AQEGNMAeDsBcNQ/profile-displayphoto-shrink_800_800/0/1711697916997?e=1727913600&v=beta&t=rE_ieCiu8w_hElZ3wye9D_IT_DU3O7Is-7S1BhIM2Rs"
+        },
+        {
+          "id": 8,
+          "title": "Reshab Das",
+          "content": "Senior Software Engineer @Ergeon",
+          "linkedin": "https://www.linkedin.com/in/reshab-das-a61a6311b/",
+          "image": "https://github.com/reshab48.png"
+        }          
       ]
     }
   ]

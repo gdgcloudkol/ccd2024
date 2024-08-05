@@ -1,5 +1,7 @@
 import React from "react";
 import ContentData from "@/public/assets/content/About/postcontent.json";
+import CFSContent from "@/public/assets/content/EventGeneric/content.json";
+import FeatureRuleContent from "@/public/assets/content/feature.rule.json";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 const CFS = () => {
@@ -18,20 +20,48 @@ const CFS = () => {
               <p> {word.para}</p>
             </h3>
           ))}
-          <Link
-            href={"https://bit.ly/gccd-x-cfs-form"}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='bg-google-blue w-fit py-1 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
-          >
-            <span className='flex items-center text-2xl gap-2 font-light'>
-              {
-                ContentData.buttons.find((button) => button?.id == "cfss")
-                  ?.buttondesc
-              }
-              <ArrowUpRight className='rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150' />
-            </span>
-          </Link>
+          {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfss" && (
+            <Link
+              href={CFSContent.CFS}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='bg-google-blue w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
+            >
+              <span className='flex items-center text-2xl gap-2 font-light'>
+                {
+                  ContentData.buttons.find((button) => button?.id == "cfss")
+                    ?.buttondesc
+                }
+                <ArrowUpRight className='rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150' />
+              </span>
+            </Link>
+          )}
+          {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfscs" && (
+            <Link
+              href={CFSContent.CFS}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='bg-google-yellow w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'
+            >
+              <span className='flex items-center text-2xl gap-2 font-light'>
+                {
+                  ContentData.buttons.find((button) => button?.id == "cfscs")
+                    ?.buttondesc
+                }
+                <ArrowUpRight className='rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150' />
+              </span>
+            </Link>
+          )}
+          {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfsc" && (
+            <div className='bg-google-red w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
+              <span className='flex items-center text-2xl gap-2 font-light'>
+                {
+                  ContentData.buttons.find((button) => button?.id == "cfsc")
+                    ?.buttondesc
+                }
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </div>
