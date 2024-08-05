@@ -7,7 +7,7 @@
           {
             "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
             "title": "Registration",
-            "description": null,
+            "description": "lorem ipsum",
             "startsAt": "2022-08-28T08:30:00",
             "endsAt": "2022-08-28T09:15:00",
             "isServiceSession": true,
@@ -127,16 +127,16 @@
         ]
       },
       {
-        "date": "2022-08-28T00:00:00",
-        "title":"Day 4",
+        "date": "2024-08-17T00:00:00",
+        "title":"Final Day",
         "index":4,
         "events": [
           {
             "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
             "title": "Registration",
             "description": null,
-            "startsAt": "2022-08-28T08:30:00",
-            "endsAt": "2022-08-28T09:15:00",
+            "startsAt": "2022-08-28T10:00:00",
+            "endsAt": "2022-08-28T10:30:00",
             "isServiceSession": true,
             "isPlenumSession": true,
             "technologies":[],
@@ -148,10 +148,10 @@
           },
           {
             "id": "373531",
-            "title": "Transformers Assemble",
+            "title": "Keynote 1",
             "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
-            "startsAt": "2022-08-27T12:15:00",
-            "endsAt": "2022-08-27T12:45:00",
+            "startsAt": "2022-08-27T10:30:00",
+            "endsAt": "2022-08-27T11:00:00",
             "isServiceSession": false,
             "isPlenumSession": true,
             "speakers": [
@@ -171,6 +171,283 @@
                     "id": 130791,
                     "name": "Machine Learning"
                   }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Keynote 2",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T11:00:00",
+            "endsAt": "2022-08-27T11:30:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Keynote 3",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T11:30:00",
+            "endsAt": "2022-08-27T12:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Networking",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T12:00:00",
+            "endsAt": "2022-08-27T12:15:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Workshop 1",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T12:15:00",
+            "endsAt": "2022-08-27T13:15:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Lunch Break",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T13:15:00",
+            "endsAt": "2022-08-27T15:15:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [              
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Workshop 2",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T15:15:00",
+            "endsAt": "2022-08-27T16:15:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Networking",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T16:15:00",
+            "endsAt": "2022-08-27T16:30:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Session 2",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T16:30:00",
+            "endsAt": "2022-08-27T17:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Session 3",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T17:00:00",
+            "endsAt": "2022-08-27T17:30:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Session 4",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T17:30:00",
+            "endsAt": "2022-08-27T18:00:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [
+              {
+                "id": "1",
+                "name": "Dikshita Desai",
+                "image":""
+
+              }
+            ],
+            "technologies": [
+                  {
+                    "id": 130789,
+                    "name": "Cloud"
+                  },
+                  {
+                    "id": 130791,
+                    "name": "Machine Learning"
+                  }
+            ],
+            "roomId": 27325,
+            "room": "Megh 1",
+            "liveUrl": null,
+            "recordingUrl": null
+          },
+          {
+            "id": "373531",
+            "title": "Closing note",
+            "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
+            "startsAt": "2022-08-27T18:00:00",
+            "endsAt": "2022-08-27T18:30:00",
+            "isServiceSession": false,
+            "isPlenumSession": true,
+            "speakers": [             
             ],
             "roomId": 27325,
             "room": "Megh 1",

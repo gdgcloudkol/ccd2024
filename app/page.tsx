@@ -16,7 +16,6 @@ export default async function Home() {
       <CFS />
       <Sponsors />
       <CommunityPartners />
-      <Sessions />
     </main>
   );
 }
