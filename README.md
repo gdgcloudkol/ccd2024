@@ -1,6 +1,6 @@
-# Google Cloud Community Days Kolkata 2024
+# Google Cloud Community Day Kolkata 2024
 
-#GoogleCloudCommunityDays - An event organized by the community that features industry experts presenting on exciting cloud topics. The shared belief powering this conference is that when developers come together to exchange ideas, amazing things can happen. This event is a great opportunity to learn from the best, network with other developers, and get inspired to build amazing applications.
+#GoogleCloudCommunityDay - An event organized by the community that features industry experts presenting on exciting cloud topics. The shared belief powering this conference is that when developers come together to exchange ideas, amazing things can happen. This event is a great opportunity to learn from the best, network with other developers, and get inspired to build amazing applications.
 
 ## What to expect from the event?
 
@@ -19,11 +19,11 @@ The website will contain the following pages:
 
 ## Repository Description
 
-This repository is for the Google Cloud Community Days Kolkata 2024 event website. The website contains the front-end code for the event website. The website is built using the Next.js project template.
+This repository is for the Google Cloud Community Day Kolkata 2024 event website. The website contains the front-end code for the event website. The website is built using the Next.js project template.
 
 ## Contributing
 
-If you find any issues with the website or want any new features to be added, please feel free to open an issue and discuss it with the maintainers. We will address the issue as soon as possible and gladly accept any contributions that align with the goals of the project. We are always looking for ways to improve the website and make it more useful for our attendees. Thank you for your interest in contributing to the Google Cloud Community Days Kolkata 2024 event website! We look forward to any necessary contributions coming from the community.
+If you find any issues with the website or want any new features to be added, please feel free to open an issue and discuss it with the maintainers. We will address the issue as soon as possible and gladly accept any contributions that align with the goals of the project. We are always looking for ways to improve the website and make it more useful for our attendees. Thank you for your interest in contributing to the Google Cloud Community Day Kolkata 2024 event website! We look forward to any necessary contributions coming from the community.
 
 ## License
 
@@ -31,7 +31,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact Us
 
-If you have any questions or concerns about the event, please contact us at [email](gdgcloudkol@gmail.com). We are happy to help with any questions you may have. Thank you for your interest in the Google Cloud Community Days Kolkata 2024 event! We look forward to seeing you there!
+If you have any questions or concerns about the event, please contact us at [email](gdgcloudkol@gmail.com). We are happy to help with any questions you may have. Thank you for your interest in the Google Cloud Community Day Kolkata 2024 event! We look forward to seeing you there!
 
 ## Connect with us
 

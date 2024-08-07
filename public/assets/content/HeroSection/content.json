@@ -2,8 +2,8 @@
   "eventHeading": "Google Cloud",
   "eventHeadingLogo": "/assets/images/gcp_logo.png",
   "presents": "Presents",
-  "event": "Cloud Community Days 2024",
-  "hashtagEventName": "#GoogleCloudCommunityDays",
+  "event": "Cloud Community Day 2024",
+  "hashtagEventName": "#GoogleCloudCommunityDay",
   "description": "A community organized Cloud Conference with industry experts presenting on cutting-edge topics! Cloud Community Day is powered by our shared belief that when developers come together to exchange ideas, remarkable things can happen.",
   "dateTitle": "Date",
   "date": "17th August, 2024",
@@ -87,6 +87,6 @@
   "cfs": {
     "title": "Call for",
     "subtitle": "Speakers",
-    "description": "Each Google Cloud Community Days event brings you an opportunity to lead and present to the crown your excellent views. Join us as a Speaker to showcase your awesomeness"
+    "description": "Each Google Cloud Community Day event brings you an opportunity to lead and present to the crown your excellent views. Join us as a Speaker to showcase your awesomeness"
   }
 }
