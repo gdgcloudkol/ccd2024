@@ -1,4 +1,5 @@
 import AlternateHeader from "@/components/blocks/AlternateHeader";
+import Sessions from "@/components/Schedule/Schedule";
 import Schedule from "@/public/assets/content/Schedule/content.json";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -11,8 +12,9 @@ export default function page() {
         <AlternateHeader
           title={Schedule.title}
           color={Schedule.color}
-          description={Schedule.description}
+          description={""}
         />
+      <Sessions />
       </section>
     </section>
   );
