@@ -1,177 +1,292 @@
 [
   {
-    "date": "2022-08-28T00:00:00",
-    "title": "Day 1",
+    "date": "2024-05-18T00:00:00",
+    "title": "FIEM",
     "index": 1,
     "events": [
       {
         "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
         "title": "Registration",
-        "description": null,
-        "startsAt": "2022-08-28T08:30:00",
-        "endsAt": "2022-08-28T09:15:00",
+        "description": "",
+        "startsAt": "2024-05-18T10:30:00",
+        "endsAt": "2024-05-18T11:00:00",
         "isServiceSession": true,
         "isPlenumSession": true,
         "speakers": [],
         "categories": [],
         "roomId": 27325,
-        "room": "Megh 1",
+        "room": "Future Institue of Engineering and Management",
         "liveUrl": null,
         "recordingUrl": null
       },
       {
-        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-        "title": "Registration je",
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abec",
+        "title": "Intro to JAX by building a VectorDB",
         "description": null,
-        "startsAt": "2022-08-28T08:30:00",
-        "endsAt": "2022-08-28T09:15:00",
+        "startsAt": "2024-05-18T11:00:00",
+        "endsAt": "2024-05-18T13:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [
+          {
+            "id": 1,
+            "name": "Rishiraj Acharya",
+            "image": "https://www.github.com/rishiraj.png"
+          }
+        ],
+        "categories": ["Machine Learning", "JAX"],
+        "roomId": 27325,
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abed",
+        "title": "Lunch and Networking",
+        "description": null,
+        "startsAt": "2024-05-18T13:15:00",
+        "endsAt": "2024-05-18T14:30:00",
         "isServiceSession": true,
         "isPlenumSession": true,
         "speakers": [],
         "categories": [],
         "roomId": 27325,
-        "room": "Megh 1",
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       }
     ]
   },
   {
-    "date": "2022-08-28T00:00:00",
-    "title": "Day 2",
+    "date": "2024-05-25T00:00:00",
+    "title": "NSEC",
     "index": 2,
     "events": [
       {
         "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
         "title": "Registration",
-        "description": null,
-        "startsAt": "2022-08-28T08:30:00",
-        "endsAt": "2022-08-28T09:15:00",
+        "description": "",
+        "startsAt": "2024-05-25T10:30:00",
+        "endsAt": "2024-05-25T11:00:00",
         "isServiceSession": true,
         "isPlenumSession": true,
-        "technologies": [],
         "speakers": [],
         "categories": [],
-        "room": "Megh 1",
+        "roomId": 27325,
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       },
       {
-        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
-        "title": "Registration je",
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abec",
+        "title": "Gemini + Firebase Powered App Building",
         "description": null,
-        "startsAt": "2022-08-28T08:30:00",
-        "endsAt": "2022-08-28T09:15:00",
+        "startsAt": "2024-05-25T11:00:00",
+        "endsAt": "2024-05-25T13:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [
+          {
+            "id": 2,
+            "name": "Varun Raj Manoharan",
+            "image": "https://github.com/varun-raj.png"
+          }
+        ],
+        "categories": [],
+        "roomId": 27325,
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abed",
+        "title": "Lunch and Networking",
+        "description": null,
+        "startsAt": "2024-05-25T13:15:00",
+        "endsAt": "2024-05-25T14:30:00",
         "isServiceSession": true,
         "isPlenumSession": true,
         "speakers": [],
-        "technologies": [],
         "categories": [],
-        "room": "Megh 1",
+        "roomId": 27325,
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       }
     ]
   },
+
   {
-    "date": "2022-08-28T00:00:00",
-    "title": "Day 3",
+    "date": "2024-05-25T00:00:00",
+    "title": "AOT",
     "index": 3,
     "events": [
       {
         "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
         "title": "Registration",
-        "description": null,
-        "startsAt": "2022-08-28T08:30:00",
-        "endsAt": "2022-08-28T09:15:00",
+        "description": "",
+        "startsAt": "2024-05-25T10:30:00",
+        "endsAt": "2024-05-25T11:00:00",
         "isServiceSession": true,
         "isPlenumSession": true,
-        "technologies": [],
         "speakers": [],
         "categories": [],
-        "room": "Megh 1",
+        "roomId": 27325,
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       },
       {
-        "id": "373531",
-        "title": "Transformers Assemble",
-        "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
-        "startsAt": "2022-08-27T12:15:00",
-        "endsAt": "2022-08-27T12:45:00",
-        "isServiceSession": false,
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abec",
+        "title": "Smart threat hunting on GCP",
+        "description": null,
+        "startsAt": "2024-05-25T11:00:00",
+        "endsAt": "2024-05-25T13:15:00",
+        "isServiceSession": true,
         "isPlenumSession": true,
         "speakers": [
           {
-            "id": "3",
-            "name": "Rishiraj Acharya",
-            "image": "https://www.github.com/rishiraj.png"
+            "id": 3,
+            "name": "Imran Roshan",
+            "image": "https://pbs.twimg.com/profile_images/1767598349254103043/eA26RPxn_400x400.jpg"
           }
         ],
-        "technologies": [
-          {
-            "id": 130789,
-            "name": "Cloud"
-          },
-          {
-            "id": 130791,
-            "name": "Machine Learning"
-          }
-        ],
+        "categories": [],
         "roomId": 27325,
-        "room": "Megh 1",
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abed",
+        "title": "Lunch and Networking",
+        "description": null,
+        "startsAt": "2024-05-25T13:15:00",
+        "endsAt": "2024-05-25T14:30:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "categories": [],
+        "roomId": 27325,
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       }
     ]
   },
+
   {
-    "date": "2022-08-28T00:00:00",
-    "title": "Day 4",
+    "date": "2024-05-26T00:00:00",
+    "title": "Flutter Kol",
     "index": 4,
     "events": [
       {
         "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
         "title": "Registration",
-        "description": null,
-        "startsAt": "2022-08-28T08:30:00",
-        "endsAt": "2022-08-28T09:15:00",
+        "description": "",
+        "startsAt": "2024-05-26T10:30:00",
+        "endsAt": "2024-05-26T11:00:00",
         "isServiceSession": true,
         "isPlenumSession": true,
-        "technologies": [],
         "speakers": [],
         "categories": [],
-        "room": "Megh 1",
+        "roomId": 27325,
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       },
       {
-        "id": "373531",
-        "title": "Transformers Assemble",
-        "description": "A session on Robotics and Automation, applications, future, boon, or curse.",
-        "startsAt": "2022-08-27T12:15:00",
-        "endsAt": "2022-08-27T12:45:00",
-        "isServiceSession": false,
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abec",
+        "title": "Fine Tuning & Aligning Gemma with Hugging Face ",
+        "description": null,
+        "startsAt": "2024-05-26T11:00:00",
+        "endsAt": "2024-05-26T13:15:00",
+        "isServiceSession": true,
         "isPlenumSession": true,
         "speakers": [
           {
-            "id": "1",
-            "name": "Dikshita Desai",
-            "image": ""
+            "id": 1,
+            "name": "Rishiraj Acharya",
+            "image": "https://www.github.com/rishiraj.png"
           }
         ],
-        "technologies": [
-          {
-            "id": 130789,
-            "name": "Cloud"
-          },
-          {
-            "id": 130791,
-            "name": "Machine Learning"
-          }
-        ],
+        "categories": [],
         "roomId": 27325,
-        "room": "Megh 1",
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abed",
+        "title": "Lunch and Networking",
+        "description": null,
+        "startsAt": "2024-05-26T13:15:00",
+        "endsAt": "2024-05-26T14:30:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "categories": [],
+        "roomId": 27325,
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      }
+    ]
+  },
+
+  {
+    "date": "2024-06-08T00:00:00",
+    "title": "Polygon Kol",
+    "index": 5,
+    "events": [
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abeb",
+        "title": "Registration",
+        "description": "",
+        "startsAt": "2024-06-08T10:30:00",
+        "endsAt": "2024-06-08T11:00:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "categories": [],
+        "roomId": 27325,
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abec",
+        "title": "PaliGemma and the VQA paradox",
+        "description": null,
+        "startsAt": "2024-06-08T11:00:00",
+        "endsAt": "2024-06-08T13:15:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [
+          {
+            "id": 4,
+            "name": "Ritwik Raha",
+            "image": "https://github.com/ritwikraha.png"
+          }
+        ],
+        "categories": [],
+        "roomId": 27325,
+        "room": "",
+        "liveUrl": null,
+        "recordingUrl": null
+      },
+      {
+        "id": "8f75d711-b71d-49dc-9d9a-ca79a339abed",
+        "title": "Lunch and Networking",
+        "description": null,
+        "startsAt": "2024-06-08T13:15:00",
+        "endsAt": "2024-06-08T14:30:00",
+        "isServiceSession": true,
+        "isPlenumSession": true,
+        "speakers": [],
+        "categories": [],
+        "roomId": 27325,
+        "room": "",
         "liveUrl": null,
         "recordingUrl": null
       }

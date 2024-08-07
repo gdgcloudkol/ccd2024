@@ -9,10 +9,10 @@
       "description": "Hear from our esteemed Chief Guest",
       "people": [
         {
-          "id":1,
+          "id": 1,
           "title": "Shri Sanjay Kumar Das",
           "content": "Shri Sanjay Kumar Das is a National Cyber Security Scholar, Certified Cybersecurity Governance Professional, Certified Cybersecurity Strategist; Joint Secretary, IT&E Department and State Information Security Officer, West Bengal, India.",
-          "profilePicture": "https://www.github.com/rishiraj.png",
+          "image": "https://sessionize.com/image/c7e5-400o400o1-GEbpUNdpovgqawMRnkmE3v.jpg",
           "links": [
             {
               "title": "LinkedIn",
@@ -31,15 +31,15 @@
         {
           "title": "Shri Debashis Sen",
           "content": "Shri Debashis Sen is an Alumni of Ecole Nationale d'Administration, France, IAS officer (1985 batch, now on contract, former ACS). He is also an experienced administrator with a demonstrated history of working in senior government positions. Skilled in Policy Formulation, Governance, Smart Cities, Information Technology Policy, Start Up Policy, Strategic Planning, and Public Administration. Strong professional expertise in city development, urban analysis and democracy. Trained at Harvard Business School and IMF Institute.",
-          "profilePicture": "https://www.github.com/rishiraj.png",
+          "image": "https://sessionize.com/image/43e0-400o400o1-7idozuZVee3TrH4D4FG1C4.jpg",
           "links": [
             {
               "title": "LinkedIn",
               "url": "https://www.linkedin.com/in/debashis-senias"
             },
             {
-              "title":"Twitter",
-              "url":"https://twitter.com/debashis_"
+              "title": "Twitter",
+              "url": "https://twitter.com/debashis_"
             }
           ],
           "tagLine": "IAS(R), Chairman @ Newtown"
@@ -112,7 +112,7 @@
           "content": "Senior Software Engineer @Ergeon",
           "linkedin": "https://www.linkedin.com/in/reshab-das-a61a6311b/",
           "image": "https://github.com/reshab48.png"
-        }          
+        }
       ]
     }
   ]

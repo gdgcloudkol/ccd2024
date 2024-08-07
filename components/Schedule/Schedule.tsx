@@ -15,13 +15,18 @@ import sessionData from "./schedule.json";
 import "./Schedule.css";
 import Link from "next/link";
 import speakerList from "@/public/assets/content/Speakers/content.json";
+import { SessionRespsonse } from "@/lib/sessions";
+import { cn } from "@/lib/utils";
 
-const Sessions = () => {
-  const [dataIndex, setDataIndex] = useState(1);
+const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
+  const [dataIndex, setDataIndex] = useState(11);
   const [prevIndex, setPrevIndex] = useState(1);
   const [containerHeight, setContainerHeight] = useState("auto");
   const dayOneSessionData = sessionData[0];
-
+  const allSessionData = [
+    ...sessionData,
+    { index: 11, title: "Final Day", events: sessions[0].sessions },
+  ];
   const dataRefs = useRef([]);
 
   const getTime = (_time: Date): string => {
@@ -39,9 +44,8 @@ const Sessions = () => {
   };
 
   useEffect(() => {
-    const element = dataRefs.current[dataIndex];
+    const element = dataRefs.current[dataIndex] as any;
     setContainerHeight(element.clientHeight);
-    console.log(element.clientHeight);
   }, [sessionData, dataIndex]);
 
   const getStyle = (index: number): CSSProperties => {
@@ -76,17 +80,19 @@ const Sessions = () => {
     };
   };
 
+  useEffect(() => {
+    console.log(sessions && sessions[0]?.sessions);
+  }, []);
   return (
     <>
-      <div className='w-full max-w-7xl items-center justify-center flex flex-col lg:flex-row my-0 mx-auto gap-12 pt-20 lg:pt-28 lg:pb-[62px] px-4'>
+      <div className='w-full max-w-7xl items-center justify-center flex flex-col lg:flex-row my-0 mx-auto gap-12 '>
         <div className='w-full'>
-          <div className='text-6xl text-g-gray-8 mb-8 font-light'>Schedule</div>
           <div className='overflow-auto w-full'>
-            <div className='h-10 lg:h-14 min-w-full w-max border-b-[1px] border-g-gray-3 flex gap-5 my-5'>
-              {sessionData.map((data) => (
+            <div className='h-10 lg:h-14 min-w-full w-max border-b-[1px] border-g-gray-3 flex my-5'>
+              {allSessionData.map((data) => (
                 <div
                   className={
-                    "text-xl lg:text-2xl font-light px-8 h-full cursor-pointer" +
+                    "text-base font-light px-6 h-full cursor-pointer" +
                     (dataIndex === data.index
                       ? " border-b-[2px] border-g-blue-3"
                       : "")
@@ -95,6 +101,7 @@ const Sessions = () => {
                     setPrevIndex(dataIndex);
                     setDataIndex(data.index);
                   }}
+                  key={data.title}
                 >
                   {data.title}
                 </div>
@@ -106,18 +113,21 @@ const Sessions = () => {
             className='schedule-container'
             style={{ height: containerHeight }}
           >
-            {sessionData.map((session) => (
+            {allSessionData.map((session) => (
               <div
-                ref={(el) => (dataRefs.current[session.index] = el)}
+                ref={(el: any) =>
+                  (dataRefs.current[session.index] = el as never)
+                }
                 id={`fade-in-${session.index}`}
                 style={getStyle(session.index)}
+                key={session.index}
               >
                 {session.events?.map((event: any) => {
                   const startTime = getTime(event.startsAt);
                   const endTime = getTime(event.endsAt);
 
                   return (
-                    <div className='flex w-full lg:w-auto '>
+                    <div className='flex w-full lg:w-auto ' key={event.title}>
                       <div className='w-3/10 lg:w-1/5 border-b-[1px] lg:border-r-[0px] lg:border-r-[1px] border-g-gray-3 flex flex-col items-end px-3 py-3 text-right lg:text-start'>
                         <div className='text-base lg:text-xl'> {startTime}</div>
                         <div className='text-xs lg:text-sm font-light'>
@@ -148,13 +158,20 @@ const Sessions = () => {
                                   return (
                                     speaker.name && (
                                       <Link href={"/speakers"}>
-                                        <div className='flex items-center my-2 p-1 border-1 border-g-blue-3 w-fit rounded-full bg-google-blue text-white'>
-                                          <img
-                                            className='inline-block h-5 w-5 rounded-full ring-2 ring-white'
-                                            src={speaker.image}
-                                            alt={`${speaker.name} - image`}
-                                          />
-                                          <span className='text-xs ml-2  '>
+                                        <div className='flex items-center my-2 p-1 px-2 border-1 border-g-blue-3 w-fit rounded-full bg-google-blue text-white'>
+                                          {speaker.image && (
+                                            <img
+                                              className='inline-block h-5 w-5 rounded-full ring-2 ring-white'
+                                              src={speaker.image}
+                                              alt={`${speaker.name} - image`}
+                                            />
+                                          )}
+                                          <span
+                                            className={cn(
+                                              "text-xs",
+                                              speaker.image && " ml-2"
+                                            )}
+                                          >
                                             {speaker.name}
                                           </span>
                                         </div>
@@ -192,7 +209,10 @@ const Sessions = () => {
                                     | undefined;
                                 }) => {
                                   return (
-                                    <div className='text-xs border border-white border-solid rounded-full px-2 py-1 w-fit'>
+                                    <div
+                                      className='text-xs border border-white border-solid rounded-full px-2 py-1 w-fit'
+                                      key={tech.name?.toString()}
+                                    >
                                       {tech.name}
                                     </div>
                                   );
@@ -200,6 +220,38 @@ const Sessions = () => {
                               )}
                             </div>
                           )}
+                          {event.categories &&
+                            event.categories[0]?.categoryItems && (
+                              <div className='flex items-center flex-wrap gap-2 my-2'>
+                                {event.categories[0]?.categoryItems.map(
+                                  (tech: {
+                                    name:
+                                      | string
+                                      | number
+                                      | bigint
+                                      | boolean
+                                      | ReactElement<
+                                          any,
+                                          string | JSXElementConstructor<any>
+                                        >
+                                      | Iterable<ReactNode>
+                                      | ReactPortal
+                                      | Promise<AwaitedReactNode>
+                                      | null
+                                      | undefined;
+                                  }) => {
+                                    return (
+                                      <div
+                                        className='text-xs border border-white border-solid rounded-full px-2 py-1 w-fit'
+                                        key={tech.name?.toString()}
+                                      >
+                                        {tech.name}
+                                      </div>
+                                    );
+                                  }
+                                )}
+                              </div>
+                            )}
                         </div>
                       </div>
                     </div>
