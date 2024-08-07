@@ -23,7 +23,7 @@ function CardGrid({
       <p className='text-center text-xl text-white mb-12'>
         {gridData.description}
       </p>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 justify-center'>
+      <div className='grid grid-cols-1 gap-10 justify-center sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]'>
         {type == "Contest" && (
           <ContestCard contests={gridData || []}></ContestCard>
         )}

@@ -4,6 +4,49 @@
   "color": "red",
   "allPeople": [
     {
+      "type": "chiefguest",
+      "title": "Chief Guest",
+      "description": "Hear from our esteemed Chief Guest",
+      "people": [
+        {
+          "id":1,
+          "title": "Shri Sanjay Kumar Das",
+          "content": "Shri Sanjay Kumar Das is a National Cyber Security Scholar, Certified Cybersecurity Governance Professional, Certified Cybersecurity Strategist; Joint Secretary, IT&E Department and State Information Security Officer, West Bengal, India.",
+          "profilePicture": "https://www.github.com/rishiraj.png",
+          "links": [
+            {
+              "title": "LinkedIn",
+              "url": "https://www.linkedin.com/in/sanjaykumardas/"
+            }
+          ],
+          "tagLine": "Joint Secretary, Department of IT&E and State Information Security Officer, West Bengal, India."
+        }
+      ]
+    },
+    {
+      "type": "guestofhonour",
+      "title": "Guest of Honour",
+      "description": "Hear from our esteemed Guest of Honour",
+      "people": [
+        {
+          "title": "Shri Debashis Sen",
+          "content": "Shri Debashis Sen is an Alumni of Ecole Nationale d'Administration, France, IAS officer (1985 batch, now on contract, former ACS). He is also an experienced administrator with a demonstrated history of working in senior government positions. Skilled in Policy Formulation, Governance, Smart Cities, Information Technology Policy, Start Up Policy, Strategic Planning, and Public Administration. Strong professional expertise in city development, urban analysis and democracy. Trained at Harvard Business School and IMF Institute.",
+          "profilePicture": "https://www.github.com/rishiraj.png",
+          "links": [
+            {
+              "title": "LinkedIn",
+              "url": "https://www.linkedin.com/in/debashis-senias"
+            },
+            {
+              "title":"Twitter",
+              "url":"https://twitter.com/debashis_"
+            }
+          ],
+          "tagLine": "IAS(R), Chairman @ Newtown"
+        }
+      ]
+    },
+    {
       "title": "Extended Events Speakers",
       "description": "Here are our great speakers at our extended events",
       "people": [
