@@ -11,7 +11,7 @@ function PeopleCard({ cards, isToggle = true }: { cards: PeopleCards[], isToggle
     !isToggle ? (
       <div
         key={card.id}
-        className='relative max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg mb-10 h-[24rem]'
+        className=' relative top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-2xl bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg mb-10 h-[24rem]'
         onClick={() => setToggle(!toggle)}
       >
         <div className='px-4 pb-6 flex justify-center'>
@@ -56,7 +56,7 @@ function PeopleCard({ cards, isToggle = true }: { cards: PeopleCards[], isToggle
       <div
         key={card.id}
         onClick={() => setToggle(!toggle)}
-        className='max-w-sm bg-white dark:bg-white rounded-[10px] overflow-hidden shadow-lg mb-10 h-80'
+        className=' bg-white max-w-2xl dark:bg-white rounded-[10px] overflow-hidden shadow-lg mb-10 h-80'
       >
         <div className='px-4  pb-6'>
           <div className='flex'>
