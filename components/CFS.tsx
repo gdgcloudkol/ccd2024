@@ -53,8 +53,8 @@ const CFS = () => {
             </Link>
           )}
           {FeatureRuleContent.home.cfsButtonStateNotLogin == "cfsc" && (
-            <div className='bg-google-red w-fit py-4 px-8 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
-              <span className='flex items-center text-2xl gap-2 font-light'>
+            <div className='bg-google-red w-fit mt-8 md:py-4 md:px-10 py-2 px-6 text-xl text-foreground block mx-auto my-2 rounded-lg group'>
+              <span className='flex items-center md:text-2xl text-xl gap-2 font-light'>
                 {
                   ContentData.buttons.find((button) => button?.id == "cfsc")
                     ?.buttondesc

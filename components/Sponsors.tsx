@@ -56,7 +56,7 @@ const Sponsors = () => {
           </div>
         </div> */}
 
-      <h1 className='text-4xl lg:text-7xl font-bold flex justify-center mt-36'>
+      <h1 className='text-4xl lg:text-6xl font-bold flex justify-center mt-20'>
         {ContentData.pastsponsor}
       </h1>
       <div className='py-4 lg:flex flex-wrap w-full max-w-6xl mx-auto'>
