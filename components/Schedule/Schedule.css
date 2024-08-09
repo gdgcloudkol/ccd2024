@@ -1,0 +1,38 @@
+
+  .schedule-container{
+    position: relative; 
+    overflow: hidden;
+    height: fit-content;
+    width: inherit;
+  }
+  
+  #fade-in-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: inherit;
+    transition: .3s cubic-bezier(.25,.8,.5,1);
+    transform: translateX(0);
+    background: transparent;
+  }
+  
+  #fade-in-2 {
+    height: auto;
+    width: inherit;
+    background: transparent;
+    transition: .3s cubic-bezier(.25,.8,.5,1);
+    transform: translateX(100%);
+  }
+  
+  #fade-in-1.inactive{
+    transform: translateX(-100%);
+  }
+  #fade-in-2.active {
+    transform: translateX(0);
+  }
+  
+  
+  
+  
+  
