@@ -38,6 +38,13 @@
       "color": "yellow",
       "hoverColor": "green",
       "link": "https://www.commudle.com/communities/gdg-cloud-kolkata/events/google-cloud-community-day-2024-kolkata"
+    },
+    "btg": {
+      "id": "btg",
+      "title": "Get Ticket",
+      "color": "yellow",
+      "hoverColor": "green",
+      "link": "https://www.commudle.com/communities/gdg-cloud-kolkata/events/google-cloud-community-day-2024-kolkata"
     }
   },
   "cfsButton": [
