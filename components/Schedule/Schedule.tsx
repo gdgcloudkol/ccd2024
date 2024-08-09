@@ -17,6 +17,8 @@ import Link from "next/link";
 import speakerList from "@/public/assets/content/Speakers/content.json";
 import { SessionRespsonse } from "@/lib/sessions";
 import { cn } from "@/lib/utils";
+import Mascot from "@/public/assets/images/mascot.webp";
+import Image from "next/image";
 
 const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
   const [dataIndex, setDataIndex] = useState(11);
@@ -85,22 +87,52 @@ const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
       <div className='w-full max-w-7xl items-center justify-center flex flex-col lg:flex-row my-0 mx-auto gap-12 '>
         <div className='w-full'>
           <div className='overflow-auto w-full'>
-            <div className='h-10 lg:h-14 min-w-full w-max border-b-[1px] border-g-gray-3 flex my-5'>
+            <div className='h-10 min-w-full w-max border-b-[1px] border-g-gray-3 flex my-5'>
               {allSessionData.map((data) => (
                 <div
-                  className={
-                    "text-base font-light px-6 h-full cursor-pointer" +
-                    (dataIndex === data.index
-                      ? " border-b-[2px] border-g-blue-3"
-                      : "")
-                  }
+                  className={cn(
+                    "text-base font-light px-6 h-full cursor-pointer relative pt-2",
+                    dataIndex === data.index
+                      ? " border-b-[2px] border-google-blue"
+                      : "",
+                    data.index == 11
+                      ? "border-2 border-l-google-green border-t-google-red border-r-google-yellow border-b-google-blue rounded"
+                      : "",
+                    data.index == 11 && dataIndex == 11 && "bg-muted"
+                  )}
                   onClick={() => {
                     setPrevIndex(dataIndex);
                     setDataIndex(data.index);
                   }}
                   key={`${data.title}-${data.index}`}
                 >
-                  {data.title}
+                  <span
+                    className={cn(
+                      data.index == 11 &&
+                        "z-[10] flex items-start justify-between"
+                    )}
+                  >
+                    {" "}
+                    {data.title}
+                    {data.index == 11 && (
+                      <Image
+                        src={Mascot}
+                        alt='gccdkol24 mascot'
+                        width={100}
+                        height={100}
+                        className='size-8 ml-2 translate-y-[-4px]'
+                      />
+                    )}
+                  </span>
+                  {/* {data.index == 11 && (
+                    <Image
+                      src={Mascot}
+                      alt='gccdkol24 mascot'
+                      width={100}
+                      height={100}
+                      className='size-10 absolute top-[-20px] rotate-45 right-[-20px] z-[-2] '
+                    />
+                  )} */}
                 </div>
               ))}
             </div>
@@ -119,7 +151,10 @@ const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
                 style={getStyle(session.index)}
                 key={session.index}
               >
-                {session.events?.map((event: any, key: number) => {
+                <div className='w-3/10 lg:w-1/5 lg:border-r-[0px] lg:border-r-[1px] border-g-gray-3 flex flex-col items-end px-3 py-3 text-right lg:text-start'>
+                  {session.events[0].startsAt.split("T")[0]}
+                </div>
+                {session.events?.map((event: any) => {
                   const startTime = getTime(event.startsAt);
                   const endTime = getTime(event.endsAt);
 

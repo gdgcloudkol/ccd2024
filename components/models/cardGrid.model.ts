@@ -22,6 +22,7 @@ export interface GridData {
   cards?: ContestCards[];
   contests?: ContestResponse[];
   people?: PeopleCards[];
+  extededEventSpeakers?: PeopleCards[];
   events?: EventsResponse;
   attendees?: Attendee[]
 }
