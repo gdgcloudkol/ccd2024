@@ -91,7 +91,7 @@ function HeroSection({ session }: { session: Session | null }) {
                   <>
                     {FeatureRule.home.ticketButtonStateLogin == "bt" && (
                       <Link
-                        href={HeroData.ticketButton["btp"].link}
+                        href={HeroData.ticketButton["btg"].link}
                         target='_blank'
                       >
                         <IconButton
@@ -103,7 +103,7 @@ function HeroSection({ session }: { session: Session | null }) {
                             />
                           }
                         >
-                          {HeroData.ticketButton["btp"].title}
+                          {HeroData.ticketButton["btg"].title}
                         </IconButton>
                       </Link>
                     )}
