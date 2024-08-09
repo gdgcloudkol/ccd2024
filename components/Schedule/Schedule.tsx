@@ -1,5 +1,10 @@
 "use client";
 
+import { SessionRespsonse } from "@/lib/sessions";
+import { cn } from "@/lib/utils";
+import Mascot from "@/public/assets/images/mascot.webp";
+import Image from "next/image";
+import Link from "next/link";
 import {
   AwaitedReactNode,
   CSSProperties,
@@ -11,23 +16,16 @@ import {
   useRef,
   useState,
 } from "react";
-import sessionData from "./schedule.json";
 import "./Schedule.css";
-import Link from "next/link";
-import speakerList from "@/public/assets/content/Speakers/content.json";
-import { SessionRespsonse } from "@/lib/sessions";
-import { cn } from "@/lib/utils";
-import Mascot from "@/public/assets/images/mascot.webp";
-import Image from "next/image";
+import sessionData from "./schedule.json";
 
 const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
   const [dataIndex, setDataIndex] = useState(11);
   const [prevIndex, setPrevIndex] = useState(1);
   const [containerHeight, setContainerHeight] = useState("auto");
-  const dayOneSessionData = sessionData[0];
   const allSessionData = [
-    ...sessionData,
     { index: 11, title: "Final Day", events: sessions[0].sessions },
+    ...sessionData,
   ];
   const dataRefs = useRef([]);
 
@@ -151,7 +149,7 @@ const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
                 style={getStyle(session.index)}
                 key={session.index}
               >
-                <div className='w-3/10 lg:w-1/5 lg:border-r-[0px] lg:border-r-[1px] border-g-gray-3 flex flex-col items-end px-3 py-3 text-right lg:text-start'>
+                <div className='w-3/10 lg:w-1/5 lg:border-r-[0px] border-g-gray-3 flex flex-col items-end px-3 py-3 text-right lg:text-start'>
                   {session.events[0].startsAt.split("T")[0]}
                 </div>
                 {session.events?.map((event: any) => {
@@ -160,7 +158,7 @@ const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
 
                   return (
                     <div className='flex w-full lg:w-auto ' key={event.title}>
-                      <div className='w-3/10 lg:w-1/5 border-b-[1px] lg:border-r-[0px] lg:border-r-[1px] border-g-gray-3 flex flex-col items-end px-3 py-3 text-right lg:text-start'>
+                      <div className='w-3/10 lg:w-1/5 border-b-[1px] lg:border-r-[0px] border-g-gray-3 flex flex-col items-end px-3 py-3 text-right lg:text-start'>
                         <div className='text-base lg:text-xl'> {startTime}</div>
                         <div className='text-xs lg:text-sm font-light'>
                           {endTime}
