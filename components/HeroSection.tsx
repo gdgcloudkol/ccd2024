@@ -56,7 +56,7 @@ function HeroSection({ session }: { session: Session | null }) {
         </div>
         {FeatureRule.home.ticketButtonStateLogin == "tc" ||
         FeatureRule.home.ticketButtonStateNotLogin == "tc" ? (
-          <Link href={HeroData.ticketButton["tc"].link} target='_blank'>
+          <Link href={HeroData.ticketButton["tc"].link}>
             <IconButton
               className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group bg-google-red dark:bg-google-red'
               endIcon={<></>}

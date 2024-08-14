@@ -23,7 +23,7 @@
       "title": "Tickets Closed",
       "color": "red",
       "hoverColor": "blue",
-      "link": "/"
+      "link": "#"
     },
     "btp": {
       "id": "btp",

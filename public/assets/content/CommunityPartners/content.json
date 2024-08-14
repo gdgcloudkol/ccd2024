@@ -51,7 +51,7 @@
       "partnerId": "pg_kol",
       "name": "Polygon Guild Kolkata",
       "hyperlink": "https://twitter.com/PolygonKolkata",
-      "logo": "/assets/images/cp/pg_kol.jpg"
+      "logo": "/assets/images/cp/pg_kol.png"
     },
     {
       "partnerId": "h4b",
@@ -69,6 +69,12 @@
       "partnerId": "gdsc_msit",
       "name": "Meghnad Saha Institute of Technology",
       "hyperlink": "https://gdsc.community.dev/meghnad-saha-institute-of-technology-kolkata-india/"
+    },
+    {
+      "partnerId": "gdg_siliguri",
+      "name": "Siliguri",
+      "hyperlink": "https://gdg.community.dev/gdg-siliguri/",
+      "isGDG": true
     }
   ]
 }

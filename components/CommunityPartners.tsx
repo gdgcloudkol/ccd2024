@@ -32,7 +32,7 @@ const CommunityPartners = () => {
                     rel='noopener noreferrer'
                     href={partner.hidden ? "/" : partner.hyperlink}
                   >
-                    <GdscBanner label={partner?.name} />
+                    <GdscBanner label={partner?.name} isGDG={partner.isGDG} />
                   </Link>
                 ) : (
                   <>
