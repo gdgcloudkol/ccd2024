@@ -17,8 +17,8 @@
   "disabledPartners": [],
   "disabledCommunityPartners": [],
   "home": {
-    "ticketButtonStateNotLogin": "gs",
-    "ticketButtonStateLogin": "bt",
+    "ticketButtonStateNotLogin": "tc",
+    "ticketButtonStateLogin": "tc",
     "ticketButtonBought": "vt",
     "disabledTicketButton": ["rt"],
     "cfsButtonStateNotLogin": "cfsc",
