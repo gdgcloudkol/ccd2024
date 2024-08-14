@@ -80,4 +80,5 @@ export interface CommunityPartnersMModel {
     hyperlink: string;
     logo?: string;
     hidden?: boolean;
+    isGDG?: boolean;
 }

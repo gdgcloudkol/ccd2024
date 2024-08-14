@@ -1,5 +1,11 @@
 import BracketLogo from "@/public/assets/images/bracket-logo.svg";
-const GdscBanner = ({ label }: { label: string }) => {
+const GdscBanner = ({
+  label,
+  isGDG = false,
+}: {
+  label: string;
+  isGDG?: boolean;
+}) => {
   return (
     <div className='flex justify-center items-center px-1 flex-col'>
       <img
@@ -14,7 +20,9 @@ const GdscBanner = ({ label }: { label: string }) => {
         ) : (
           <>
             <span className='pt-4 flex font-medium text-l'>
-              Google Developer Student Club
+              {isGDG
+                ? "Google Developer Group"
+                : "Google Developer Student Club"}
             </span>
             <span className='pt-2 text-base '>{label}</span>
           </>
