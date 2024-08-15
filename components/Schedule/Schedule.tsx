@@ -77,9 +77,6 @@ const Sessions = ({ sessions }: { sessions: SessionRespsonse[] }) => {
     };
   };
 
-  useEffect(() => {
-    console.log(sessions && sessions[0]?.sessions);
-  }, []);
   return (
     <>
       <div className='w-full max-w-7xl items-center justify-center flex flex-col lg:flex-row my-0 mx-auto gap-12 '>
