@@ -84,6 +84,12 @@
       "link": "/event-manager/game-manager"
     }
   ],
+  "navbarUserVolunteerLoggedIn": [
+    {
+      "title": "Game score manager",
+      "link": "/event-manager/game-manager"
+    }
+  ],
   "navbarSpatialNotLoggedIn": [
     {
       "title": "Login",

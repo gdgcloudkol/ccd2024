@@ -38,6 +38,16 @@ const NavbarSSR = async () => {
         ...NavRuleContent.navbarUserAttendeeLoggedIn,
       ];
     }
+    if (session.user.profile.event_role == AuthRoles.volunteer) {
+      navAdditional = [
+        ...NavRuleContent.navbarUserVolunteerLoggedIn,
+        ...NavRuleContent.navbarSpatialLoggedIn,
+      ];
+      navUser = [
+        ...NavRuleContent.navbarUserXVolunteerLoggedIn,
+        ...NavRuleContent.navbarUserAttendeeLoggedIn,
+      ];
+    }
   }
 
   return (
