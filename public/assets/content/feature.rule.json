@@ -12,7 +12,10 @@
     "/event-manager/volunteers",
     "/attendee-manager"
   ],
-  "XVolunteerEnabledRoutes": ["/attendee-manager"],
+  "XVolunteerEnabledRoutes": [
+    "/attendee-manager",
+    "/event-manager/game-manager"
+  ],
   "disabledPartnerTitles": [],
   "disabledPartners": [],
   "disabledCommunityPartners": [],

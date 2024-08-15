@@ -68,12 +68,20 @@
     {
       "title": "Check-in Attendees",
       "link": "/attendee-manager"
+    },
+    {
+      "title": "Game score manager",
+      "link": "/event-manager/game-manager"
     }
   ],
   "navbarUserXVolunteerLoggedIn": [
     {
       "title": "Check-in Attendees",
       "link": "/attendee-manager"
+    },
+    {
+      "title": "Game score manager",
+      "link": "/event-manager/game-manager"
     }
   ],
   "navbarSpatialNotLoggedIn": [
