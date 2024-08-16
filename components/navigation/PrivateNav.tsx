@@ -90,9 +90,13 @@ export default function PrivateNav({
         <DropdownMenuGroup>
           {navUser
             ?.filter((navItem) => navItem?.desktopVisible !== false)
-            .map((link) => (
+            .map((link, idx) => (
               <>
-                <LoadLink href={link.link} prefetch={false} key={link.link}>
+                <LoadLink
+                  href={link.link}
+                  prefetch={false}
+                  key={`${link.link}-${idx}`}
+                >
                   <DropdownMenuItem>
                     {/* <Settings2 className='mr-2 h-4 w-4' /> */}
                     <span>{link.title}</span>

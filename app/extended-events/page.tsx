@@ -29,6 +29,7 @@ const Events = async ({
   async function fetchData(url: string, options: any) {
     const response = await bkFetch(url, options);
     if (!response.ok) {
+      console.log(await response.json());
       throw new Error(`Error: ${response.status}`);
     }
     return await response.json();
