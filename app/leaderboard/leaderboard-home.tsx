@@ -17,6 +17,8 @@ import { useEffect, useRef, useState } from "react";
 
 export default function LeaderboardHome({ data }: { data: Game[] }) {
   const activeGame = useRef("odd_one_out");
+  const [activeGameState, setActiveGameState] = useState(activeGame.current);
+  const [allData, setAllData] = useState(data);
   const [leaderboardData, setLeaderboardData] = useState(
     data?.filter((data) => data.game == activeGame.current)
   );
@@ -36,16 +38,18 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
       throw new Error(`An error occured: ${res.ok}`);
     }
     const result = await res.json();
+    setAllData(result);
     setLeaderboardData(
       result.filter((data: Game) => data.game == activeGame.current)
     );
   };
   useEffect(() => {
     // fetchData()
-    setLeaderboardData(
-      leaderboardData.filter((data) => data.game == activeGame.current)
+    activeGame.current = activeGameState;
+    setLeaderboardData(() =>
+      allData.filter((data) => data.game == activeGame.current)
     );
-  }, [activeGame.current]);
+  }, [activeGameState]);
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -65,7 +69,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
             <Label>Select Game</Label>
             <Select
               onValueChange={(e) => {
-                activeGame.current = e;
+                setActiveGameState(e);
               }}
             >
               <SelectTrigger className='w-full'>
@@ -94,7 +98,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                 style={{ bottom: "32%" }}
               >
                 <div className='flex items-center flex-col'>
-                  <img src='/assets/images/leaderboard-cloud.png' alt='' />
+                  <img src='/assets/images/mascot.webp' alt='' />
                   <button
                     className='bg-google-blue w-32 text-center text-lg font-bold border-white border-2 rounded-md'
                     disabled
@@ -102,10 +106,13 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                     2nd
                   </button>
                 </div>
-                <div className='flex flex-col text-center justify-center gap-y-2 py-2 text-black h-20 w-44 text-xs text-nowrap bg-white rounded-md border'>
+                <div className='flex flex-col text-center justify-center gap-y-2 py-2 text-black h-20 w-44 text-xs text-wrap bg-white rounded-md border'>
                   {/* <span className=" font-semibold">{fakeEventData.title}</span>
                 <span className="text-wrap">{fakeEventData.name}</span> */}
-                  <span className=' font-bold text-xl text-wrap'>
+                  <span
+                    className='w-full font-bold text-xl text-wrap'
+                    style={{ textWrap: "wrap" }}
+                  >
                     {leaderboardData[1]?.name}
                   </span>
                 </div>
@@ -132,7 +139,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                 <path
                   d='M0.000167847 29.5234L101.488 78.6853L101.938 455L0.000167847 416.381V29.5234Z'
                   fill='black'
-                  fill-opacity='0.25'
+                  fillOpacity='0.25'
                 />
                 <defs>
                   <linearGradient
@@ -143,8 +150,8 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                     y2='344.174'
                     gradientUnits='userSpaceOnUse'
                   >
-                    <stop stop-color='#4285F4' />
-                    <stop offset='1' stop-color='white' />
+                    <stop stopColor='#4285F4' />
+                    <stop offset='1' stopColor='white' />
                   </linearGradient>
                 </defs>
               </svg>
@@ -166,7 +173,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                     1st
                   </button>
                 </div>
-                <div className='flex flex-col text-center justify-center gap-y-2 py-2 text-black h-20 w-44 text-xs text-nowrap bg-white rounded-md border'>
+                <div className='flex flex-col text-center justify-center gap-y-2 py-2 text-black h-20 w-44 text-xs text-wrap bg-white rounded-md border'>
                   {/* <span className=" font-semibold">{fakeEventData.title}</span>
                 <span className="text-wrap">{fakeEventData.name}</span> */}
 
@@ -197,7 +204,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                 <path
                   d='M0.000167847 29.5234L101.488 78.6853L101.938 455L0.000167847 416.381V29.5234Z'
                   fill='black'
-                  fill-opacity='0.25'
+                  fillOpacity='0.25'
                 />
                 <defs>
                   <linearGradient
@@ -208,8 +215,8 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                     y2='432.57'
                     gradientUnits='userSpaceOnUse'
                   >
-                    <stop stop-color='#E84435' />
-                    <stop offset='1' stop-color='white' />
+                    <stop stopColor='#E84435' />
+                    <stop offset='1' stopColor='white' />
                   </linearGradient>
                 </defs>
               </svg>
@@ -223,7 +230,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                 style={{ bottom: "32%" }}
               >
                 <div className='flex items-center flex-col'>
-                  <img src='/assets/images/leaderboard-cloud.png' alt='' />
+                  <img src='/assets/images/mascot.webp' alt='' />
                   <button
                     className='bg-google-green w-32 text-center text-lg font-bold border-white border-2 rounded-md'
                     disabled
@@ -231,7 +238,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                     3rd
                   </button>
                 </div>
-                <div className='flex flex-col text-center justify-center gap-y-2 py-2 text-black h-20 w-44 text-xs text-nowrap bg-white rounded-md border'>
+                <div className='flex flex-col text-center justify-center gap-y-2 py-2 text-black h-20 w-44 text-xs text-wrap bg-white rounded-md border'>
                   {/* <span className=" font-semibold">{fakeEventData.title}</span>
                 <span className="text-wrap">{fakeEventData.name}</span> */}
                   <span className=' font-bold text-xl'>
@@ -261,7 +268,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                 <path
                   d='M0.000167847 29.5234L101.488 78.6853L101.938 455L0.000167847 416.381V29.5234Z'
                   fill='black'
-                  fill-opacity='0.25'
+                  fillOpacity='0.25'
                 />
                 <defs>
                   <linearGradient
@@ -272,8 +279,8 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                     y2='540.937'
                     gradientUnits='userSpaceOnUse'
                   >
-                    <stop stop-color='#0F9D58' />
-                    <stop offset='1' stop-color='white' />
+                    <stop stopColor='#0F9D58' />
+                    <stop offset='1' stopColor='white' />
                   </linearGradient>
                 </defs>
               </svg>
@@ -284,7 +291,7 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
         <div className='flex flex-col bg-black md:relative w-full -top-72 z-50 justify-center'>
           <div className='py-10 overflow-x-auto sm:-mx-6 lg:-mx-8'>
             <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-google-yellow h-min text-center'>
-              Lists of people played
+              List of participants
             </h2>
             <div className='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
               <div className='overflow-hidden'>
