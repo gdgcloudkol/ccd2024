@@ -26,6 +26,8 @@ const Events = async ({
   hidden: boolean;
   isPublic: boolean;
 }) => {
+  const session = await getServerSession(authOptions);
+
   async function fetchData(url: string, options: any) {
     const response = await bkFetch(url, options);
     if (!response.ok) {
@@ -63,7 +65,7 @@ const Events = async ({
   }
 
   const { events, attendees } = await getData(isPublic);
-  const session = await getServerSession(authOptions);
+
   return (
     <CardGrid
       gridData={{

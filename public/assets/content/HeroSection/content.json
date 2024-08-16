@@ -45,6 +45,13 @@
       "color": "yellow",
       "hoverColor": "green",
       "link": "https://www.commudle.com/communities/gdg-cloud-kolkata/events/google-cloud-community-day-2024-kolkata"
+    },
+    "mcd": {
+      "id": "mcd",
+      "title": "Main Day Contest Leaderboard",
+      "color": "blue",
+      "hoverColor": "green",
+      "link": "/leaderboard"
     }
   },
   "cfsButton": [
