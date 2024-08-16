@@ -7,13 +7,14 @@ import { Game } from "@/components/models/game.model";
 
 export default async function Page() {
   let data: any = [];
-
-  let response = await bkFetch(MAINDAYCONTEST_URL, {
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+  let response = await fetch(MAINDAYCONTEST_URL, {
     method: "GET",
     cache: "no-store",
-    headers: {
-      "content-type": "application/json",
-    },
+    headers,
   });
   if (!response.ok) {
     console.error(await response.text());

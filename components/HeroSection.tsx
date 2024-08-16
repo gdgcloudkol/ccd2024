@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Session } from "next-auth";
+import LoadLink from "./blocks/LoadLink";
 
 const HeroBackground = dynamic(() => import("@/components/HeroBackground"));
 
@@ -64,6 +65,21 @@ function HeroSection({ session }: { session: Session | null }) {
               {HeroData.ticketButton["tc"].title}
             </IconButton>
           </Link>
+        ) : FeatureRule.home.ticketButtonStateLogin == "mcd" ||
+          FeatureRule.home.ticketButtonStateNotLogin == "mcd" ? (
+          <LoadLink href={HeroData.ticketButton["mcd"].link}>
+            <IconButton
+              className='py-2 lg:px-8 px-4 lg:text-xl text-lg md:mt-4 group bg-google-blue dark:bg-google-blue'
+              endIcon={
+                <ArrowUpRight
+                  size='1em'
+                  className='ml-2 rotate-45 group-hover:rotate-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-150'
+                />
+              }
+            >
+              {HeroData.ticketButton["mcd"].title}
+            </IconButton>
+          </LoadLink>
         ) : (
           <>
             {session == null && (

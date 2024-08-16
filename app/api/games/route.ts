@@ -5,9 +5,14 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
 
-    const response = await bkFetch(MAINDAYCONTEST_URL, {
+    };
+    const response = await fetch(MAINDAYCONTEST_URL, {
         method: "GET",
+        headers
     });
     const result = await response.json();
 

@@ -64,6 +64,9 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
   return (
     <main className='bg-black text-white'>
       <section className='flex flex-col w-full max-w-6xl mx-auto space-y-4'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-google-yellow h-min text-center'>
+          Main Day Contest Leaderboard
+        </h2>
         <div className='flex justify-start items-center space-y-4 mt-4'>
           <div className='flex flex-col gap-y-2 w-full max-w-xl'>
             <Label>Select Game</Label>
@@ -336,23 +339,13 @@ export default function LeaderboardHome({ data }: { data: Game[] }) {
                             </td>
                           </tr>
                         );
-                        // <tr className="border-b border-neutral-200 dark:border-white/10">
-                        //   <td className="whitespace-nowrap px-6 py-4 font-medium">
-                        //     2
-                        //   </td>
-                        //   <td className="whitespace-nowrap px-6 py-4">Jacob</td>
-                        //   <td className="whitespace-nowrap px-6 py-4">Thornton</td>
-                        //   <td className="whitespace-nowrap px-6 py-4">@fat</td>
-                        // </tr>
-                        // <tr className="border-b border-neutral-200 dark:border-white/10">
-                        //   <td className="whitespace-nowrap px-6 py-4 font-medium">
-                        //     3
-                        //   </td>
-                        //   <td className="whitespace-nowrap px-6 py-4">Larry</td>
-                        //   <td className="whitespace-nowrap px-6 py-4">Wild</td>
-                        //   <td className="whitespace-nowrap px-6 py-4">@twitter</td>
-                        // </tr>
                       })}
+                    {!leaderboardData ||
+                      (leaderboardData.length == 0 && (
+                        <span className='w-full mx-auto'>
+                          No players found yet
+                        </span>
+                      ))}
                   </tbody>
                 </table>
               </div>
