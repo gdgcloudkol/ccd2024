@@ -223,7 +223,7 @@ async function EventCard({
                 className='capitalize cursor-pointer w-full bg-green-500'
                 onClick={() => {
                   router.push(
-                    "https://contest.gdgcloudkol.org/leaderboard?eventId=" +
+                    "https://ccd2024.gdgcloudkol.org/leaderboard?eventId=" +
                       card.id
                   );
                 }}
