@@ -33,7 +33,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 If you have any questions or concerns about the event, please contact us at [email](gdgcloudkol@gmail.com). We are happy to help with any questions you may have. Thank you for your interest in the Google Cloud Community Day Kolkata 2024 event! We look forward to seeing you there!
 
-## Connect with us
+## Connect with us 🌐
 
 - [Social Media](https://social.gdgcloudkol.org/)
 - [Hashtag](#gdgcloudkol)
